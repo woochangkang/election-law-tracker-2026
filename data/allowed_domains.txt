@@ -3,7 +3,7 @@
 www.supremecourt.gov
 supremecourt.gov
 *.uscourts.gov
-www.courtlistener.com
+www.courtlistener.com   # 허용했지만 CourtListener 자체가 API 키 없는 자동 요청을 403으로 거부(10/10 확인) — 필요하면 API 키
 storage.courtlistener.com
 www.democracydocket.com
 scotusblog.com

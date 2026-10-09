@@ -6,10 +6,10 @@
 - **운영 루틴** `2026 election law tracker daily` (Sonnet 5.5, 08:00 KST) → `main`에 push → 사이트 반영
 - **시험 루틴** `2026 election law tracker — Opus eval` (Opus 5.5, 같은 08:00 KST) → `eval/opus-<RUN>` 브랜치에만 push. 배포 워크플로는 main만 보므로 사이트에 영향 없음
 - 같은 시각·같은 `data/cases.json`·같은 프롬프트(`prompts/legal_daily.md`)로 출발하므로 차이는 모델에서 온다
-- 기간: 2026-10-10 ~ 10-12(KST) 3회. 시험 루틴 cron이 이 사흘만 돌도록 날짜를 박아 두었다(`0 23 9,10,11 10 *` UTC)
+- 기간: 2026-10-11 ~ 10-13(KST) 3회. 시험 루틴 cron이 이 사흘만 돌도록 날짜를 박아 두었다(`0 23 10,11,12 10 *` UTC). 원래 10-10~12였으나 10-10 회차는 클라우드 환경 네트워크 차단(대법원·CourtListener 등 EGRESS_BLOCKED)으로 두 모델 모두 무의미해 사흘 미뤘다(10-10 환경을 Custom 허용 목록으로 변경)
 
-## 검토 절차 (2026-10-13 이후, Claude Code 세션에서)
-1. **산출물 대조**: `git fetch origin && python3 scripts/compare_runs.py 2026-10-10 2026-10-11 2026-10-12 > evals/2026-10-12_model_compare.md`
+## 검토 절차 (2026-10-14 이후, Claude Code 세션에서)
+1. **산출물 대조**: `git fetch origin && python3 scripts/compare_runs.py 2026-10-11 2026-10-12 2026-10-13 > evals/2026-10-13_model_compare.md`
    - 자기 보고 검색 횟수(공화·민주·주제), 후속 확인 대상 대비 수행, 움직임·확인·새 사건·거부 건수, 상태 변경 제안, court 출처 비율
    - 한쪽만 찾은 움직임과 새 사건 목록
 2. **실제 도구 호출 수**: audit 숫자는 자기 보고라 그대로 믿지 않는다. `RemoteTrigger list_runs` → `get_run_log`로 두 루틴의 회차별 WebSearch·WebFetch 호출 수, 소요 시간, 오류(차단·재시도)를 센다
