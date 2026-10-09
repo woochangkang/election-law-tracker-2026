@@ -57,6 +57,7 @@ Version 1.3 (2026-10-10 — v1.3: 독자 수준 = 일반인(docs/reader_level.md
 4. 추적 중인 docket: `data/cases.json`의 `scotus_dockets` 전부를 `https://www.supremecourt.gov/docket/docketfiles/html/public/<번호 소문자>.html`로 열어, 맨 아래 항목 날짜가 그 사건의 `last_checked` 이후인지 본다. 새 항목(신청·답변서·명령)이 있으면 `updates`, 없으면 `checks`(note에 "docket 26A308 새 항목 없음").
 5. 새 선거 사건 찾기: SCOTUSblog의 긴급신청 기사와 `site:supremecourt.gov` + 선거 키워드 1회. 새 신청·상고가 기존 사건에 붙으면 update의 `scotus_dockets`에 번호를 넣는다(예: `["26A410"]`). 새 사건이면 new_cases의 `scotus_dockets`.
 - 대법원 페이지가 열리지 않으면(403·시간 초과) 그 사실과 URL을 `audit.scotus.blocked`에 적고 SCOTUSblog로 대신 확인한다.
+- **접속이 막힌 사이트는 모두 `audit.blocked_sites`에 도메인 이름만(예: `www.votebeat.org`, 설명 없이) 적는다.** 배포 때 이 목록이 집계돼 사용자에게 허용 목록 추가 요청으로 전달된다(`docs/blocked_domains.md`, GitHub 이슈).
 - 대법원은 10월~6월 개정기 중 보통 월요일에 Order List, 수시로 Miscellaneous Order를 낸다. 명령이 없는 날도 1~4는 연다.
 
 ### E. 용어 풀이 (새 용어가 나오면)
@@ -101,7 +102,7 @@ Version 1.3 (2026-10-10 — v1.3: 독자 수준 = 일반인(docs/reader_level.md
    git push origin main
    ```
    push가 실패하면 `git pull --rebase origin main` 후 1회 재시도. 그래도 실패하면 오류 원문을 최종 보고에 그대로 적는다.
-7. 최종 보고(대화창): 건수, 거부 건수와 사유, push 결과 한 줄씩.
+7. 최종 보고(대화창): 건수, 거부 건수와 사유, push 결과 한 줄씩. 마지막에 「접속 차단 도메인」을 한 줄에 하나씩(없으면 "없음").
 
 ## 6. inbox/RUN.json 스키마 (정확히 이 키를 쓴다)
 

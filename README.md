@@ -16,3 +16,7 @@
 - 사람이 고칠 때는 `data/cases.json`을 직접 편집하고 push.
 
 로컬 확인: `python3 scripts/build.py && python3 scripts/gen_pages.py && quarto render && python3 -m http.server -d _site`
+
+## 접속 차단 도메인 알림
+- 클라우드 루틴 환경은 Network access = Custom. 허용 목록은 `data/allowed_domains.txt`(환경 설정과 같이 유지).
+- 배포 때 `scripts/blocked_report.py`가 inbox의 audit에서 막힌 사이트를 모아 `docs/blocked_domains.md`를 갱신하고, 최근 실행에 허용 목록 밖 도메인이 있으면 이슈 「네트워크 차단 도메인 — 허용 목록 추가 필요」에 날짜별 댓글(붙여넣기용 목록)을 단다.

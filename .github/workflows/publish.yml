@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  issues: write   # 접속 차단 도메인 알림 이슈
 
 concurrency:
   group: pages
@@ -21,6 +22,28 @@ jobs:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
       - run: python3 scripts/build.py
+      # 최근 수집 실행에서 허용 목록(data/allowed_domains.txt) 밖 사이트가 막혔으면 이슈 하나에 날짜별로 댓글을 단다(저장소 주인에게 알림).
+      - name: 접속 차단 도메인 알림
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NEW=$(python3 scripts/blocked_report.py)
+          [ -z "$NEW" ] && { echo "새 차단 없음"; exit 0; }
+          RUN=$(basename "$(ls inbox/20??-??-??.json | tail -1)" .json)
+          T="네트워크 차단 도메인 — 허용 목록 추가 필요"
+          { echo "**실행일 $RUN** 수집 루틴이 아래 사이트를 열지 못했습니다."
+            echo
+            echo "claude.ai/code → 클라우드 → 환경 ⚙️ → Network access(Custom) → Allowed domains에 붙여넣고, \`data/allowed_domains.txt\`에도 추가해 주세요."
+            echo
+            echo '```'; echo "$NEW"; echo '```'
+            echo
+            echo "전체 집계: docs/blocked_domains.md"; } > body.md
+          N=$(gh issue list --state open --search "$T in:title" --json number -q '.[0].number')
+          if [ -z "$N" ]; then gh issue create --title "$T" --body-file body.md || true
+          elif ! gh issue view "$N" --comments --json comments -q '.comments[].body' | grep -q "실행일 $RUN"; then
+            gh issue comment "$N" --body-file body.md || true
+          fi
       - run: python3 scripts/gen_pages.py
       - run: python3 scripts/gen_pages.py --briefings   # 작업 공간에서만 용어 풀이를 단다(커밋 안 함)
       - run: quarto render

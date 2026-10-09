@@ -1,0 +1,24 @@
+# 클라우드 루틴 환경(Network access = Custom)에 넣은 허용 도메인. 환경 설정을 바꾸면 이 파일도 같이 고친다.
+# scripts/blocked_report.py 가 이 목록에 없는 차단 도메인만 보고한다. 한 줄에 하나, "*.도메인"은 하위 도메인.
+www.supremecourt.gov
+supremecourt.gov
+*.uscourts.gov
+www.courtlistener.com
+storage.courtlistener.com
+www.democracydocket.com
+scotusblog.com
+*.scotusblog.com
+votebeat.org
+*.votebeat.org
+electionlawblog.org
+*.brennancenter.org
+congress.gov
+*.congress.gov
+apnews.com
+www.reuters.com
+www.npr.org
+*.politico.com
+ballotpedia.org
+nominatim.openstreetmap.org
+courtlistener.com
+democracydocket.com
