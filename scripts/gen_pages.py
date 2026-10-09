@@ -66,7 +66,7 @@ def ruling_md(r):
         lines += ops + [""]
     tail = []
     if r.get("url"):
-        tail.append(f"[판결문·명령]({r['url']})")
+        tail.append(f"[{'판결문·명령' if r.get('verified') == 'primary' else '보도'}]({r['url']})")
     if r.get("verified") == "secondary":
         tail.append("2차 출처 기준(판결문 미열람)")
     if r.get("note_kr"):
