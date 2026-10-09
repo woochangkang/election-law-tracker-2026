@@ -17,7 +17,7 @@ HOST = re.compile(r"(?:https?://)?([a-z0-9.-]+\.[a-z]{2,})", re.I)
 
 def allowed():
     p = REPO / "data/allowed_domains.txt"
-    rules = [l.strip().lower() for l in p.read_text().splitlines() if l.strip() and not l.startswith("#")] if p.exists() else []
+    rules = [l.split("#")[0].strip().lower() for l in p.read_text().splitlines() if l.split("#")[0].strip()] if p.exists() else []
     return lambda h: any(h == r or (r.startswith("*.") and h.endswith(r[1:])) for r in rules)
 
 
