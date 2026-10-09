@@ -193,6 +193,8 @@ def main():
             f'<p>{badge(c["status"])} {c.get("status_kr") or ""}{nxt}</p>', "",
             "## 쟁점", "", c.get("summary_kr") or "", "",
         ]
+        for d in c.get("detail") or []:   # 쟁점 상세(선택): [{"heading", "md"}] — 지도 비교·원고/피고 주장 등
+            body += [f"### {d['heading']}", "", d["md"], ""]
         if c.get("rulings"):
             body += ["## 판결 내용", ""] + [ruling_md(r) for r in sorted(c["rulings"], key=lambda r: r["date"], reverse=True)]
         if c.get("impact_kr"):

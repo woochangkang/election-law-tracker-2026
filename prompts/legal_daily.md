@@ -134,6 +134,7 @@ Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
       "court": "데인 카운티 순회법원", "states": ["WI"],
       "status": "pending", "status_kr": "제소 — 가처분 심리 대기", "next_date": "2026-10-15", "next_kr": "가처분 심리",
       "summary_kr": "2~3문장. 무엇을 다투는지, 누가 누구를 상대로.",
+      "detail": [{"heading": "원고와 피고의 주장", "md": "- 원고(…): …\n- 피고(…): …"}],
       "impact_kr": "1~2문장. 출처가 말한 선거 영향만. 모르면 null.",
       "events": [{"date": "2026-10-09", "text": "제소", "url": "https://...", "outlet": "Votebeat", "tier": "news"}],
       "sources": [{"label": "소장(PDF)", "url": "https://..."}]
@@ -147,7 +148,7 @@ Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
             "blocked_sites": [], "notes": ""}
 }
 ```
-값 규칙: `scotus_dockets`는 "26A305"(긴급신청)·"25-1017"(상고) 형식. `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
+`detail`(선택): 쟁점이 복잡한 사건의 「쟁점 상세」 — `[{heading, md}]` 배열, md는 마크다운(글머리·작은 표). 무엇이 바뀌는지(예: 옛 규칙 대 새 규칙), 원고와 피고 각각의 주장, 법원이 받아들인 논리를 출처 확인한 사실만으로 쓴다. update에 넣으면 기존 상세를 통째로 교체하므로 기존 내용을 고쳐 다시 보낸다. 값 규칙: `scotus_dockets`는 "26A305"(긴급신청)·"25-1017"(상고) 형식. `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
 
 ## 7. briefings/RUN.md — 일일 브리핑
 

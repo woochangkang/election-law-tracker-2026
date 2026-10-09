@@ -71,6 +71,14 @@ def check_status_fields(x, errs):
         errs.append(f"next_date 형식 오류: {x['next_date']!r}")
 
 
+def check_detail(x, errs):
+    d = x.get("detail")
+    if d is None:
+        return
+    if not isinstance(d, list) or not all(isinstance(s, dict) and s.get("heading") and s.get("md") for s in d):
+        errs.append("detail 형식 오류: [{heading, md}] 배열이어야 함")
+
+
 def check_ruling(r, errs, where="ruling"):
     if not isinstance(r, dict):
         errs.append(f"{where} 형식 오류"); return
@@ -138,6 +146,8 @@ def add_event(case, e):
 
 def apply_status(case, x, run):
     changed = False
+    if x.get("detail") and case.get("detail") != x["detail"]:   # 쟁점 상세는 통째로 교체
+        case["detail"] = x["detail"]; changed = True
     for k in ("status", "status_kr", "next_date", "next_kr"):
         if k in x and case.get(k) != x[k]:
             case[k] = x[k]; changed = True
@@ -163,6 +173,7 @@ def process(path: Path, cases: dict, stats: dict):
         if isinstance(n.get("states"), list) and set(n["states"]) - STATES:
             errs.append(f"states 오류: {sorted(set(n['states']) - STATES)}")
         check_status_fields(n, errs)
+        check_detail(n, errs)
         for d in n.get("scotus_dockets") or []:
             if not DOCKET.match(str(d)):
                 errs.append(f"scotus_dockets 형식 오류: {d!r}")
@@ -182,7 +193,7 @@ def process(path: Path, cases: dict, stats: dict):
             stats["status"] += apply_status(c, n, run)
         else:
             c = {k: n.get(k) for k in ("id", "category", "title_kr", "name_en", "court", "status", "status_kr",
-                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr", "scotus_dockets")}
+                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr", "scotus_dockets", "detail")}
             c.update(events=[], sources=n.get("sources") or [], first_seen=run, last_checked=run, status_updated=run)
             for e in n["events"]:
                 add_event(c, e)
@@ -198,6 +209,7 @@ def process(path: Path, cases: dict, stats: dict):
             errs.append(f"없는 case_id: {u.get('case_id')!r}")
         check_event(u, errs, "update")
         check_status_fields(u, errs)
+        check_detail(u, errs)
         if u.get("ruling") is not None:
             check_ruling(u["ruling"], errs, "update.ruling")
         for d in u.get("scotus_dockets") or []:
