@@ -12,6 +12,7 @@
   - inbox 파일은 내용 해시로 처리 여부를 기록한다. 같은 파일을 고쳐 다시 내면 그 파일만 다시 적용한다
     (이벤트는 중복 제거되므로 안전). 사람이 data/cases.json 을 직접 고친 것을 옛 inbox가 되돌리지 않는다.
   - last_date 는 이벤트 날짜의 최댓값으로 다시 계산한다.
+  - 판결(rulings)은 날짜 + 법원이 키. 같은 판결이 다시 오면 새 내용으로 교체한다(반대의견 요지 보강 등).
 사용: python3 scripts/build.py
 """
 from __future__ import annotations
@@ -69,6 +70,34 @@ def check_status_fields(x, errs):
         errs.append(f"next_date 형식 오류: {x['next_date']!r}")
 
 
+def check_ruling(r, errs, where="ruling"):
+    if not isinstance(r, dict):
+        errs.append(f"{where} 형식 오류"); return
+    if not is_date(r.get("date")):
+        errs.append(f"{where} date 형식 오류: {r.get('date')!r}")
+    for k in ("court", "decision_kr"):
+        if not str(r.get(k) or "").strip():
+            errs.append(f"{where} {k} 없음")
+    if not str(r.get("url") or "").startswith("http"):
+        errs.append(f"{where} 판결문·명령 URL 없음")
+    for k in ("concurrences", "dissents"):
+        if not isinstance(r.get(k, []), list):
+            errs.append(f"{where} {k} 는 배열")
+
+
+def add_ruling(case, r):
+    """같은 날짜·같은 법원의 판결은 하나 — 다시 오면 새 내용으로 교체(반대의견 보강 등)."""
+    rs = case.setdefault("rulings", [])
+    for i, o in enumerate(rs):
+        if o.get("date") == r["date"] and o.get("court") == r["court"]:
+            changed = o != r
+            rs[i] = r
+            return changed
+    rs.append(r)
+    rs.sort(key=lambda z: z["date"])
+    return True
+
+
 def add_event(case, e):
     ev = {k: e.get(k) for k in ("date", "text", "url", "outlet", "tier") if e.get(k) is not None}
     for o in case.setdefault("events", []):
@@ -108,12 +137,16 @@ def process(path: Path, cases: dict, stats: dict):
         check_status_fields(n, errs)
         for i, e in enumerate(n.get("events") or []):
             check_event(e, errs, f"events[{i}]")
+        for i, r in enumerate(n.get("rulings") or []):
+            check_ruling(r, errs, f"rulings[{i}]")
         if errs:
             rejected.append({"section": "new_cases", "item": n, "reasons": errs}); continue
         if n["id"] in cases:  # 이미 있는 사건이면 갱신으로 처리
             c = cases[n["id"]]
             for e in n["events"]:
                 stats["events"] += add_event(c, e)
+            for r in n.get("rulings") or []:
+                stats["rulings"] += add_ruling(c, r)
             stats["status"] += apply_status(c, n, run)
         else:
             c = {k: n.get(k) for k in ("id", "category", "title_kr", "name_en", "court", "status", "status_kr",
@@ -121,6 +154,8 @@ def process(path: Path, cases: dict, stats: dict):
             c.update(events=[], sources=n.get("sources") or [], first_seen=run, last_checked=run, status_updated=run)
             for e in n["events"]:
                 add_event(c, e)
+            for r in n.get("rulings") or []:
+                stats["rulings"] += add_ruling(c, r)
             cases[c["id"]] = c
             stats["new"] += 1
 
@@ -131,9 +166,13 @@ def process(path: Path, cases: dict, stats: dict):
             errs.append(f"없는 case_id: {u.get('case_id')!r}")
         check_event(u, errs, "update")
         check_status_fields(u, errs)
+        if u.get("ruling") is not None:
+            check_ruling(u["ruling"], errs, "update.ruling")
         if errs:
             rejected.append({"section": "updates", "item": u, "reasons": errs}); continue
         stats["events"] += add_event(c, u)
+        if u.get("ruling"):
+            stats["rulings"] += add_ruling(c, u["ruling"])
         stats["status"] += apply_status(c, u, run)
         c["last_checked"] = max(c.get("last_checked") or run, run)
 
@@ -157,7 +196,7 @@ def main():
     doc = load(cases_p, {"as_of": None, "items": []})
     cases = {x["id"]: x for x in doc["items"]}
     state = load(state_p, {"processed": {}})
-    stats = dict(files=0, new=0, events=0, status=0, checks=0, rejected=0)
+    stats = dict(files=0, new=0, events=0, rulings=0, status=0, checks=0, rejected=0)
     for p in sorted(INBOX.glob("20??-??-??.json")):
         h = hashlib.sha1(p.read_bytes()).hexdigest()
         if state["processed"].get(p.name) == h:
@@ -175,7 +214,7 @@ def main():
     doc["items"] = list(cases.values())
     save(cases_p, doc)
     save(state_p, state)
-    print("build: inbox {files} · 새 사건 {new} · 새 이벤트 {events} · 상태 변경 {status} · 확인만 {checks} · 거부 {rejected}".format(**stats))
+    print("build: inbox {files} · 새 사건 {new} · 새 이벤트 {events} · 판결 {rulings} · 상태 변경 {status} · 확인만 {checks} · 거부 {rejected}".format(**stats))
     print(f"cases.json: {len(cases)}건 · as_of {doc['as_of']} · 오늘(KST) {dt.datetime.now(dt.timezone(dt.timedelta(hours=9))):%Y-%m-%d}")
 
 

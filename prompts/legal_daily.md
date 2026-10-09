@@ -1,6 +1,6 @@
 # 2026 선거 법·제도 분쟁 트래커 — 일일 수집·브리핑 프롬프트
 
-Version 1.0 (2026-10-09 — 신설. us-elections-2026.github.io 법·제도 페이지에서 독립) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
+Version 1.1 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도 페이지에서 독립 / v1.1: 판결 내용(ruling) — 결론·표결·다수·보충·반대의견 요지) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
 
 ## 0. 역할과 실행 환경
 
@@ -37,6 +37,16 @@ Version 1.0 (2026-10-09 — 신설. us-elections-2026.github.io 법·제도 페�
 
 ### B. 새 움직임 (기존 사건)
 수집 구간 안에 기존 사건에 생긴 판결·명령·신청·답변서·법안 표결·기관 발표 → `updates`.
+
+### B-2. 판결 내용 (판결·명령이 나온 날 의무)
+법원이 **결론을 낸** 판결·명령(본안 판결, 가처분·예비적 금지명령의 인용·기각, 집행정지 신청의 인용·기각, 항소심 판단)이 나오면 그 update에 `ruling` 객체를 붙인다. 기일 지정·서면 제출 같은 절차 명령에는 붙이지 않는다.
+- **판결문·명령 원문을 직접 연다**(supremecourt.gov opinions·orders PDF, 법원 명령 PDF, CourtListener). 열지 못하고 언론·SCOTUSblog로만 확인했으면 `verified:"secondary"`.
+- `decision_kr`: 결론 1~2문장(인용·기각·파기환송, 무엇이 허용·금지되는지).
+- `vote`: 대법원·항소심 합의부는 표결("6–3", "2–1"). 단독 판사는 null. 서명 없는 명령(per curiam)에서 반대 표시가 있으면 그 수로 적고 note_kr에 "반대 표시 기준"이라고 쓴다.
+- `majority`: 집필자(`author`, 서명 없으면 null)와 동참자(`joined_by`), 논리 2~4문장(`summary_kr`). 일부만 동참한 대법관은 이름 뒤에 "(일부)"를 붙인다.
+- `concurrences`·`dissents`: 별도 의견마다 집필자·동참자·요지 1~2문장. 별도 의견 없이 반대만 표시했으면 `summary_kr:"의견 없이 반대 표시"`.
+- 대법관 이름은 한국어 표기(로버츠·토머스·알리토·소토마요르·케이건·고서치·캐버노·배럿·잭슨), 하급심 판사는 영문 성 + "판사"(예: Talwani 판사).
+- 같은 판결을 다음 날 보강하면(반대의견 요지 추가 등) 같은 date·court로 다시 보내면 교체된다.
 
 ### C. 새 사건
 수집 구간 안에 새로 생긴 소송·행정명령·규칙·주법·재획정 지도 분쟁 → `new_cases`. 기준: 11월 3일 선거에서 어느 주든 유권자·후보·선관위가 실제로 따라야 할 규칙이 바뀌거나 바뀔 수 있는 것. 같은 쟁점의 다른 법원 소송은 새 사건이 아니라 기존 사건의 `updates`로 넣는다(`court` 서술은 사람이 정리한다).
@@ -86,7 +96,15 @@ Version 1.0 (2026-10-09 — 신설. us-elections-2026.github.io 법·제도 페�
       "case_id": "save-db", "date": "2026-10-08",
       "text": "연방대법원, 정부의 집행정지 신청 기각(서명 없는 명령). Alito·Thomas·Gorsuch 반대",
       "url": "https://www.supremecourt.gov/...", "outlet": "Supreme Court", "tier": "court",
-      "status": "ruled", "status_kr": "대법원 10/8 정지 기각 — 하급심 금지 유지", "next_date": null, "next_kr": "DC순회 본안"
+      "status": "ruled", "status_kr": "대법원 10/8 정지 기각 — 하급심 금지 유지", "next_date": null, "next_kr": "DC순회 본안",
+      "ruling": {
+        "date": "2026-10-08", "court": "연방대법원", "decision_kr": "정부의 집행정지 신청 기각. 하급심의 SAVE 대조 금지가 유지된다.",
+        "vote": "6–3",
+        "majority": {"author": null, "joined_by": [], "summary_kr": "서명 없는 명령으로 이유를 밝히지 않았다."},
+        "concurrences": [{"author": "캐버노", "joined_by": [], "summary_kr": "1~2문장"}],
+        "dissents": [{"author": "알리토", "joined_by": ["토머스", "고서치"], "summary_kr": "1~2문장"}],
+        "url": "https://www.supremecourt.gov/orders/...pdf", "verified": "primary", "note_kr": null
+      }
     }
   ],
   "checks": [
@@ -107,7 +125,7 @@ Version 1.0 (2026-10-09 — 신설. us-elections-2026.github.io 법·제도 페�
   "audit": {"searches_R_side": 0, "searches_D_side": 0, "searches_topic": 0, "followups_due": 0, "followups_checked": 0, "blocked_sites": [], "notes": ""}
 }
 ```
-값 규칙: `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
+값 규칙: `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
 
 ## 7. briefings/RUN.md — 일일 브리핑
 
@@ -123,6 +141,7 @@ description: "한 줄 요약(가장 큰 움직임 1개)"
 
 ## 사건별 움직임
 - [사건 제목](../cases/<id>.qmd) — 날짜 · 무엇이 일어났나 · 상태 변화 — [출처](URL)
+- 판결·명령이 나온 사건은 한 줄 더: 표결 · 다수의견 핵심 · 반대의견 핵심
 
 ## 새 사건
 없으면 "없음".

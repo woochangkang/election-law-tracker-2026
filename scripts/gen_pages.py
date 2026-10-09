@@ -46,6 +46,36 @@ def ev_line(e, case=None):
     return f"- <b class=\"d\">{e['date']}</b> {who}{e['text']}{src}"
 
 
+def opinion_line(label, o):
+    if not o or not o.get("summary_kr"):
+        return ""
+    who = o.get("author") or "서명 없음(per curiam)"
+    if o.get("joined_by"):
+        who += f" (동참: {'·'.join(o['joined_by'])})"
+    return f"- **{label} — {who}**: {o['summary_kr']}"
+
+
+def ruling_md(r):
+    head = f"### {r['date']} · {r.get('court') or ''}" + (f" · {r['vote']}" if r.get("vote") else "")
+    lines = [head, "", f"**결론** — {r.get('decision_kr') or '미확인'}", ""]
+    ops = [opinion_line("다수의견", r.get("majority"))]
+    ops += [opinion_line("보충의견", o) for o in r.get("concurrences") or []]
+    ops += [opinion_line("반대의견", o) for o in r.get("dissents") or []]
+    ops = [x for x in ops if x]
+    if ops:
+        lines += ops + [""]
+    tail = []
+    if r.get("url"):
+        tail.append(f"[판결문·명령]({r['url']})")
+    if r.get("verified") == "secondary":
+        tail.append("2차 출처 기준(판결문 미열람)")
+    if r.get("note_kr"):
+        tail.append(r["note_kr"])
+    if tail:
+        lines.append(f'<p class="mu">{" · ".join(tail)}</p>')
+    return "\n".join(lines) + "\n"
+
+
 def main():
     doc = json.loads((REPO / "data" / "cases.json").read_text())
     items = doc["items"]
@@ -100,6 +130,8 @@ def main():
             f'<p>{badge(c["status"])} {c.get("status_kr") or ""}{nxt}</p>', "",
             "## 쟁점", "", c.get("summary_kr") or "", "",
         ]
+        if c.get("rulings"):
+            body += ["## 판결 내용", ""] + [ruling_md(r) for r in sorted(c["rulings"], key=lambda r: r["date"], reverse=True)]
         if c.get("impact_kr"):
             body += ["## 선거 영향", "", c["impact_kr"], ""]
         body += ["## 시간순 기록", "", "::: {.timeline}"] + [ev_line(e) for e in c.get("events", [])] + [":::", ""]
