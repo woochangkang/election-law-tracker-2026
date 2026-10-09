@@ -16,23 +16,36 @@ plt.rcParams["font.family"] = "AppleGothic"
 plt.rcParams["axes.unicode_minus"] = False
 
 REPO = Path(__file__).resolve().parent.parent
-D_DISTRICTS = {"2022": {1, 5}, "2025": {1}}          # 예상 민주 우세 선거구
-BLUE = ["#2f6db3", "#6f9fd8"]
-REDS = ["#c0392b", "#d9534f", "#e57368", "#ef9488", "#c45a4a", "#d97a6c", "#b03a2e"]
+# 2024 대선 득표율 차(트럼프 − 해리스, %p). 2022년 지도 = 실제 결과, 2025년 지도 = 새 경계로 재집계.
+# 출처: The Downballot 선거구별 시트·Inside Elections·Crystal Ball·Ballotpedia(보관본). 출처가 갈리면 (하한, 상한).
+MARGIN = {
+    "2022": {1: -57, 2: 8, 3: 27, 4: 42, 5: -23, 6: 39, 7: 43, 8: 54},
+    "2025": {1: -57.5, 2: 11, 3: 18, 4: (19, 21), 5: 18, 6: (25, 27), 7: 43, 8: 54},
+}
+CMAP = matplotlib.colormaps["RdBu_r"]
 CITIES = {"캔자스시티": (-94.58, 39.10), "세인트루이스": (-90.20, 38.63), "제퍼슨시티": (-92.17, 38.58), "스프링필드": (-93.29, 37.21)}
-CITY_OFF = {"캔자스시티": (-0.05, 0.12, "right"), "세인트루이스": (0.08, -0.13, "left"), "제퍼슨시티": (-0.08, -0.05, "right"), "스프링필드": (0.08, -0.13, "left")}
+CITY_OFF = {"캔자스시티": (-0.08, 0.22, "right"), "세인트루이스": (0.08, -0.13, "left"), "제퍼슨시티": (-0.08, -0.05, "right"), "스프링필드": (0.08, -0.13, "left")}
 EXTRA_ZOOM_LABELS = {"2025": [(4, -94.59, 39.02)]}   # 2025년 4구는 Troost 서쪽의 폭 2km 띠(경도 -94.60~-94.58)와 남동쪽이 이어진 모양 → 서쪽 띠를 화살표로 표시
 KC_BOX = (-94.78, 38.78, -94.10, 39.40)              # 캔자스시티 확대 범위(경도·위도)
 
 
+def mid(v):
+    return sum(v) / 2 if isinstance(v, tuple) else v
+
+
 def colors(g, year):
-    out, bi, ri = [], 0, 0
-    for d in g.district:
-        if d in D_DISTRICTS[year]:
-            out.append(BLUE[bi % 2]); bi += 1
-        else:
-            out.append(REDS[ri % len(REDS)]); ri += 1
-    return out
+    # -60 ~ +60 을 색 척도 0.1 ~ 0.9 로(양 끝의 너무 짙은 색은 쓰지 않음)
+    return [CMAP(0.5 + max(-60, min(60, mid(MARGIN[year][d]))) / 150) for d in g.district]
+
+
+def mlabel(v):
+    if isinstance(v, tuple):
+        return f"트럼프 +{v[0]:g}~{v[1]:g}"
+    return f"트럼프 +{v:g}" if v > 0 else f"해리스 +{-v:g}"
+
+
+def tcolor(v):
+    return "white" if abs(mid(v)) >= 30 else "#111"
 
 
 def draw(ax, g, year, zoom=False):
@@ -46,7 +59,9 @@ def draw(ax, g, year, zoom=False):
             if r.geometry.is_empty or r.geometry.area < 0.004:
                 continue
             p = r.geometry.representative_point()
-            ax.text(p.x, p.y, f"{r.district}구", ha="center", va="center", fontsize=13, weight="bold", color="white")
+            v = MARGIN[year][r.district]
+            ax.text(p.x, p.y, f"{r.district}구\n{mlabel(v)}", ha="center", va="center", fontsize=12, weight="bold",
+                    color=tcolor(v), linespacing=1.15)
         for d, x, y in EXTRA_ZOOM_LABELS.get(year, []):
             ax.annotate(f"{d}구\n(Troost 서쪽 띠)", xy=(x, y), xytext=(x - 0.12, y - 0.06), fontsize=11, weight="bold",
                         ha="center", color="#222", arrowprops=dict(arrowstyle="->", color="#222", lw=1.3))
@@ -56,7 +71,17 @@ def draw(ax, g, year, zoom=False):
     else:
         for _, r in g.iterrows():
             p = r.geometry.representative_point()
-            ax.text(p.x, p.y, str(r.district), ha="center", va="center", fontsize=15, weight="bold", color="white")
+            v = MARGIN[year][r.district]
+            small = {1: (0.25, 0.45, "left")}            # 세인트루이스 1구는 좁아서 바깥에 표시
+            if year == "2022":
+                small[5] = (-0.15, -0.75, "right")      # 2022년 5구(캔자스시티)도 좁다
+            if r.district in small:
+                dx, dy, ha = small[r.district]
+                ax.annotate(f"{r.district}구 {mlabel(v)}", xy=(p.x, p.y), xytext=(p.x + dx, p.y + dy), fontsize=9.5, weight="bold",
+                            ha=ha, arrowprops=dict(arrowstyle="-", color="#333", lw=0.8))
+                continue
+            ax.text(p.x, p.y, f"{r.district}구\n{mlabel(v)}", ha="center", va="center", fontsize=10.5, weight="bold",
+                    color=tcolor(v), linespacing=1.15)
         for n, (x, y) in CITIES.items():
             dx, dy, ha = CITY_OFF[n]
             ax.plot(x, y, "o", color="#111", ms=3)
@@ -80,8 +105,8 @@ def main():
     axes[1, 1].set_title("캔자스시티 확대 — 2025년: Troost Ave. 서쪽은 4구, 동쪽은 5구", fontsize=12)
     fig.suptitle("미주리 연방 하원 선거구: 2022년 지도와 2025년 지도", fontsize=17, weight="bold", y=0.995)
     fig.text(0.5, 0.012,
-             "파랑 = 민주 우세 예상 · 빨강 = 공화 우세 예상(선거구 구분을 위해 명도를 달리함) · 굵은 테두리 = 5선거구(Cleaver 의원 지역구) · 점선 = 아래 확대 범위\n"
-             "경계: 2022년 미국 인구조사국(제119대 의회 선거구), 2025년 미주리 행정청 재획정실 GIS. 우세 정당은 보도된 예상 의석(6–2, 7–1) 기준.",
+             "색과 숫자 = 2024년 대선 득표율 차(%p, 파랑 해리스 우세 · 빨강 트럼프 우세). 2025년 지도는 새 경계로 다시 계산한 값이며, 출처가 갈리는 곳은 범위로 표시.\n"
+             "굵은 테두리 = 5선거구(Cleaver 의원) · 점선 = 아래 확대 범위. 경계: 인구조사국(제119대 의회 선거구)·미주리 행정청 재획정실 GIS. 득표: The Downballot·Inside Elections·Crystal Ball·Ballotpedia.",
              ha="center", fontsize=9.5, color="#444")
     fig.tight_layout(rect=(0, 0.04, 1, 0.97))
     out = REPO / "assets/figures/missouri_maps.png"
