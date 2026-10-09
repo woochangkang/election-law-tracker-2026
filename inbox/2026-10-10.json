@@ -1,0 +1,19 @@
+{
+  "run_date": "2026-10-10",
+  "window": {"news_from": "2026-10-09", "news_to": "2026-10-10"},
+  "updates": [],
+  "checks": [
+    {"case_id": "ak-taylor", "note": "10/10 검색 기준: 10/8로 잡혀 있던 APOC의 Johnson 진정 건 결과를 다룬 Alaska Beacon 10/7·KTOO 10/8 기사가 검색됨. 본문 열람이 차단됐고 검색 요약끼리 내용이 엇갈려(진정 '조치 없음' 대 '합의') 결론과 날짜는 확인하지 못함 (검색 요약 기준)"},
+    {"case_id": "save-act", "note": "10/10 검색 기준: 8월 상원 표결(52–46, 60표 미달) 이후 새 표결이나 서명 보도 없음 (검색 요약 기준)"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {
+    "searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5,
+    "followups_due": 2, "followups_checked": 2,
+    "scotus": {"term": "26", "pages_opened": [], "dockets_checked": [], "new_entries": 0,
+               "blocked": ["https://www.supremecourt.gov/orders/ordersofthecourt/26", "https://www.supremecourt.gov/opinions/relatingtoorders/26", "https://www.supremecourt.gov/opinions/slipopinion/26", "https://www.supremecourt.gov/docket/docketfiles/html/public/26a308.html", "https://www.scotusblog.com/"]},
+    "blocked_sites": ["www.supremecourt.gov", "www.scotusblog.com", "www.courtlistener.com", "www.democracydocket.com", "www.votebeat.org", "electionlawblog.org", "alaskabeacon.com", "www.insidenova.com", "www.insideradio.com", "apnews.com"],
+    "notes": "[모델 비교 시험 회차 — Opus, 브랜치 eval/opus-2026-10-10] 이 실행 환경의 네트워크 정책(egress proxy)이 supremecourt.gov·SCOTUSblog·CourtListener·Democracy Docket·Votebeat 등을 막아 본문을 한 건도 열지 못했다(WebFetch EGRESS_BLOCKED, curl CONNECT 403). 그래서 모든 확인은 웹 검색 요약으로만 했다. 실제 검색은 총 24회다. 공화 측 3회, 민주 측 3회, 주제 5회(우편투표·시민권 증명/명부·재획정·선거자금·인증), 대법원 대체 검색 5회(긴급신청·버지니아·10월 명령·FCC 광고단가·10/5 명령 목록), 후속 확인 7회(APOC 3회·SAVE Act·미주리·제1순회·SAVE DB), 일반 1회(Votebeat). 추적 docket 7건(26A305·26A124·26A308·26A304·26A326·26A388·25-1017)은 열지 못했다. 그래서 docket별 확인(checks)을 남기지 않았다. 검색이 10/9~10/10 구간의 새 판결·제소를 하나도 돌려주지 않아 updates·new_cases는 0건이다. 날짜·내용이 확인되지 않은 후보는 넣지 않았다(FCC 정치광고 단가 사건 대법원 정지 날짜 상충, 10/5 명령 목록의 Garcia v. Hobbs·Trevino v. Hobbs 상고 허가는 주의회 선거구로 보여 범위 밖 가능성, 오하이오 시민권 증명 제6순회 정지 날짜 미상)."
+  }
+}
