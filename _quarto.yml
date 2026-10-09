@@ -33,7 +33,6 @@ format:
     css: assets/style.css
     lang: ko
     toc: false
-    include-after-body: assets/fold.html   # 접기(첫 4줄 + 더 보기) — 파일 내용이 각 페이지에 그대로 들어간다
     include-in-header:
       text: |
         <link rel="preconnect" href="https://cdn.jsdelivr.net">

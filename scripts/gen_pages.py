@@ -76,9 +76,14 @@ class Glossary:
                 if ok:
                     used.append(it); break
         out = "\n".join(lines)
+        if "<!--GLOSSARY-->" in out:   # 자리표시가 있으면 그 자리에(사건 페이지의 「출처·용어」 탭), 없으면 끝에 붙인다
+            rows = "\n".join(f"- **{it['term']}** — {it['explain_kr']}" for it in used)
+            boxmd = (f'::: {{.glossary-box}}\n**이 페이지의 용어 풀이**\n\n{rows}\n\n[전체 용어 풀이]({root}glossary.qmd)\n:::\n'
+                     if used else "")
+            return out.replace("<!--GLOSSARY-->", boxmd)
         if box and used:
             rows = "\n".join(f"- **{it['term']}** — {it['explain_kr']}" for it in used)
-            out += f'\n\n::: {{.glossary-box .fold}}\n**용어 풀이**\n\n{rows}\n\n[전체 용어 풀이]({root}glossary.qmd)\n:::\n'
+            out += f'\n\n::: {{.glossary-box}}\n**용어 풀이**\n\n{rows}\n\n[전체 용어 풀이]({root}glossary.qmd)\n:::\n'
         return out
 
     def glossary_md(self):
@@ -116,11 +121,6 @@ def opinion_line(label, o):
     return f"- **{label} — {who}**: {o['summary_kr']}"
 
 
-def fold(md):
-    """긴 덩어리를 접기 상자로 감싼다(assets/fold.js 가 첫 4줄만 보이게 하고 「더 보기」 단추를 단다)."""
-    return ["::: {.fold}", md, ":::", ""]
-
-
 def glance_md(c):
     """사건 페이지 맨 위 「한눈에 보기」: 상태 · 다음 기일 · 최근 판결(없으면 최근 움직임) · 선거 영향."""
     rows = [f"- **상태** {badge(c['status'])} {c.get('status_kr') or ''}"]
@@ -151,13 +151,12 @@ def litigation_md(L):
     for l in L:
         last = l["rulings"][-1] if l.get("rulings") else {}
         rows.append(f"| {cell(l['name'])} | {cell(l['issue_kr'])} | {badge_r(last)} {cell(last.get('court'))} |")
-    out = ["## 소송별 쟁점과 주장", "", '<p class="mu">원고·피고의 주장을 나란히 두고, 그 아래에 법원 판단을 시간순으로 적었습니다.</p>', "",
+    out = ['<p class="mu">원고·피고의 주장을 나란히 두고, 그 아래에 법원 판단을 시간순으로 적었습니다.</p>', "",
            "\n".join(rows), "", ": {.lit-table}", ""]
     for l in L:
         out += ["::: {.lit-card}", f"### {l['name']}", "",
                 f'<p class="mu">{l.get("court") or ""}</p>', "",
                 f"**쟁점** — {l['issue_kr']}", "",
-                "::: {.fold}",
                 ":::: {.claims}", "::::: {.claim-p}", f"**원고** · {l.get('plaintiffs') or ''}", ""]
         out += [f"- {x}" for x in l.get("plaintiff_claims") or []] or ["- (주장 요지 미확인)"]
         out += ["", ":::::", "::::: {.claim-d}", f"**피고** · {l.get('defendants') or ''}", ""]
@@ -169,13 +168,13 @@ def litigation_md(L):
             out += [f"    - {p}" for p in r.get("points") or []]
             if r.get("note_kr"):
                 out.append(f"    - *{r['note_kr']}*")
-        out += ["", ":::", ":::", ""]
+        out += ["", ":::", ""]
     return "\n".join(out)
 
 
 def ruling_md(r):
     head = f"### {r['date']} · {r.get('court') or ''}" + (f" · {r['vote']}" if r.get("vote") else "")
-    lines = [head, "", "::: {.fold}", f"**결론** — {r.get('decision_kr') or '미확인'}", ""]
+    lines = [head, "", f"**결론** — {r.get('decision_kr') or '미확인'}", ""]
     ops = [opinion_line("다수의견", r.get("majority"))]
     ops += [opinion_line("보충의견", o) for o in r.get("concurrences") or []]
     ops += [opinion_line("반대의견", o) for o in r.get("dissents") or []]
@@ -191,7 +190,6 @@ def ruling_md(r):
         tail.append(r["note_kr"])
     if tail:
         lines.append(f'<p class="mu">{" · ".join(tail)}</p>')
-    lines += ["", ":::"]
     return "\n".join(lines) + "\n"
 
 
@@ -242,33 +240,30 @@ def main():
 
     # 사건 상세
     for c in items:
-        src = " · ".join(f"[{s['label']}]({s['url']})" for s in c.get("sources") or [])
+        src = "\n".join(f"- [{s['label']}]({s['url']})" for s in c.get("sources") or [])
         body = [
             "---", f'title: "{c["title_kr"].replace(chr(34), chr(39))}"',
             f'subtitle: "{c["category"]} · {states_kr(c)}"', "---", "",
             glance_md(c), "",
             f'<p class="mu">{c.get("name_en") or ""} · {c.get("court") or ""}</p>', "",
-            "## 쟁점", "", c.get("summary_kr") or "", "",
         ]
-        lit_done = False
-        for d in c.get("detail") or []:   # 쟁점 상세(선택): [{"heading", "md"}] — 지도 비교·배경 등
-            if d["heading"] in ("앞으로", "확인하지 못한 것") and c.get("litigation") and not lit_done:
-                body += [litigation_md(c["litigation"]), "## 앞으로와 미확인 사항", ""]
-                lit_done = True
-            md = d["md"]
-            lead = ""
-            if md.startswith("!["):            # 그림은 접지 않고 위에 둔다
-                cut = md.find("\n\n")
-                lead, md = (md, "") if cut < 0 else (md[:cut], md[cut + 2:])
-            body += [f"### {d['heading']}", "", lead, ""] + (fold(md) if md.strip() else [])
-        if c.get("litigation") and not lit_done:
-            body += [litigation_md(c["litigation"])]
-        if c.get("rulings"):
-            body += ["## 판결 내용", ""] + [ruling_md(r) for r in sorted(c["rulings"], key=lambda r: r["date"], reverse=True)]
-        body += ["## 시간순 기록", ""] + fold("\n".join(["::: {.timeline}"] + [ev_line(e) for e in reversed(c.get("events", []))] + [":::"]))
-        if src:
-            body += ["## 주요 출처", ""] + fold(src)
-        body.append(f'<p class="mu">최근 확인 {c.get("last_checked") or "—"} · 상태 갱신 {c.get("status_updated") or "—"} · [사건표로](../cases.qmd)</p>')
+        # 탭은 모든 사건에서 같은 5개·같은 순서. 내용이 없으면 한 줄 안내.
+        issue = ["### 요약", "", c.get("summary_kr") or "", ""]
+        for d in c.get("detail") or []:   # 쟁점 상세(선택): [{"heading", "md"}] — 지도 비교·배경·앞으로·미확인
+            issue += [f"### {d['heading']}", "", d["md"], ""]
+        lit = [litigation_md(c["litigation"])] if c.get("litigation") else \
+              ['<p class="tab-empty">아직 소송별 원고·피고 주장을 정리하지 않았습니다. 판결 요지는 「판결」 탭에 있습니다.</p>']
+        rul = [ruling_md(r) for r in sorted(c.get("rulings") or [], key=lambda r: r["date"], reverse=True)] or \
+              ['<p class="tab-empty">아직 법원 판결·명령이 없습니다.</p>']
+        log = ["::: {.timeline}"] + [ev_line(e) for e in reversed(c.get("events", []))] + [":::"]
+        refs = ([src, ""] if src else ['<p class="tab-empty">따로 정리한 주요 출처가 없습니다. 시간순 기록의 각 항목에 출처가 붙어 있습니다.</p>', ""]) + \
+               ["<!--GLOSSARY-->", "", '<p class="mu">' + f'최근 확인 {c.get("last_checked") or "—"} · 상태 갱신 {c.get("status_updated") or "—"} · [사건표로](../cases.qmd)</p>']
+        body += ["::: {.panel-tabset .case-tabs}",
+                 "## 쟁점", ""] + issue + \
+                ["## 소송과 주장", ""] + lit + [""] + \
+                [f"## 판결 ({len(c.get('rulings') or [])})", ""] + rul + [""] + \
+                [f"## 시간순 기록 ({len(c.get('events') or [])})", ""] + log + [""] + \
+                ["## 출처·용어", ""] + refs + ["", ":::"]
         (CASES / f"{c['id']}.qmd").write_text(G.page("\n".join(body) + "\n", root="../"))
     print(f"gen_pages: 사건 {len(items)}쪽 · 다가오는 기일 {len(up)} · 최근 2주 이벤트 {len(recent)} · 전체 이벤트 {len(allev)}")
 

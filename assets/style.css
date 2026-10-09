@@ -49,13 +49,8 @@ button.kpi[aria-pressed="true"] { border-color: #3b5b8c; box-shadow: 0 0 0 2px #
 .glance ul { list-style: none; padding-left: 0; margin: .4rem 0 0; }
 .glance li { margin-bottom: .4rem; line-height: 1.55; }
 .glance li > strong:first-child { display: inline-block; min-width: 5.2em; color: #3b5b8c; }
-/* 접기 */
-.fold { position: relative; }
-.fold.folded { overflow: hidden; }
-.fold.folded::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.4em;
-  background: linear-gradient(rgba(255,255,255,0), #fff); pointer-events: none; }
-.glossary-box.fold.folded::after { background: linear-gradient(rgba(248,250,252,0), #f8fafc); }
-.lit-card .fold.folded::after { background: linear-gradient(rgba(255,255,255,0), #fff); }
-.fold-btn { display: block; margin: .25rem 0 1rem; padding: .2rem .7rem; font-size: .85rem; color: #3b5b8c;
-  background: #fff; border: 1px solid #c9d4e6; border-radius: 999px; cursor: pointer; }
-.fold-btn:hover { background: #f1f5fb; }
+/* 사건 페이지 탭 */
+.case-tabs { margin-top: 1rem; }
+.case-tabs .nav-tabs .nav-link { font-weight: 600; padding: .45rem .9rem; }
+.case-tabs .tab-content { padding-top: .6rem; }
+.tab-empty { color: #6b7280; background: #f8fafc; border: 1px dashed #d8e0ee; border-radius: 8px; padding: .7rem 1rem; }
