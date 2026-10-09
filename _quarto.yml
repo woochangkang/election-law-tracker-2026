@@ -7,6 +7,7 @@ project:
     - "briefings/*.md"
   resources:
     - assets/*.js
+    - assets/figures/*.png
 
 website:
   title: "2026 미국 선거 법·제도 분쟁 트래커"
