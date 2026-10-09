@@ -148,7 +148,7 @@ Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
             "blocked_sites": [], "notes": ""}
 }
 ```
-`detail`(선택): 쟁점이 복잡한 사건의 「쟁점 상세」 — `[{heading, md}]` 배열, md는 마크다운(글머리·작은 표). 무엇이 바뀌는지(예: 옛 규칙 대 새 규칙), 원고와 피고 각각의 주장, 법원이 받아들인 논리를 출처 확인한 사실만으로 쓴다. update에 넣으면 기존 상세를 통째로 교체하므로 기존 내용을 고쳐 다시 보낸다. 값 규칙: `scotus_dockets`는 "26A305"(긴급신청)·"25-1017"(상고) 형식. `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
+`litigation`(선택, 여러 소송이 얽힌 사건): 소송마다 `{name, court, plaintiffs, defendants, issue_kr(쟁점 한 줄, 물음형), plaintiff_claims[], defendant_claims[], rulings:[{date, court, vote, result(원고 승|원고 패|일부), summary_kr, points[], note_kr}]}`. 주장은 한 항목 한 문장, 원문에 없는 주장은 비워 둔다(사이트가 "별도로 확인한 주장 없음"으로 표시). 사이트는 요약표 + 원고|피고 나란히 카드로 그린다. update에 넣으면 통째로 교체. `detail`(선택): 쟁점이 복잡한 사건의 「쟁점 상세」 — `[{heading, md}]` 배열, md는 마크다운(글머리·작은 표). 무엇이 바뀌는지(예: 옛 규칙 대 새 규칙), 원고와 피고 각각의 주장, 법원이 받아들인 논리를 출처 확인한 사실만으로 쓴다. update에 넣으면 기존 상세를 통째로 교체하므로 기존 내용을 고쳐 다시 보낸다. 값 규칙: `scotus_dockets`는 "26A305"(긴급신청)·"25-1017"(상고) 형식. `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
 
 ## 7. briefings/RUN.md — 일일 브리핑
 

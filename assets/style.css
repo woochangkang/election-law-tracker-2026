@@ -30,3 +30,17 @@ button.kpi[aria-pressed="true"] { border-color: #3b5b8c; box-shadow: 0 0 0 2px #
 .term:focus { outline: none; }
 .glossary-box { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: .8rem 1rem; margin-top: 1.6rem; font-size: .9rem; }
 .glossary-box ul { margin-bottom: .4rem; }
+/* 소송별 카드 */
+.lit-table td, .lit-table th { font-size: .9rem; vertical-align: top; }
+.lit-card { border: 1px solid #e5e7eb; border-radius: 10px; padding: .9rem 1.1rem .4rem; margin: 1.1rem 0 1.4rem; background: #fff; }
+.lit-card h3 { margin-top: .1rem; font-size: 1.15rem; }
+.claims { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin: .7rem 0 1rem; }
+.claims > div { border-radius: 8px; padding: .6rem .8rem; font-size: .93rem; }
+.claims ul { margin: .35rem 0 0; padding-left: 1.1rem; }
+.claim-p { background: #eef6f4; border-left: 4px solid #2a8c7a; }
+.claim-d { background: #fbf4e8; border-left: 4px solid #c48a2c; }
+@media (max-width: 720px) { .claims { grid-template-columns: 1fr; } }
+.res { display: inline-block; padding: .02rem .45rem; border-radius: 4px; font-size: .78rem; font-weight: 700; margin-right: .2rem; }
+.res-win { background: #dcfce7; color: #166534; }
+.res-lose { background: #f1f5f9; color: #475569; }
+.res-mixed { background: #fef3c7; color: #92400e; }

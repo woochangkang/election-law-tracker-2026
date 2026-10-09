@@ -116,6 +116,38 @@ def opinion_line(label, o):
     return f"- **{label} — {who}**: {o['summary_kr']}"
 
 
+RESULT_CLS = {"원고 승": "win", "원고 패": "lose", "일부": "mixed"}
+
+
+def litigation_md(L):
+    """소송별 카드: 맨 위 요약표 → 사건마다 쟁점 한 줄, 원고|피고 주장 나란히, 법원 판단(결과 배지)."""
+    def badge_r(r):
+        return f'<span class="res res-{RESULT_CLS.get(r.get("result"), "mixed")}">{r.get("result") or "—"}</span>'
+    rows = ["| 사건 | 쟁점 | 최종 결과 |", "|---|---|---|"]
+    for l in L:
+        last = l["rulings"][-1] if l.get("rulings") else {}
+        rows.append(f"| {cell(l['name'])} | {cell(l['issue_kr'])} | {badge_r(last)} {cell(last.get('court'))} |")
+    out = ["## 소송별 쟁점과 주장", "", '<p class="mu">원고·피고의 주장을 나란히 두고, 그 아래에 법원 판단을 시간순으로 적었습니다.</p>', "",
+           "\n".join(rows), "", ": {.lit-table}", ""]
+    for l in L:
+        out += ["::: {.lit-card}", f"### {l['name']}", "",
+                f'<p class="mu">{l.get("court") or ""}</p>', "",
+                f"**쟁점** — {l['issue_kr']}", "",
+                ":::: {.claims}", "::::: {.claim-p}", f"**원고** · {l.get('plaintiffs') or ''}", ""]
+        out += [f"- {x}" for x in l.get("plaintiff_claims") or []] or ["- (주장 요지 미확인)"]
+        out += ["", ":::::", "::::: {.claim-d}", f"**피고** · {l.get('defendants') or ''}", ""]
+        out += [f"- {x}" for x in l.get("defendant_claims") or []] or ['- <span class="mu">별도로 확인한 주장 없음</span>']
+        out += ["", ":::::", "::::", "", "**법원 판단**", ""]
+        for r in l.get("rulings") or []:
+            vote = f" · {r['vote']}" if r.get("vote") else ""
+            out.append(f"- {badge_r(r)} <b class=\"d\">{r.get('date') or '날짜 미확인'}</b> {r.get('court') or ''}{vote} — {r.get('summary_kr') or ''}")
+            out += [f"    - {p}" for p in r.get("points") or []]
+            if r.get("note_kr"):
+                out.append(f"    - *{r['note_kr']}*")
+        out += ["", ":::", ""]
+    return "\n".join(out)
+
+
 def ruling_md(r):
     head = f"### {r['date']} · {r.get('court') or ''}" + (f" · {r['vote']}" if r.get("vote") else "")
     lines = [head, "", f"**결론** — {r.get('decision_kr') or '미확인'}", ""]
@@ -193,8 +225,14 @@ def main():
             f'<p>{badge(c["status"])} {c.get("status_kr") or ""}{nxt}</p>', "",
             "## 쟁점", "", c.get("summary_kr") or "", "",
         ]
-        for d in c.get("detail") or []:   # 쟁점 상세(선택): [{"heading", "md"}] — 지도 비교·원고/피고 주장 등
+        lit_done = False
+        for d in c.get("detail") or []:   # 쟁점 상세(선택): [{"heading", "md"}] — 지도 비교·배경 등
+            if d["heading"] in ("앞으로", "확인하지 못한 것") and c.get("litigation") and not lit_done:
+                body += [litigation_md(c["litigation"]), "## 앞으로와 미확인 사항", ""]
+                lit_done = True
             body += [f"### {d['heading']}", "", d["md"], ""]
+        if c.get("litigation") and not lit_done:
+            body += [litigation_md(c["litigation"])]
         if c.get("rulings"):
             body += ["## 판결 내용", ""] + [ruling_md(r) for r in sorted(c["rulings"], key=lambda r: r["date"], reverse=True)]
         if c.get("impact_kr"):

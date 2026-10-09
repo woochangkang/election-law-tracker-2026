@@ -71,6 +71,21 @@ def check_status_fields(x, errs):
         errs.append(f"next_date 형식 오류: {x['next_date']!r}")
 
 
+def check_litigation(x, errs):
+    L = x.get("litigation")
+    if L is None:
+        return
+    ok = isinstance(L, list) and all(isinstance(l, dict) and l.get("name") and l.get("issue_kr")
+                                     and isinstance(l.get("rulings", []), list) for l in L)
+    if not ok:
+        errs.append("litigation 형식 오류: [{name, issue_kr, plaintiffs, defendants, plaintiff_claims, defendant_claims, rulings}] 배열")
+        return
+    for l in L:
+        for r in l.get("rulings") or []:
+            if r.get("result") not in ("원고 승", "원고 패", "일부"):
+                errs.append(f"litigation {l['name']}: result 는 원고 승|원고 패|일부")
+
+
 def check_detail(x, errs):
     d = x.get("detail")
     if d is None:
@@ -146,8 +161,9 @@ def add_event(case, e):
 
 def apply_status(case, x, run):
     changed = False
-    if x.get("detail") and case.get("detail") != x["detail"]:   # 쟁점 상세는 통째로 교체
-        case["detail"] = x["detail"]; changed = True
+    for k in ("detail", "litigation"):   # 쟁점 상세·소송별 카드는 통째로 교체
+        if x.get(k) and case.get(k) != x[k]:
+            case[k] = x[k]; changed = True
     for k in ("status", "status_kr", "next_date", "next_kr"):
         if k in x and case.get(k) != x[k]:
             case[k] = x[k]; changed = True
@@ -174,6 +190,7 @@ def process(path: Path, cases: dict, stats: dict):
             errs.append(f"states 오류: {sorted(set(n['states']) - STATES)}")
         check_status_fields(n, errs)
         check_detail(n, errs)
+        check_litigation(n, errs)
         for d in n.get("scotus_dockets") or []:
             if not DOCKET.match(str(d)):
                 errs.append(f"scotus_dockets 형식 오류: {d!r}")
@@ -193,7 +210,7 @@ def process(path: Path, cases: dict, stats: dict):
             stats["status"] += apply_status(c, n, run)
         else:
             c = {k: n.get(k) for k in ("id", "category", "title_kr", "name_en", "court", "status", "status_kr",
-                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr", "scotus_dockets", "detail")}
+                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr", "scotus_dockets", "detail", "litigation")}
             c.update(events=[], sources=n.get("sources") or [], first_seen=run, last_checked=run, status_updated=run)
             for e in n["events"]:
                 add_event(c, e)
@@ -210,6 +227,7 @@ def process(path: Path, cases: dict, stats: dict):
         check_event(u, errs, "update")
         check_status_fields(u, errs)
         check_detail(u, errs)
+        check_litigation(u, errs)
         if u.get("ruling") is not None:
             check_ruling(u["ruling"], errs, "update.ruling")
         for d in u.get("scotus_dockets") or []:
