@@ -129,11 +129,14 @@ def glance_md(c):
     rows.append(f"- **상태** {badge(c['status'])} {c.get('status_kr') or ''}")
     if c.get("next_kr") or c.get("next_date"):
         rows.append(f"- **다음** {c.get('next_kr') or ''}" + (f" ({c['next_date']})" if c.get("next_date") else ""))
-    rs = sorted(c.get("rulings") or [], key=lambda r: r["date"])
-    if rs:
-        r = rs[-1]
-        vote = f" · {r['vote']}" if r.get("vote") else ""
-        rows.append(f"- **최근 판결** {r['date']} · {r.get('court') or ''}{vote} — {r.get('decision_kr') or ''}")
+    # 최근 판결: 판결 탭(rulings)과 소송별 카드(litigation[].rulings) 중 날짜가 가장 늦은 것
+    cands = [(r["date"], r.get("court") or "", r.get("vote"), r.get("decision_kr") or "") for r in c.get("rulings") or [] if r.get("date")]
+    cands += [(r["date"], r.get("court") or "", r.get("vote"), r.get("summary_kr") or "")
+              for l in c.get("litigation") or [] for r in l.get("rulings") or [] if r.get("date")]
+    if cands:
+        d, court, v, txt = max(cands, key=lambda z: z[0])
+        vote = f" · {v}" if v else ""
+        rows.append(f"- **최근 판결** {d} · {court}{vote} — {txt}")
     elif c.get("events"):
         e = c["events"][-1]
         rows.append(f"- **최근 움직임** {e['date']} — {e['text']}")
@@ -202,8 +205,8 @@ def main():
     items = doc["items"]
     G = Glossary()
     today = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date()
-    shutil.rmtree(GEN, ignore_errors=True); GEN.mkdir()
-    shutil.rmtree(CASES, ignore_errors=True); CASES.mkdir()
+    shutil.rmtree(GEN, ignore_errors=True); GEN.mkdir(exist_ok=True)
+    shutil.rmtree(CASES, ignore_errors=True); CASES.mkdir(exist_ok=True)
 
     # 개요: 상태별 건수 · 다가오는 기일 · 최근 2주 움직임
     cnt = Counter(c["status"] for c in items)
