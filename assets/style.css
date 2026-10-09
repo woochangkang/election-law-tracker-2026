@@ -44,3 +44,18 @@ button.kpi[aria-pressed="true"] { border-color: #3b5b8c; box-shadow: 0 0 0 2px #
 .res-win { background: #dcfce7; color: #166534; }
 .res-lose { background: #f1f5f9; color: #475569; }
 .res-mixed { background: #fef3c7; color: #92400e; }
+/* 한눈에 보기 */
+.glance { background: #f6f8fc; border: 1px solid #d8e0ee; border-radius: 10px; padding: .8rem 1.1rem .5rem; margin: .4rem 0 .6rem; }
+.glance ul { list-style: none; padding-left: 0; margin: .4rem 0 0; }
+.glance li { margin-bottom: .4rem; line-height: 1.55; }
+.glance li > strong:first-child { display: inline-block; min-width: 5.2em; color: #3b5b8c; }
+/* 접기 */
+.fold { position: relative; }
+.fold.folded { overflow: hidden; }
+.fold.folded::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2.4em;
+  background: linear-gradient(rgba(255,255,255,0), #fff); pointer-events: none; }
+.glossary-box.fold.folded::after { background: linear-gradient(rgba(248,250,252,0), #f8fafc); }
+.lit-card .fold.folded::after { background: linear-gradient(rgba(255,255,255,0), #fff); }
+.fold-btn { display: block; margin: .25rem 0 1rem; padding: .2rem .7rem; font-size: .85rem; color: #3b5b8c;
+  background: #fff; border: 1px solid #c9d4e6; border-radius: 999px; cursor: pointer; }
+.fold-btn:hover { background: #f1f5fb; }
