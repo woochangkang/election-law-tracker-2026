@@ -54,3 +54,4 @@ button.kpi[aria-pressed="true"] { border-color: #3b5b8c; box-shadow: 0 0 0 2px #
 .case-tabs .nav-tabs .nav-link { font-weight: 600; padding: .45rem .9rem; }
 .case-tabs .tab-content { padding-top: .6rem; }
 .tab-empty { color: #6b7280; background: #f8fafc; border: 1px dashed #d8e0ee; border-radius: 8px; padding: .7rem 1rem; }
+.glance-help { margin: .2rem 0 .1rem; font-size: .85rem; }

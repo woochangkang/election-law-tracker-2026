@@ -1,6 +1,6 @@
 # 2026 선거 법·제도 분쟁 트래커 — 일일 수집·브리핑 프롬프트
 
-Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도 페이지에서 독립 / v1.1: 판결 내용(ruling) — 결론·표결·다수·보충·반대의견 요지 / v1.2: 연방대법원 매일 확인(§2-D)·용어 풀이(§2-E)) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
+Version 1.3 (2026-10-10 — v1.3: 독자 수준 = 일반인(docs/reader_level.md), plain_kr·impact_kr 쉬운 말 / v1.0 신설, us-elections-2026.github.io 법·제도 페이지에서 독립 / v1.1: 판결 내용(ruling) — 결론·표결·다수·보충·반대의견 요지 / v1.2: 연방대법원 매일 확인(§2-D)·용어 풀이(§2-E)) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
 
 ## 0. 역할과 실행 환경
 
@@ -10,6 +10,7 @@ Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
 - 실행일 `RUN` = `TZ=Asia/Seoul date +%F` (한국 날짜). 법원 명령·판결 날짜는 **미국 현지 날짜**로 적는다.
 - 직전 실행일 = `ls inbox/20??-??-??.json | tail -1` (없으면 data/cases.json 의 `as_of`). 뉴스 수집 구간은 직전 실행 이후(최대 72시간).
 - 조사는 영어로, 산출물은 한국어로 쓴다.
+- **독자는 미국 법과 이 사건을 잘 모르는 한국의 일반 성인이다.** 사이트에 들어가는 모든 문장(text·summary_kr·status_kr·impact_kr·plain_kr·ruling·litigation·브리핑)은 `docs/reader_level.md`의 기준을 따른다. 먼저 그 파일을 읽어라. 특히 결정이 임시(정지·금지명령·긴급 결정)인지 최종(본안 판결)인지 매번 밝히고, "그래서 무엇이 가능해졌나/막혔나"까지 쓴다.
 
 먼저 읽을 파일: `data/cases.json` 전체(사건 id·상태·다음 기일·최근 확인일·`scotus_dockets` — 중복 방지와 후속 확인의 기준), `data/glossary.json`의 용어 목록(term·match만).
 
@@ -133,9 +134,10 @@ Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
       "title_kr": "위스콘신 투표함(drop box) 위치 제한 소송", "name_en": "DSCC v. Wisconsin Elections Commission (Dane Cty. Cir. Ct.)",
       "court": "데인 카운티 순회법원", "states": ["WI"],
       "status": "pending", "status_kr": "제소 — 가처분 심리 대기", "next_date": "2026-10-15", "next_kr": "가처분 심리",
-      "summary_kr": "2~3문장. 무엇을 다투는지, 누가 누구를 상대로.",
+      "plain_kr": "쉽게 말하면 1~2문장 — 법률 용어 없이 누가 무엇을 하려 했고 왜 법정에 갔나",
+      "summary_kr": "3~5문장. 무엇을 다투는지, 누가 누구를 상대로, 지금 어디까지(일반인 수준).",
       "detail": [{"heading": "원고와 피고의 주장", "md": "- 원고(…): …\n- 피고(…): …"}],
-      "impact_kr": "1~2문장. 출처가 말한 선거 영향만. 모르면 null.",
+      "impact_kr": "유권자에게 무엇이 달라지나 2~3문장(투표 방법·등록·우편투표·선거구·후보). 출처가 말한 것만. 모르면 null.",
       "events": [{"date": "2026-10-09", "text": "제소", "url": "https://...", "outlet": "Votebeat", "tier": "news"}],
       "sources": [{"label": "소장(PDF)", "url": "https://..."}]
     }
@@ -148,7 +150,7 @@ Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
             "blocked_sites": [], "notes": ""}
 }
 ```
-`litigation`(선택, 여러 소송이 얽힌 사건): 소송마다 `{name, court, plaintiffs, defendants, issue_kr(쟁점 한 줄, 물음형), plaintiff_claims[], defendant_claims[], rulings:[{date, court, vote, result(원고 승|원고 패|일부), summary_kr, points[], note_kr}]}`. 주장은 한 항목 한 문장, 원문에 없는 주장은 비워 둔다(사이트가 "별도로 확인한 주장 없음"으로 표시). 사이트는 요약표 + 원고|피고 나란히 카드로 그린다. update에 넣으면 통째로 교체. `detail`(선택): 쟁점이 복잡한 사건의 「쟁점 상세」 — `[{heading, md}]` 배열, md는 마크다운(글머리·작은 표). 무엇이 바뀌는지(예: 옛 규칙 대 새 규칙), 원고와 피고 각각의 주장, 법원이 받아들인 논리를 출처 확인한 사실만으로 쓴다. update에 넣으면 기존 상세를 통째로 교체하므로 기존 내용을 고쳐 다시 보낸다. 값 규칙: `scotus_dockets`는 "26A305"(긴급신청)·"25-1017"(상고) 형식. `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
+`litigation`(선택, 여러 소송이 얽힌 사건): 소송마다 `{name, court, plaintiffs, defendants, issue_kr(쟁점 한 줄, 물음형), plaintiff_claims[], defendant_claims[], rulings:[{date, court, vote, result(원고 승|원고 패|일부), summary_kr, points[], note_kr}]}`. 주장은 한 항목 한 문장, 원문에 없는 주장은 비워 둔다(사이트가 "별도로 확인한 주장 없음"으로 표시). 사이트는 요약표 + 원고|피고 나란히 카드로 그린다. update에 넣으면 통째로 교체. `detail`(선택): 쟁점이 복잡한 사건의 「쟁점 상세」 — `[{heading, md}]` 배열, md는 마크다운(글머리·작은 표). 무엇이 바뀌는지(예: 옛 규칙 대 새 규칙), 원고와 피고 각각의 주장, 법원이 받아들인 논리를 출처 확인한 사실만으로 쓴다. update에 넣으면 기존 상세를 통째로 교체하므로 기존 내용을 고쳐 다시 보낸다. 값 규칙: `scotus_dockets`는 "26A305"(긴급신청)·"25-1017"(상고) 형식. `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 상태가 바뀌어 사건의 요약이 낡게 되면 같은 update에 `summary_kr`·`impact_kr`도 새로 써서 넣는다(통째로 교체된다). 날짜는 YYYY-MM-DD.
 
 ## 7. briefings/RUN.md — 일일 브리핑
 

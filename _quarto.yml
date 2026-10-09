@@ -16,6 +16,8 @@ website:
     left:
       - href: index.qmd
         text: 개요
+      - href: primer.qmd
+        text: 처음 읽는 분께
       - href: cases.qmd
         text: 사건표
       - href: log.qmd

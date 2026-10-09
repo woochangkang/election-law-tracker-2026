@@ -123,7 +123,10 @@ def opinion_line(label, o):
 
 def glance_md(c):
     """사건 페이지 맨 위 「한눈에 보기」: 상태 · 다음 기일 · 최근 판결(없으면 최근 움직임) · 선거 영향."""
-    rows = [f"- **상태** {badge(c['status'])} {c.get('status_kr') or ''}"]
+    rows = []
+    if c.get("plain_kr"):
+        rows.append(f"- **쉽게 말하면** {c['plain_kr']}")
+    rows.append(f"- **상태** {badge(c['status'])} {c.get('status_kr') or ''}")
     if c.get("next_kr") or c.get("next_date"):
         rows.append(f"- **다음** {c.get('next_kr') or ''}" + (f" ({c['next_date']})" if c.get("next_date") else ""))
     rs = sorted(c.get("rulings") or [], key=lambda r: r["date"])
@@ -135,9 +138,10 @@ def glance_md(c):
         e = c["events"][-1]
         rows.append(f"- **최근 움직임** {e['date']} — {e['text']}")
     if c.get("impact_kr"):
-        rows.append(f"- **선거 영향** {c['impact_kr']}")
+        rows.append(f"- **유권자에게** {c['impact_kr']}")
     rows.append(f'- **확인** <span class="mu">최근 확인 {c.get("last_checked") or "—"} · 상태 갱신 {c.get("status_updated") or "—"}</span>')
-    return "\n".join(["::: {.glance}", "**한눈에 보기**", ""] + rows + [":::"])
+    return "\n".join(["::: {.glance}", "**한눈에 보기**", ""] + rows +
+                     ["", ":::: {.glance-help .mu}", "처음이신가요? 임시 결정과 최종 판결의 차이 같은 기본 지식은 [처음 읽는 분께](../primer.qmd)에 있습니다.", "::::", ":::"])
 
 
 RESULT_CLS = {"원고 승": "win", "원고 패": "lose", "일부": "mixed"}

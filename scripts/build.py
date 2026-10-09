@@ -164,7 +164,7 @@ def apply_status(case, x, run):
     for k in ("detail", "litigation"):   # 쟁점 상세·소송별 카드는 통째로 교체
         if x.get(k) and case.get(k) != x[k]:
             case[k] = x[k]; changed = True
-    for k in ("status", "status_kr", "next_date", "next_kr"):
+    for k in ("status", "status_kr", "next_date", "next_kr", "plain_kr", "impact_kr", "summary_kr"):
         if k in x and case.get(k) != x[k]:
             case[k] = x[k]; changed = True
     if changed:
@@ -210,7 +210,7 @@ def process(path: Path, cases: dict, stats: dict):
             stats["status"] += apply_status(c, n, run)
         else:
             c = {k: n.get(k) for k in ("id", "category", "title_kr", "name_en", "court", "status", "status_kr",
-                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr", "scotus_dockets", "detail", "litigation")}
+                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr", "scotus_dockets", "detail", "litigation", "plain_kr")}
             c.update(events=[], sources=n.get("sources") or [], first_seen=run, last_checked=run, status_updated=run)
             for e in n["events"]:
                 add_event(c, e)
