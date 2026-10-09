@@ -1,0 +1,16 @@
+{
+  "run_date": "2026-10-10",
+  "window": {"news_from": "2026-10-09", "news_to": "2026-10-10"},
+  "updates": [],
+  "checks": [
+    {"case_id": "ak-taylor", "note": "10/10 검색 기준 10/8 APOC 절차·법원 결정 보도를 찾지 못함(CourtListener 접근 차단, 직접 확인 못 함)"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {"searches_R_side": 2, "searches_D_side": 2, "searches_topic": 6, "followups_due": 1, "followups_checked": 1,
+    "scotus": {"term": "26", "pages_opened": [], "dockets_checked": [], "new_entries": 0,
+      "blocked": ["https://www.supremecourt.gov/orders/ordersofthecourt/26", "https://www.supremecourt.gov/opinions/relatingtoorders/26", "https://www.supremecourt.gov/opinions/slipopinion/26 (모두 네트워크 프록시 EGRESS_BLOCKED, scotus_dockets 전부 확인 못 함)"]},
+    "blocked_sites": ["supremecourt.gov", "democracydocket.com", "courtlistener.com"],
+    "notes": "대법원 페이지·docket 직접 열람 불가로 SCOTUSblog 등 검색 요약만 사용(직전 실행 이후 새 대법원 선거 명령은 검색에서 확인되지 않음). 검색에서 새 움직임은 찾지 못했다. 단서: RNC가 뉴저지 선거인명부 기록 열람 소송을 9/22 다시 제기(Democracy Docket, 본문 열람 못 함) — 수집 구간 밖이고 원문 미확인이라 싣지 않음. 후속 실행에서 확인 필요."
+  }
+}
