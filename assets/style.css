@@ -20,3 +20,13 @@ button.kpi:hover { border-color: #3b5b8c; }
 button.kpi[aria-pressed="true"] { border-color: #3b5b8c; box-shadow: 0 0 0 2px #3b5b8c33; background: #f6f8fc; }
 .case-filter { list-style: none; padding-left: 0; margin: .6rem 0 1.4rem; }
 .case-filter li { padding: .3rem 0; border-bottom: 1px solid #f0f1f3; }
+.term { border-bottom: 1px dotted #3b5b8c; cursor: help; position: relative; }
+.term:hover::after, .term:focus::after {
+  content: attr(data-tip); position: absolute; left: 0; top: 1.5em; z-index: 20;
+  width: max-content; max-width: min(24rem, 80vw); white-space: normal;
+  background: #1f2937; color: #fff; font-size: .82rem; font-weight: 400; line-height: 1.5;
+  padding: .5rem .65rem; border-radius: 6px; box-shadow: 0 4px 14px rgba(0,0,0,.18);
+}
+.term:focus { outline: none; }
+.glossary-box { background: #f8fafc; border: 1px solid #e5e7eb; border-radius: 8px; padding: .8rem 1rem; margin-top: 1.6rem; font-size: .9rem; }
+.glossary-box ul { margin-bottom: .4rem; }

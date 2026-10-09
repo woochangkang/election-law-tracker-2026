@@ -36,6 +36,7 @@ STATUS = {"pending", "active", "ruled", "closed", "enjoined"}
 TIERS = {"court", "government", "news", "advocacy", "party"}
 DATE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 ID = re.compile(r"^[a-z0-9][a-z0-9-]{1,40}$")
+DOCKET = re.compile(r"^\d{2}(A\d{1,4}|-\d{1,5})$")   # 대법원 사건번호: 26A305(긴급신청) · 25-1017(상고)
 
 
 def load(p: Path, default):
@@ -98,6 +99,33 @@ def add_ruling(case, r):
     return True
 
 
+def add_dockets(case, ds):
+    cur = case.setdefault("scotus_dockets", [])
+    new = [d for d in ds if d not in cur]
+    cur += new
+    return bool(new)
+
+
+def merge_glossary(raw, rejected, stats):
+    """inbox 의 glossary 배열 → data/glossary.json. 새 용어만 추가(기존 풀이는 사람이 고친다)."""
+    if not raw.get("glossary"):
+        return
+    p = DATA / "glossary.json"
+    g = load(p, {"items": []})
+    known = {m for it in g["items"] for m in [it["term"], *(it.get("match") or [])]}
+    for t in raw["glossary"]:
+        errs = [f"{k} 없음" for k in ("term", "explain_kr", "category") if not str(t.get(k) or "").strip()]
+        if errs:
+            rejected.append({"section": "glossary", "item": t, "reasons": errs}); continue
+        match = [m for m in (t.get("match") or [t["term"]]) if m not in known]
+        if t["term"] in known or not match:
+            continue
+        g["items"].append({"category": t["category"], "term": t["term"], "match": match, "explain_kr": t["explain_kr"]})
+        known.update(match + [t["term"]])
+        stats["glossary"] += 1
+    save(p, g)
+
+
 def add_event(case, e):
     ev = {k: e.get(k) for k in ("date", "text", "url", "outlet", "tier") if e.get(k) is not None}
     for o in case.setdefault("events", []):
@@ -135,6 +163,9 @@ def process(path: Path, cases: dict, stats: dict):
         if isinstance(n.get("states"), list) and set(n["states"]) - STATES:
             errs.append(f"states 오류: {sorted(set(n['states']) - STATES)}")
         check_status_fields(n, errs)
+        for d in n.get("scotus_dockets") or []:
+            if not DOCKET.match(str(d)):
+                errs.append(f"scotus_dockets 형식 오류: {d!r}")
         for i, e in enumerate(n.get("events") or []):
             check_event(e, errs, f"events[{i}]")
         for i, r in enumerate(n.get("rulings") or []):
@@ -145,12 +176,13 @@ def process(path: Path, cases: dict, stats: dict):
             c = cases[n["id"]]
             for e in n["events"]:
                 stats["events"] += add_event(c, e)
+            add_dockets(c, n.get("scotus_dockets") or [])
             for r in n.get("rulings") or []:
                 stats["rulings"] += add_ruling(c, r)
             stats["status"] += apply_status(c, n, run)
         else:
             c = {k: n.get(k) for k in ("id", "category", "title_kr", "name_en", "court", "status", "status_kr",
-                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr")}
+                                       "summary_kr", "impact_kr", "states", "next_date", "next_kr", "scotus_dockets")}
             c.update(events=[], sources=n.get("sources") or [], first_seen=run, last_checked=run, status_updated=run)
             for e in n["events"]:
                 add_event(c, e)
@@ -168,11 +200,15 @@ def process(path: Path, cases: dict, stats: dict):
         check_status_fields(u, errs)
         if u.get("ruling") is not None:
             check_ruling(u["ruling"], errs, "update.ruling")
+        for d in u.get("scotus_dockets") or []:
+            if not DOCKET.match(str(d)):
+                errs.append(f"scotus_dockets 형식 오류: {d!r}")
         if errs:
             rejected.append({"section": "updates", "item": u, "reasons": errs}); continue
         stats["events"] += add_event(c, u)
         if u.get("ruling"):
             stats["rulings"] += add_ruling(c, u["ruling"])
+        add_dockets(c, u.get("scotus_dockets") or [])
         stats["status"] += apply_status(c, u, run)
         c["last_checked"] = max(c.get("last_checked") or run, run)
 
@@ -182,6 +218,8 @@ def process(path: Path, cases: dict, stats: dict):
             rejected.append({"section": "checks", "item": ck, "reasons": [f"없는 case_id: {ck.get('case_id')!r}"]}); continue
         c["last_checked"] = max(c.get("last_checked") or run, run)
         stats["checks"] += 1
+
+    merge_glossary(raw, rejected, stats)
 
     rej = path.with_suffix(".rejected.json")
     if rejected:
@@ -196,7 +234,7 @@ def main():
     doc = load(cases_p, {"as_of": None, "items": []})
     cases = {x["id"]: x for x in doc["items"]}
     state = load(state_p, {"processed": {}})
-    stats = dict(files=0, new=0, events=0, rulings=0, status=0, checks=0, rejected=0)
+    stats = dict(files=0, new=0, events=0, rulings=0, status=0, checks=0, glossary=0, rejected=0)
     for p in sorted(INBOX.glob("20??-??-??.json")):
         h = hashlib.sha1(p.read_bytes()).hexdigest()
         if state["processed"].get(p.name) == h:
@@ -214,7 +252,7 @@ def main():
     doc["items"] = list(cases.values())
     save(cases_p, doc)
     save(state_p, state)
-    print("build: inbox {files} · 새 사건 {new} · 새 이벤트 {events} · 판결 {rulings} · 상태 변경 {status} · 확인만 {checks} · 거부 {rejected}".format(**stats))
+    print("build: inbox {files} · 새 사건 {new} · 새 이벤트 {events} · 판결 {rulings} · 상태 변경 {status} · 확인만 {checks} · 새 용어 {glossary} · 거부 {rejected}".format(**stats))
     print(f"cases.json: {len(cases)}건 · as_of {doc['as_of']} · 오늘(KST) {dt.datetime.now(dt.timezone(dt.timedelta(hours=9))):%Y-%m-%d}")
 
 

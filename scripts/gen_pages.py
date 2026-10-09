@@ -3,12 +3,14 @@
 
 산출: _gen/overview.md(index.qmd 포함) · _gen/table.md(cases.qmd 포함) · _gen/log.md(log.qmd 포함)
       cases/<id>.qmd — 사건별 상세 페이지
-사용: python3 scripts/gen_pages.py
+사용: python3 scripts/gen_pages.py   (배포 때 추가로 --briefings: 일일 브리핑에 용어 풀이, 커밋 금지)
 """
 from __future__ import annotations
 
 import datetime as dt
+import html
 import json
+import re
 import shutil
 from collections import Counter
 from pathlib import Path
@@ -26,6 +28,65 @@ STATE_KR = {"US": "연방", "AL": "앨라배마", "AK": "알래스카", "AZ": "�
             "OK": "오클라호마", "OR": "오리건", "PA": "펜실베이니아", "RI": "로드아일랜드", "SC": "사우스캐롤라이나",
             "SD": "사우스다코타", "TN": "테네시", "TX": "텍사스", "UT": "유타", "VT": "버몬트", "VA": "버지니아",
             "WA": "워싱턴", "WV": "웨스트버지니아", "WI": "위스콘신", "WY": "와이오밍", "DC": "워싱턴 DC"}
+
+
+class Glossary:
+    """data/glossary.json 의 용어를 페이지에서 처음 나오는 곳에 풀이(툴팁)로 감싼다.
+    머리말(YAML)·제목 줄·링크 주소·HTML 태그·이미 감싼 용어 안은 건드리지 않는다. 영문 용어는 단어 경계에서만 맞춘다."""
+    PROTECT = re.compile(r'<span class="term".*?</span>|<[^>]+>|\]\([^)]*\)|https?://\S+|`[^`]*`|\{[^}]*\}')
+
+    def __init__(self):
+        p = REPO / "data" / "glossary.json"
+        self.items = json.loads(p.read_text())["items"] if p.exists() else []
+        pats = []
+        for it in self.items:
+            for m in it.get("match") or [it["term"]]:
+                rx = re.escape(m)
+                if re.fullmatch(r"[A-Za-z][A-Za-z .\-]*", m):
+                    rx = rf"(?<![A-Za-z]){rx}(?![A-Za-z])"
+                pats.append((len(m), re.compile(rx), it))
+        self.pats = sorted(pats, key=lambda z: -z[0])
+
+    def _wrap_first(self, text, rx, it):
+        pos, out = 0, []
+        for m in list(self.PROTECT.finditer(text)) + [None]:
+            end = m.start() if m else len(text)
+            seg = text[pos:end]
+            hit = rx.search(seg)
+            if hit:
+                tip = html.escape(it["explain_kr"], quote=True)
+                seg = seg[:hit.start()] + f'<span class="term" tabindex="0" data-tip="{tip}">{hit.group()}</span>' + seg[hit.end():]
+                return "".join(out) + seg + text[end:], True
+            out.append(seg + (m.group() if m else ""))
+            pos = m.end() if m else end
+        return text, False
+
+    def page(self, md, box=True, root=""):
+        """md 전체에 첫 등장 풀이를 달고, box=True면 끝에 「용어 풀이」 상자를 붙인다."""
+        lines, body_from = md.split("\n"), 0
+        if lines and lines[0].strip() == "---":
+            body_from = next((i for i in range(1, len(lines)) if lines[i].strip() == "---"), 0) + 1
+        idx = [i for i in range(body_from, len(lines)) if not lines[i].lstrip().startswith(("#", ":::", "|---"))]
+        used = []
+        for _, rx, it in self.pats:
+            if it in used:
+                continue
+            for i in idx:
+                lines[i], ok = self._wrap_first(lines[i], rx, it)
+                if ok:
+                    used.append(it); break
+        out = "\n".join(lines)
+        if box and used:
+            rows = "\n".join(f"- **{it['term']}** — {it['explain_kr']}" for it in used)
+            out += f'\n\n::: {{.glossary-box}}\n**용어 풀이**\n\n{rows}\n\n[전체 용어 풀이]({root}glossary.qmd)\n:::\n'
+        return out
+
+    def glossary_md(self):
+        out = []
+        for cat in dict.fromkeys(it["category"] for it in self.items):
+            out.append(f"\n## {cat}\n")
+            out += [f"- **{it['term']}** — {it['explain_kr']}" for it in self.items if it["category"] == cat]
+        return "\n".join(out) + "\n"
 
 
 def cell(s):
@@ -79,6 +140,7 @@ def ruling_md(r):
 def main():
     doc = json.loads((REPO / "data" / "cases.json").read_text())
     items = doc["items"]
+    G = Glossary()
     today = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date()
     shutil.rmtree(GEN, ignore_errors=True); GEN.mkdir()
     shutil.rmtree(CASES, ignore_errors=True); CASES.mkdir()
@@ -105,7 +167,7 @@ def main():
                      if dt.date.fromisoformat(e["date"]) >= today - dt.timedelta(days=14)), key=lambda z: z[0]["date"], reverse=True)
     o.append("\n\n## 최근 2주 움직임\n")
     o += [ev_line(e, c) for e, c in recent] or ["- 최근 2주 안에 기록된 움직임이 없습니다."]
-    (GEN / "overview.md").write_text("\n".join(o) + "\n")
+    (GEN / "overview.md").write_text(G.page("\n".join(o) + "\n", box=False))
 
     # 사건표
     rows = sorted(items, key=lambda c: (c.get("last_date") or ""), reverse=True)
@@ -117,7 +179,8 @@ def main():
 
     # 날짜별 기록
     allev = sorted(((e, c) for c in items for e in c.get("events", [])), key=lambda z: z[0]["date"], reverse=True)
-    (GEN / "log.md").write_text("\n".join(ev_line(e, c) for e, c in allev) + "\n")
+    (GEN / "log.md").write_text(G.page("\n".join(ev_line(e, c) for e, c in allev) + "\n", box=False))
+    (GEN / "glossary.md").write_text(G.glossary_md())
 
     # 사건 상세
     for c in items:
@@ -138,9 +201,18 @@ def main():
         if src:
             body += ["## 주요 출처", "", src, ""]
         body.append(f'<p class="mu">최근 확인 {c.get("last_checked") or "—"} · 상태 갱신 {c.get("status_updated") or "—"} · [사건표로](../cases.qmd)</p>')
-        (CASES / f"{c['id']}.qmd").write_text("\n".join(body) + "\n")
+        (CASES / f"{c['id']}.qmd").write_text(G.page("\n".join(body) + "\n", root="../"))
     print(f"gen_pages: 사건 {len(items)}쪽 · 다가오는 기일 {len(up)} · 최근 2주 이벤트 {len(recent)} · 전체 이벤트 {len(allev)}")
 
 
+def annotate_briefings():
+    """배포 작업 공간에서만 쓴다(Actions): briefings/*.md 에 용어 풀이를 달아 덮어쓴다. 커밋하지 않는다."""
+    G = Glossary()
+    for p in sorted((REPO / "briefings").glob("20??-??-??.md")):
+        p.write_text(G.page(p.read_text(), root="../"))
+    print("annotate_briefings: 완료")
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+    annotate_briefings() if "--briefings" in sys.argv else main()

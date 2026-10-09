@@ -21,6 +21,8 @@ website:
         text: 날짜별 기록
       - href: briefings.qmd
         text: 일일 브리핑
+      - href: glossary.qmd
+        text: 용어 풀이
       - href: about.qmd
         text: 자료와 방법
 

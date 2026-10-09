@@ -40,6 +40,9 @@ def summary(d, rej):
         "후속 확인 대상": audit_sum(d, "followups_due"), "후속 확인 수행": audit_sum(d, "followups_checked"),
         "움직임(updates)": len(d.get("updates") or []), "확인만(checks)": len(d.get("checks") or []),
         "새 사건": len(d.get("new_cases") or []), "거부": len(rej or []),
+        "대법원 페이지 열람": sum(len(((a or {}).get("scotus") or {}).get("pages_opened") or []) for a in [d.get("audit")] + list(d.get("audit_runs") or [])),
+        "대법원 docket 확인": sum(len(((a or {}).get("scotus") or {}).get("dockets_checked") or []) for a in [d.get("audit")] + list(d.get("audit_runs") or [])),
+        "새 용어": len(d.get("glossary") or []),
         "상태 변경 제안": sum(1 for u in d.get("updates") or [] if "status" in u),
         "court 출처 비율": "{:.0%}".format(
             (lambda xs: sum(1 for x in xs if x.get("tier") == "court") / len(xs) if xs else 0)(list(ev_keys(d).values()))),

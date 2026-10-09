@@ -1,6 +1,6 @@
 # 2026 선거 법·제도 분쟁 트래커 — 일일 수집·브리핑 프롬프트
 
-Version 1.1 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도 페이지에서 독립 / v1.1: 판결 내용(ruling) — 결론·표결·다수·보충·반대의견 요지) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
+Version 1.2 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도 페이지에서 독립 / v1.1: 판결 내용(ruling) — 결론·표결·다수·보충·반대의견 요지 / v1.2: 연방대법원 매일 확인(§2-D)·용어 풀이(§2-E)) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
 
 ## 0. 역할과 실행 환경
 
@@ -11,7 +11,7 @@ Version 1.1 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
 - 직전 실행일 = `ls inbox/20??-??-??.json | tail -1` (없으면 data/cases.json 의 `as_of`). 뉴스 수집 구간은 직전 실행 이후(최대 72시간).
 - 조사는 영어로, 산출물은 한국어로 쓴다.
 
-먼저 읽을 파일: `data/cases.json` 전체(사건 id·상태·다음 기일·최근 확인일 — 중복 방지와 후속 확인의 기준).
+먼저 읽을 파일: `data/cases.json` 전체(사건 id·상태·다음 기일·최근 확인일·`scotus_dockets` — 중복 방지와 후속 확인의 기준), `data/glossary.json`의 용어 목록(term·match만).
 
 ## 1. 수집 범위
 
@@ -48,6 +48,23 @@ Version 1.1 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
 - 대법관 이름은 한국어 표기(로버츠·토머스·알리토·소토마요르·케이건·고서치·캐버노·배럿·잭슨), 하급심 판사는 영문 성 + "판사"(예: Talwani 판사).
 - 같은 판결을 다음 날 보강하면(반대의견 요지 추가 등) 같은 date·court로 다시 보내면 교체된다.
 
+### D. 연방대법원 매일 확인 (매 실행 의무 — 검색이 아니라 페이지를 직접 연다)
+대법원 긴급 명령은 언론 보도가 늦거나 짧아 놓치기 쉽다(9/25 SAVE·미주리 명령을 2주간 놓친 전례). 매 실행 아래를 **직접 연다**. 개정기 번호 `T` = 10월 첫 월요일 이후면 올해 뒤 두 자리(2026-10-05 이후 → 26), 그 전이면 작년.
+1. 명령 목록: `https://www.supremecourt.gov/orders/ordersofthecourt/T` — 직전 실행 이후 날짜의 Order List·Miscellaneous Order를 열어 선거 관련 사건(투표·등록·명부·선거구·선거자금·후보 자격)을 찾는다.
+2. 명령 관련 의견: `https://www.supremecourt.gov/opinions/relatingtoorders/T` — 긴급신청에 붙은 보충·반대의견.
+3. 판결: `https://www.supremecourt.gov/opinions/slipopinion/T` — 새 본안 판결.
+4. 추적 중인 docket: `data/cases.json`의 `scotus_dockets` 전부를 `https://www.supremecourt.gov/docket/docketfiles/html/public/<번호 소문자>.html`로 열어, 맨 아래 항목 날짜가 그 사건의 `last_checked` 이후인지 본다. 새 항목(신청·답변서·명령)이 있으면 `updates`, 없으면 `checks`(note에 "docket 26A308 새 항목 없음").
+5. 새 선거 사건 찾기: SCOTUSblog의 긴급신청 기사와 `site:supremecourt.gov` + 선거 키워드 1회. 새 신청·상고가 기존 사건에 붙으면 update의 `scotus_dockets`에 번호를 넣는다(예: `["26A410"]`). 새 사건이면 new_cases의 `scotus_dockets`.
+- 대법원 페이지가 열리지 않으면(403·시간 초과) 그 사실과 URL을 `audit.scotus.blocked`에 적고 SCOTUSblog로 대신 확인한다.
+- 대법원은 10월~6월 개정기 중 보통 월요일에 Order List, 수시로 Miscellaneous Order를 낸다. 명령이 없는 날도 1~4는 연다.
+
+### E. 용어 풀이 (새 용어가 나오면)
+사이트는 `data/glossary.json`의 용어에 자동으로 풀이를 붙인다. 오늘 산출물(inbox의 text·summary·ruling, 브리핑)에 **일반 성인이 모를 법한 법률·제도 용어**가 새로 나왔는데 glossary에 없으면 `glossary` 배열에 추가한다.
+- 대상: 법원 절차(예: 구두변론, 이송), 판결 형식, 법률·조항 이름(약어 포함), 주별 기관·서류 이름. 일상어·사람 이름·사건명은 넣지 않는다.
+- `explain_kr`: 1~3문장, 평서문(습니다체). 영문 원어를 맨 앞에 한 번(예: "Oral argument. …"). 특정 사건의 사실은 넣지 않고 일반적 의미만. 확실하지 않으면 넣지 않는다.
+- `match`: 본문에 실제로 쓰는 표기들(한국어·영문). 다른 단어의 일부로 잘못 걸릴 짧은 표기(예: "2조", "90일")는 피한다.
+- `category` ∈ 절차 | 판결 의견 | 법원 | 법률·제도 | 선거자금 | 주별 기관·서류. 이미 있는 용어는 다시 넣지 않는다(기존 풀이 수정은 사람이 한다).
+
 ### C. 새 사건
 수집 구간 안에 새로 생긴 소송·행정명령·규칙·주법·재획정 지도 분쟁 → `new_cases`. 기준: 11월 3일 선거에서 어느 주든 유권자·후보·선관위가 실제로 따라야 할 규칙이 바뀌거나 바뀔 수 있는 것. 같은 쟁점의 다른 법원 소송은 새 사건이 아니라 기존 사건의 `updates`로 넣는다(`court` 서술은 사람이 정리한다).
 
@@ -57,7 +74,7 @@ Version 1.1 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
 - tier `government`: 법무부·국토안보부·USPS·EAC·FEC·주 국무장관 발표. tier `advocacy`: Democracy Docket, Brennan Center, ACLU, Campaign Legal Center, Heritage·Honest Elections Project 등 당사자·옹호 단체. tier `party`: RNC·DNC·DSCC·NRSC 등 당 발표. tier `news`: SCOTUSblog, Votebeat, Election Law Blog(Rick Hasen), Bolts, AP, Reuters, Politico, NYT, WaPo, 지역 언론.
 - **양쪽 소송을 같은 무게로 검색한다**: 공화당·법무부·보수 단체가 제기한 소송(RNC v. …, United States v. [주], 명부 정비·시민권 증명 요구)과 민주당·진보 단체가 제기한 소송(DNC·DSCC·Elias Law Group·LWV·ACLU v. …)을 각각 검색하고 횟수를 `audit`에 적는다. 한쪽 소식이 실제로 많으면 그대로 싣고 브리핑 「읽는 법」에 쓴다.
 - Democracy Docket처럼 한쪽 당사자에 가까운 매체만 있는 사실은 그 매체 이름을 `outlet`에 그대로 적는다(독자가 판단한다).
-- **최소 검색량(매 실행)**: 후속 확인 대상 전부 + 연방대법원 주문 목록·긴급신청 1회 + 공화 측 소송 3회 + 민주 측 소송 3회 + 주제별(우편투표·명부·재획정·선거자금·인증) 각 1회. 적게 했으면 이유를 `audit.notes`에.
+- **최소 검색량(매 실행)**: 후속 확인 대상 전부 + §2-D 대법원 페이지 직접 열람(검색 횟수와 별도로 `audit.scotus`에 기록) + 공화 측 소송 3회 + 민주 측 소송 3회 + 주제별(우편투표·명부·재획정·선거자금·인증) 각 1회. 적게 했으면 이유를 `audit.notes`에.
 - **본문 열람이 막힐 때**: 검색 결과의 제목·날짜·요약·URL로 기록하고 `text` 끝에 "(검색 요약 기준)"을 붙인다. 판결·명령의 **결론**(인용·기각·정지)은 검색 요약이 분명히 말할 때만 쓴다.
 - 권장 검색어: `Supreme Court emergency application election`, `site:supremecourt.gov 26A`, `"election" lawsuit filed [this week]`, `RNC lawsuit voter rolls`, `Justice Department sues state voter rolls`, `DNC lawsuit election`, `Elias Law Group lawsuit`, `mail ballot ruling`, `redistricting map court ruling 2026`, `proof of citizenship voter registration court`, `certification county board lawsuit`, `Democracy Docket`, `Votebeat`, `SCOTUSblog election`.
 
@@ -71,8 +88,8 @@ Version 1.1 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
 
 ## 5. 작업 순서
 
-1. 실행일·직전 실행일 확인, `data/cases.json` 읽기, §2-A 후속 확인 목록 만들기.
-2. 후속 확인 → 새 움직임 → 새 사건 검색(양쪽 균형).
+1. 실행일·직전 실행일 확인, `data/cases.json`·`data/glossary.json` 읽기, §2-A 후속 확인 목록 만들기.
+2. §2-D 연방대법원 확인 → 후속 확인 → 새 움직임 → 새 사건 검색(양쪽 균형) → §2-E 새 용어 점검.
 3. `inbox/RUN.json` 작성(§6). **같은 날 재실행이면 덮어쓰지 않는다** — 기존 파일의 항목을 유지하고 새 항목만 각 배열 끝에 추가(audit는 `audit_runs` 배열에 이번 실행분 추가).
 4. `python3 scripts/build.py` 실행. `inbox/RUN.rejected.json`이 생기면 사유를 읽고 형식 오류만 고쳐 한 번 더 실행. 사실을 모르는 항목은 고치지 말고 빼라.
 5. `briefings/RUN.md` 작성(§7). 같은 날 재실행이면 끝에 `## 추가 수집 (HH:MM KST 실행분)` 절을 붙인다.
@@ -122,10 +139,15 @@ Version 1.1 (2026-10-09 — v1.0 신설, us-elections-2026.github.io 법·제도
       "sources": [{"label": "소장(PDF)", "url": "https://..."}]
     }
   ],
-  "audit": {"searches_R_side": 0, "searches_D_side": 0, "searches_topic": 0, "followups_due": 0, "followups_checked": 0, "blocked_sites": [], "notes": ""}
+  "glossary": [
+    {"category": "절차", "term": "구두변론", "match": ["구두변론", "oral argument"], "explain_kr": "Oral argument. 대법원·항소법원에서 양측 변호인이 판사들 앞에서 30분 안팎 주장하고 질문에 답하는 절차입니다. 판결은 보통 몇 달 뒤에 나옵니다."}
+  ],
+  "audit": {"searches_R_side": 0, "searches_D_side": 0, "searches_topic": 0, "followups_due": 0, "followups_checked": 0,
+            "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305"], "new_entries": 0, "blocked": []},
+            "blocked_sites": [], "notes": ""}
 }
 ```
-값 규칙: `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
+값 규칙: `scotus_dockets`는 "26A305"(긴급신청)·"25-1017"(상고) 형식. `id`는 영소문자·숫자·하이픈(주 약자로 시작 권장, 연방은 주제어). `states`는 두 글자 주 약자 배열, 연방 전체는 `["US"]`. `tier` ∈ court | government | news | advocacy | party. 새 사건이 이미 판결을 받았으면 `new_cases[].rulings` 배열에 같은 ruling 객체를 넣는다. ruling 필수: date·court·decision_kr·url. 상태 필드(`status`·`status_kr`·`next_date`·`next_kr`)는 바뀔 때만 넣는다. 날짜는 YYYY-MM-DD.
 
 ## 7. briefings/RUN.md — 일일 브리핑
 
@@ -146,6 +168,9 @@ description: "한 줄 요약(가장 큰 움직임 1개)"
 ## 새 사건
 없으면 "없음".
 
+## 연방대법원
+오늘 확인한 명령 목록·의견·docket에서 선거 관련 새 항목. 없으면 "새 명령 없음(확인: 명령 목록·의견·추적 docket N건)".
+
 ## 다가오는 기일 (10일 이내)
 - 날짜 · 사건 · 절차
 
@@ -153,6 +178,6 @@ description: "한 줄 요약(가장 큰 움직임 1개)"
 1~3개. 한쪽 매체만 있는 사실, 출처 간 상충, 접근이 막혀 확인 못 한 것.
 
 ## 수집 점검
-- 검색: 공화 측 N회 · 민주 측 N회 · 주제 N회 / 후속 확인 N/N건 / 거부 N건(사유) / 접근 차단: …
+- 검색: 공화 측 N회 · 민주 측 N회 · 주제 N회 / 대법원 페이지 N개·docket N건 / 후속 확인 N/N건 / 새 용어 N / 거부 N건(사유) / 접근 차단: …
 ```
-문체: 한국어 평서문(다체), 문장은 짧게. 과장·단정 없이. 법원·기관명은 처음 한 번만 영문 병기(예: 제5순회항소법원(Fifth Circuit)). 사건명은 영문 그대로(예: Louisiana v. Callais).
+문체: 한국어 평서문(다체), 문장은 짧게. 용어 풀이는 사이트가 자동으로 붙이므로 본문에서 따로 괄호 설명을 길게 달지 않는다. 과장·단정 없이. 법원·기관명은 처음 한 번만 영문 병기(예: 제5순회항소법원(Fifth Circuit)). 사건명은 영문 그대로(예: Louisiana v. Callais).
