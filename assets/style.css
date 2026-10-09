@@ -1,0 +1,17 @@
+body { font-family: "Pretendard", -apple-system, "Apple SD Gothic Neo", sans-serif; }
+.summary { background: #f6f7f9; border-left: 4px solid #3b5b8c; padding: .8rem 1.1rem; margin: 1rem 0 1.4rem; }
+.summary ul { margin: 0; }
+.mu { color: #6b7280; font-size: .9rem; }
+.d { font-variant-numeric: tabular-nums; margin-right: .35rem; }
+.st { display: inline-block; padding: .05rem .5rem; border-radius: 999px; font-size: .82rem; font-weight: 600; white-space: nowrap; }
+.st-pending { background: #fef3c7; color: #92400e; }
+.st-active { background: #dbeafe; color: #1e40af; }
+.st-enjoined { background: #fee2e2; color: #991b1b; }
+.st-ruled { background: #e0e7ff; color: #3730a3; }
+.st-closed { background: #e5e7eb; color: #374151; }
+.kpis { display: flex; flex-wrap: wrap; gap: .6rem; margin: .4rem 0; }
+.kpi { border: 1px solid #e5e7eb; border-radius: 8px; padding: .5rem .9rem; min-width: 84px; text-align: center; }
+.kpi .n { font-size: 1.6rem; font-weight: 700; line-height: 1.2; }
+.cases-table td, .cases-table th { font-size: .9rem; vertical-align: top; }
+.timeline ul { list-style: none; padding-left: 0; border-left: 2px solid #e5e7eb; }
+.timeline li { padding-left: .8rem; margin-bottom: .45rem; }

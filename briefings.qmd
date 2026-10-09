@@ -1,0 +1,16 @@
+---
+title: "일일 브리핑"
+subtitle: "매일 아침(한국 시간) 수집 결과를 정리한 법·제도 브리핑"
+listing:
+  contents: "briefings/*.md"
+  sort: "date desc"
+  type: table
+  fields: [date, title, description]
+  field-display-names:
+    date: "날짜"
+    title: "제목"
+    description: "요약"
+  date-format: "YYYY-MM-DD"
+  sort-ui: false
+  filter-ui: false
+---

@@ -1,0 +1,7 @@
+---
+title: "사건표"
+subtitle: "사건별 현재 상태 — 이름을 누르면 상세 페이지"
+page-layout: full
+---
+
+{{< include _gen/table.md >}}

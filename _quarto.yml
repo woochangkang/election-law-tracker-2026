@@ -1,0 +1,34 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "*.qmd"
+    - "cases/*.qmd"
+    - "briefings/*.md"
+
+website:
+  title: "2026 미국 선거 법·제도 분쟁 트래커"
+  site-url: "https://woochangkang.github.io/election-law-tracker-2026/"
+  navbar:
+    left:
+      - href: index.qmd
+        text: 개요
+      - href: cases.qmd
+        text: 사건표
+      - href: log.qmd
+        text: 날짜별 기록
+      - href: briefings.qmd
+        text: 일일 브리핑
+      - href: about.qmd
+        text: 자료와 방법
+
+format:
+  html:
+    theme: cosmo
+    css: assets/style.css
+    lang: ko
+    toc: false
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
