@@ -55,10 +55,17 @@ def main():
 
     # 개요: 상태별 건수 · 다가오는 기일 · 최근 2주 움직임
     cnt = Counter(c["status"] for c in items)
-    o = [f'<div class="kpis">' + "".join(
-        f'<div class="kpi"><div class="n">{cnt.get(s, 0)}</div><div class="l">{badge(s)}</div></div>' for s in STATUS_ORDER)
-        + f'<div class="kpi"><div class="n">{len(items)}</div><div class="l">전체 사건</div></div></div>\n',
-        f'<p class="mu">기준 {doc.get("as_of")} · 상태 정의는 [자료와 방법](about.qmd)</p>\n']
+    # 상태 상자 = 필터 버튼(assets/filter.js). 아래 목록의 data-status 로 보이기/숨기기.
+    o = [f'<div class="kpis" role="group" aria-label="상태로 거르기">' + "".join(
+        f'<button type="button" class="kpi" data-filter="{s}" aria-pressed="false"><div class="n">{cnt.get(s, 0)}</div>'
+        f'<div class="l">{badge(s)}</div></button>' for s in STATUS_ORDER)
+        + f'<button type="button" class="kpi" data-filter="all" aria-pressed="true"><div class="n">{len(items)}</div>'
+          f'<div class="l">전체 사건</div></button></div>\n',
+        f'<p class="mu">기준 {doc.get("as_of")} · 상자를 누르면 그 상태의 사건만 보입니다 · 상태 정의는 [자료와 방법](about.qmd)</p>\n',
+        '<ul class="case-filter">'] + [
+        f'<li data-status="{c["status"]}">{badge(c["status"])} <a href="cases/{c["id"]}.html">{c["title_kr"]}</a>'
+        f' <span class="mu">— {c.get("status_kr") or ""}</span></li>'
+        for c in sorted(sorted(items, key=lambda c: c.get("last_date") or "", reverse=True), key=lambda c: STATUS_ORDER.index(c["status"]))] + ['</ul>\n']
     up = sorted((c for c in items if c.get("next_date") and dt.date.fromisoformat(c["next_date"]) >= today - dt.timedelta(days=3)),
                 key=lambda c: c["next_date"])
     o.append("\n## 다가오는 기일\n")

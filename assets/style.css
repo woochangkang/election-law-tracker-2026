@@ -15,3 +15,8 @@ body { font-family: "Pretendard", -apple-system, "Apple SD Gothic Neo", sans-ser
 .cases-table td, .cases-table th { font-size: .9rem; vertical-align: top; }
 .timeline ul { list-style: none; padding-left: 0; border-left: 2px solid #e5e7eb; }
 .timeline li { padding-left: .8rem; margin-bottom: .45rem; }
+button.kpi { background: #fff; font: inherit; color: inherit; cursor: pointer; }
+button.kpi:hover { border-color: #3b5b8c; }
+button.kpi[aria-pressed="true"] { border-color: #3b5b8c; box-shadow: 0 0 0 2px #3b5b8c33; background: #f6f8fc; }
+.case-filter { list-style: none; padding-left: 0; margin: .6rem 0 1.4rem; }
+.case-filter li { padding: .3rem 0; border-bottom: 1px solid #f0f1f3; }

@@ -1,5 +1,7 @@
 ---
 title: "2026 미국 선거 법·제도 분쟁 트래커"
+include-after-body:
+  text: <script src="assets/filter.js"></script>
 subtitle: "행정명령·우편투표 규칙·유권자 명부·선거구 지도·선거자금 소송 — 지금 어디까지 왔는가"
 ---
 
