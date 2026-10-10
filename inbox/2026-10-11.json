@@ -1,0 +1,48 @@
+{
+  "run_date": "2026-10-11",
+  "window": {"news_from": "2026-10-10", "news_to": "2026-10-11"},
+  "updates": [],
+  "checks": [
+    {"case_id": "usps-rule", "note": "10/11 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"},
+    {"case_id": "save-db", "note": "10/11 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/11 docket 26A388 기준 마지막 항목 9/25, 새 항목 없음(26A304·26A326은 이번에 열지 않음)"},
+    {"case_id": "az-mfv", "note": "10/11 docket 25-1017 기준 마지막 항목 9/28(기록 접수), 새 항목 없음"},
+    {"case_id": "ak-taylor", "note": "10/11 검색 기준 법원 판단 보도 없음(10/4 보도: Taylor는 후보 명단 유지, 민주당 소송은 Tagle 대상). 직접 확인은 못 함"},
+    {"case_id": "eo14248", "note": "10/11 검색 기준 DC순회 새 명령 보도 없음. 직접 확인은 못 함"}
+  ],
+  "new_cases": [
+    {
+      "id": "nj-rnc-rolls", "category": "유권자 등록·명부",
+      "title_kr": "뉴저지 유권자 명부 관리 기록 공개 소송 — 공화전국위원회(RNC)",
+      "name_en": "Republican National Committee v. Caldwell (Voter Roll Records Challenge II)",
+      "court": "법원 이름은 확인하지 못했습니다(연방법 NVRA 소송)", "states": ["NJ"],
+      "status": "pending", "status_kr": "제소 후 소장 수정(10/1) — 법원 판단 없음, 심리 날짜 확인하지 못함",
+      "next_date": null, "next_kr": "확인된 일정 없음",
+      "plain_kr": "공화당 전국위원회와 뉴저지 공화당이 주 정부와 5개 카운티에 유권자 명부 관리 기록을 내놓으라고 소송을 냈습니다. 요청에 충분히 답하지 않았다는 이유입니다.",
+      "summary_kr": "공화전국위원회(RNC), 뉴저지 공화당 주위원회, Tom Kean Jr. 연방하원의원, Anthony Bucco 주상원의원이 9월 22일 소송을 냈습니다. 피고는 뉴저지 주무장관(주 선거를 총괄하는 공무원) Dale Caldwell과 Bergen·Middlesex·Hudson·Union·Somerset 카운티 선거 담당 관청입니다. 원고는 전국유권자등록법(NVRA)에 따라 7월 31일 기록 공개를 요청했지만 충분한 답을 받지 못했다고 주장합니다. 요구하는 기록은 명부에서 삭제된 유권자, 비활성 유권자, 주소 확인 통지, 주·연방 기관과의 연락 내용입니다. 원고는 10월 1일 소장을 수정했습니다. 법원의 판단은 아직 확인되지 않았습니다. 이전의 비슷한 뉴저지 기록 소송은 7월 원고 자격 부족으로 기각됐다는 보도가 있습니다(검색 요약 기준).",
+      "impact_kr": "이 소송이 직접 바꾸는 투표 규칙은 없습니다. 법원이 기록 공개를 명령하면 명부 관리의 공개 범위가 달라질 수 있지만, 11월 선거에서 유권자가 따라야 할 절차가 바뀐다는 보도는 확인하지 못했습니다.",
+      "events": [
+        {"date": "2026-09-22", "text": "RNC 등이 뉴저지 주무장관과 5개 카운티를 상대로 NVRA에 따른 명부 관리 기록 공개 소송 제기", "url": "https://www.democracydocket.com/cases/new-jersey-voter-roll-records-challenge-ii/", "outlet": "Democracy Docket", "tier": "advocacy"},
+        {"date": "2026-10-01", "text": "원고가 수정 소장 제출", "url": "https://www.democracydocket.com/cases/new-jersey-voter-roll-records-challenge-ii/", "outlet": "Democracy Docket", "tier": "advocacy"}
+      ],
+      "sources": [
+        {"label": "Democracy Docket 사건 페이지", "url": "https://www.democracydocket.com/cases/new-jersey-voter-roll-records-challenge-ii/"},
+        {"label": "Democracy Docket: RNC가 새 소송을 예고한 기사", "url": "https://www.democracydocket.com/news-alerts/rnc-threatens-new-lawsuit-over-new-jersey-voter-records-after-earlier-case-was-tossed/"}
+      ]
+    }
+  ],
+  "glossary": [],
+  "audit": {
+    "searches_R_side": 1, "searches_D_side": 2, "searches_topic": 5,
+    "followups_due": 6, "followups_checked": 6,
+    "scotus": {
+      "term": "26",
+      "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"],
+      "dockets_checked": ["26A305", "26A308", "26A388", "25-1017"],
+      "new_entries": 0,
+      "blocked": []
+    },
+    "blocked_sites": [],
+    "notes": "공화·민주 측 검색이 최소량(3·3)에 못 미침. 10/7·10/8 Miscellaneous Order와 10/5 Order List의 PDF는 열지 않아 선거 관련 여부를 확정하지 못함. 26A304·26A326 docket은 열지 않음. 새 사건은 Democracy Docket 단독 출처(원문 소장 미확인)."
+  }
+}

@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-10",
+ "as_of": "2026-10-11",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-10",
+   "last_checked": "2026-10-11",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -840,7 +840,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-10",
+   "last_checked": "2026-10-11",
    "rulings": [
     {
      "date": "2025-10-31",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-10",
+   "last_checked": "2026-10-11",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -2683,7 +2683,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-10-10",
+   "last_checked": "2026-10-11",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -3075,7 +3075,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-10-10",
+   "last_checked": "2026-10-11",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -3731,7 +3731,7 @@
    "states": [
     "AK"
    ],
-   "last_checked": "2026-10-10",
+   "last_checked": "2026-10-11",
    "rulings": [
     {
      "date": "2026-09-18",
@@ -3855,6 +3855,56 @@
     }
    ],
    "status_updated": "2026-10-10"
+  },
+  {
+   "id": "nj-rnc-rolls",
+   "category": "유권자 등록·명부",
+   "title_kr": "뉴저지 유권자 명부 관리 기록 공개 소송 — 공화전국위원회(RNC)",
+   "name_en": "Republican National Committee v. Caldwell (Voter Roll Records Challenge II)",
+   "court": "법원 이름은 확인하지 못했습니다(연방법 NVRA 소송)",
+   "status": "pending",
+   "status_kr": "제소 후 소장 수정(10/1) — 법원 판단 없음, 심리 날짜 확인하지 못함",
+   "summary_kr": "공화전국위원회(RNC), 뉴저지 공화당 주위원회, Tom Kean Jr. 연방하원의원, Anthony Bucco 주상원의원이 9월 22일 소송을 냈습니다. 피고는 뉴저지 주무장관(주 선거를 총괄하는 공무원) Dale Caldwell과 Bergen·Middlesex·Hudson·Union·Somerset 카운티 선거 담당 관청입니다. 원고는 전국유권자등록법(NVRA)에 따라 7월 31일 기록 공개를 요청했지만 충분한 답을 받지 못했다고 주장합니다. 요구하는 기록은 명부에서 삭제된 유권자, 비활성 유권자, 주소 확인 통지, 주·연방 기관과의 연락 내용입니다. 원고는 10월 1일 소장을 수정했습니다. 법원의 판단은 아직 확인되지 않았습니다. 이전의 비슷한 뉴저지 기록 소송은 7월 원고 자격 부족으로 기각됐다는 보도가 있습니다(검색 요약 기준).",
+   "impact_kr": "이 소송이 직접 바꾸는 투표 규칙은 없습니다. 법원이 기록 공개를 명령하면 명부 관리의 공개 범위가 달라질 수 있지만, 11월 선거에서 유권자가 따라야 할 절차가 바뀐다는 보도는 확인하지 못했습니다.",
+   "states": [
+    "NJ"
+   ],
+   "next_date": null,
+   "next_kr": "확인된 일정 없음",
+   "scotus_dockets": null,
+   "detail": null,
+   "litigation": null,
+   "plain_kr": "공화당 전국위원회와 뉴저지 공화당이 주 정부와 5개 카운티에 유권자 명부 관리 기록을 내놓으라고 소송을 냈습니다. 요청에 충분히 답하지 않았다는 이유입니다.",
+   "events": [
+    {
+     "date": "2026-09-22",
+     "text": "RNC 등이 뉴저지 주무장관과 5개 카운티를 상대로 NVRA에 따른 명부 관리 기록 공개 소송 제기",
+     "url": "https://www.democracydocket.com/cases/new-jersey-voter-roll-records-challenge-ii/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    },
+    {
+     "date": "2026-10-01",
+     "text": "원고가 수정 소장 제출",
+     "url": "https://www.democracydocket.com/cases/new-jersey-voter-roll-records-challenge-ii/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Democracy Docket 사건 페이지",
+     "url": "https://www.democracydocket.com/cases/new-jersey-voter-roll-records-challenge-ii/"
+    },
+    {
+     "label": "Democracy Docket: RNC가 새 소송을 예고한 기사",
+     "url": "https://www.democracydocket.com/news-alerts/rnc-threatens-new-lawsuit-over-new-jersey-voter-records-after-earlier-case-was-tossed/"
+    }
+   ],
+   "first_seen": "2026-10-11",
+   "last_checked": "2026-10-11",
+   "status_updated": "2026-10-11",
+   "last_date": "2026-10-01"
   }
  ]
 }
