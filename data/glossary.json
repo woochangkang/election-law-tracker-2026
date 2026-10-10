@@ -677,6 +677,34 @@
     "intervenor"
    ],
    "explain_kr": "원래 원고·피고가 아니지만 결과에 이해관계가 있어 법원 허가를 받고 소송에 들어온 당사자입니다."
+  },
+  {
+   "category": "절차",
+   "term": "직무이행명령(mandamus)",
+   "match": [
+    "직무이행명령",
+    "mandamus"
+   ],
+   "explain_kr": "Writ of mandamus. 법원이 정부 기관이나 하급 법원에 법이 정한 의무를 이행하라고 명령하는 예외적인 구제 수단입니다. 다른 구제 수단이 없고 권리가 분명할 때만 내립니다."
+  },
+  {
+   "category": "선거자금",
+   "term": "최저 단가(lowest unit charge)",
+   "match": [
+    "최저 단가",
+    "lowest unit charge",
+    "LUC"
+   ],
+   "explain_kr": "Lowest unit charge. 연방 통신법에 따라 방송사가 선거 직전(예비선거 45일 전, 본선거 60일 전부터) 후보의 선거광고에 같은 시간대·같은 종류 광고 중 가장 낮은 요금을 받아야 하는 규칙입니다."
+  },
+  {
+   "category": "법원",
+   "term": "순회 담당 대법관(Circuit Justice)",
+   "match": [
+    "순회 담당 대법관",
+    "Circuit Justice"
+   ],
+   "explain_kr": "Circuit Justice. 연방 항소법원 관할 구역마다 배정된 대법관입니다. 그 구역에서 올라온 긴급신청을 먼저 받아 혼자 처리하거나 대법원 전체에 넘깁니다."
   }
  ]
 }
