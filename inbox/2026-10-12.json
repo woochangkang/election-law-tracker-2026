@@ -1,19 +1,429 @@
 {
-  "run_date": "2026-10-12",
-  "window": {"news_from": "2026-10-11", "news_to": "2026-10-12"},
-  "updates": [],
-  "checks": [
-    {"case_id": "usps-rule", "note": "10/12 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"},
-    {"case_id": "save-db", "note": "10/12 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
-    {"case_id": "missouri-map", "note": "10/12 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
-    {"case_id": "eo14399", "note": "10/12 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"},
-    {"case_id": "az-mfv", "note": "10/12 docket 25-1017 기준 마지막 항목 9/28(기록 접수), 새 항목 없음"},
-    {"case_id": "eo14248", "note": "10/12 검색 기준 14248 항소심 새 명령 보도 없음. 직접 확인은 못 함"},
-    {"case_id": "ak-taylor", "note": "10/12 검색 기준 새 법원 판단 보도 없음(10/8 APOC 합의 보도는 기존 기록). 직접 확인은 못 함"}
+ "run_date": "2026-10-12",
+ "window": {
+  "news_from": "2026-10-11",
+  "news_to": "2026-10-12"
+ },
+ "updates": [],
+ "checks": [
+  {
+   "case_id": "usps-rule",
+   "note": "10/12 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"
+  },
+  {
+   "case_id": "save-db",
+   "note": "10/12 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"
+  },
+  {
+   "case_id": "missouri-map",
+   "note": "10/12 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"
+  },
+  {
+   "case_id": "eo14399",
+   "note": "10/12 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"
+  },
+  {
+   "case_id": "az-mfv",
+   "note": "10/12 docket 25-1017 기준 마지막 항목 9/28(기록 접수), 새 항목 없음"
+  },
+  {
+   "case_id": "eo14248",
+   "note": "10/12 검색 기준 14248 항소심 새 명령 보도 없음. 직접 확인은 못 함"
+  },
+  {
+   "case_id": "ak-taylor",
+   "note": "10/12 검색 기준 새 법원 판단 보도 없음(10/8 APOC 합의 보도는 기존 기록). 직접 확인은 못 함"
+  },
+  {
+   "case_id": "az-mfv",
+   "note": "10/12 docket 25-1017 기준 마지막 항목 9/28(기록 접수). 피고 측 본안 서면(마감 10/13)은 아직 올라오지 않음"
+  },
+  {
+   "case_id": "eo14248",
+   "note": "10/12 검색 기준 DC순회 정부 측 서면(10/14 마감) 관련 새 보도 없음. 항소법원 기록은 직접 열지 못함"
+  },
+  {
+   "case_id": "ak-taylor",
+   "note": "10/12 검색 기준 주하원 22지구(Tagle) 1심 판단 보도 없음. 9월 말 보도는 10월 중순 판단 가능성만 전함"
+  }
+ ],
+ "new_cases": [
+  {
+   "id": "fcc-luc",
+   "category": "선거자금",
+   "title_kr": "정당 선거광고 최저 단가 — FCC 공지와 민주당 후보 소송",
+   "name_en": "Brown v. FCC / In re Brown (4th Cir. Nos. 26-1785, 26-2230) · NRCC v. Brown (26A274) · FCC v. Brown (26A476) · NRCC v. Brown (26A477)",
+   "court": "제4순회항소법원(Fourth Circuit) → 연방대법원 긴급신청",
+   "states": [
+    "US"
+   ],
+   "status": "pending",
+   "status_kr": "임시 상태입니다. 대법원장이 10/8 항소법원 명령을 잠시 멈췄습니다(행정 정지). 대법원 전체의 판단을 기다립니다. 그동안 정당도 최저 단가를 받을 수 있다는 FCC 공지가 그대로 적용됩니다.",
+   "next_date": null,
+   "next_kr": "대법원의 정지 신청 판단(양측 서면 10/11까지 제출, 결정 날짜 미정). 방송사 단체의 FCC 재검토 신청 의견 마감 10/19",
+   "scotus_dockets": [
+    "26A274",
+    "26A476",
+    "26A477"
+   ],
+   "plain_kr": "선거 직전 방송사는 후보에게 가장 싼 광고 요금을 받아야 합니다. 연방통신위원회(FCC) 산하 부서가 정당도 조건부로 이 요금을 받을 수 있다고 공지했습니다. 민주당 후보 4명은 법에 어긋난다며 다투고 있습니다.",
+   "summary_kr": "연방법은 본선거 전 60일 동안 방송사가 후보의 선거광고에 가장 낮은 요금(최저 단가)을 받도록 정합니다. FCC 미디어국은 3월 30일 공지에서 후보와 협조하는 정당 광고, 공동 모금위원회 광고도 조건부로 이 요금을 받을 수 있다고 밝혔습니다. Sherrod Brown·Jon Ossoff·Roy Cooper 상원 후보와 Kristen McDonald Rivet 하원의원이 FCC에 재검토를 신청했고, 결정이 나기 전 항소법원에도 소송을 냈습니다. 항소법원은 8월 25일 공지가 위법하다고 했습니다. 연방대법원은 9월 4일 FCC 결정 전에는 법원이 심사할 수 없을 가능성이 크다며 그 판결을 멈췄습니다(잭슨 반대). 항소법원은 10월 7일 FCC에 48시간 안에 결정하라고 명령했습니다. 대법원장은 10월 8일 이 명령을 일단 멈췄고, 대법원 전체의 판단은 아직 나오지 않았습니다.",
+   "impact_kr": "유권자의 투표 방법은 바뀌지 않습니다. 대법원의 정지가 유지되는 동안 정당 위원회는 후보와 협조한 광고를 싼 요금으로 살 수 있습니다. 대법원은 9월 4일 의견에서 항소법원 판결 뒤 방송사들이 유리한 요금을 철회하기 시작했다는 정당 측 주장을 언급했습니다.",
+   "detail": [
+    {
+     "heading": "무엇이 바뀌나 — 최저 단가를 받는 사람",
+     "md": "| | FCC 미디어국 공지(3/30) | 후보 측 주장 |\n|---|---|---|\n| 후보 본인 | 받음 | 받음 |\n| 후보와 협조하는 정당 광고 | 조건부로 받음 | 받지 못함 |\n| 후보 아닌 구성원이 낀 공동 모금위원회 | 조건부로 받음 | 받지 못함 |\n\n- FCC는 공지가 예전부터 있던 해석을 다시 밝힌 것이라고 주장합니다."
+    },
+    {
+     "heading": "양쪽의 주장(10/8~10/11 대법원 서면 기준)",
+     "md": "- 후보 측(Elias Law Group 대리): FCC가 선거 전 법원 심사를 막으려고 결정을 미룬다고 주장합니다. 법은 FCC가 모든 재검토 신청을 결정하도록 정한다고 주장합니다. 항소법원 명령은 대법원 9/4 결정과 어긋나지 않는다고 주장합니다.\n- FCC(법무부 대리): 법에 결정 기한이 없다고 주장합니다. 방송사 단체의 비슷한 신청에 대한 의견 수렴이 10/19까지 진행 중이라고 주장합니다. 48시간 명령은 대법원 9/4 결정을 우회한다고 주장합니다.\n- 공화당 하원·상원 선거위원회(NRCC·NRSC)도 따로 정지를 신청했습니다(26A477)."
+    }
+   ],
+   "events": [
+    {
+     "date": "2026-03-30",
+     "text": "FCC 미디어국, 후보·협조 정당 광고·공동 모금위원회에 조건부로 최저 단가를 인정하는 공지 발표(대법원 9/4 의견에 기술)",
+     "url": "https://www.supremecourt.gov/opinions/25pdf/26a274_l537.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-04-29",
+     "text": "민주당 후보 4명이 FCC 전체위원회에 공지 재검토 신청(대법원 9/4 의견에 기술)",
+     "url": "https://www.supremecourt.gov/opinions/25pdf/26a274_l537.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-08-25",
+     "text": "제4순회항소법원 합의부가 의견이 갈린 채 공지를 취소(대법원 9/4 의견에 기술)",
+     "url": "https://www.supremecourt.gov/opinions/25pdf/26a274_l537.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-09-04",
+     "text": "연방대법원이 NRCC·NRSC의 정지 신청을 받아들여 항소법원 판결을 멈춤(서명 없는 의견, 잭슨 반대)",
+     "url": "https://www.supremecourt.gov/opinions/25pdf/26a274_l537.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-09-08",
+     "text": "후보 측이 항소법원에 FCC의 결정을 강제해 달라는 직무이행명령(mandamus) 신청(FCC 신청서에 기술)",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/428838/20261008100330382_FCC%20v%20Brown%20Stay%20Application.pdf",
+     "outlet": "Supreme Court(FCC 신청서)",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-07",
+     "text": "제4순회항소법원 합의부가 의견이 갈린 채 직무이행명령 — FCC에 10/9 정오까지 재검토 신청 결정을 명령(Wynn 판사 보충의견, Wilkinson 판사 반대. FCC 신청서에 기술)",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/428838/20261008100330382_FCC%20v%20Brown%20Stay%20Application.pdf",
+     "outlet": "Supreme Court(FCC 신청서)",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-08",
+     "text": "FCC가 연방대법원에 항소법원 명령 정지 신청(26A476)",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/428838/20261008100330382_FCC%20v%20Brown%20Stay%20Application.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-08",
+     "text": "NRCC 등 공화당 위원회도 같은 명령에 정지 신청(26A477)",
+     "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/26a477.html",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-08",
+     "text": "로버츠 대법원장이 추가 명령 때까지 항소법원 명령을 멈추고(행정 정지) 10/10 오후 5시까지 답변을 요구",
+     "url": "https://www.supremecourt.gov/orders/courtorders/100826zr_b97c.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-10",
+     "text": "후보 측이 정지 신청에 반대하는 답변서 제출",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/429206/20261010192625955_26A476%20opp.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-11",
+     "text": "FCC가 정지 신청을 지지하는 반박서 제출(NRCC 측도 같은 날 반박서 제출)",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/429208/20261011093121026_26A476%20FCC%20v%20Brown%20Reply.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    }
+   ],
+   "rulings": [
+    {
+     "date": "2026-09-04",
+     "court": "연방대법원",
+     "decision_kr": "정당 위원회의 정지 신청을 받아들였다. 항소법원의 공지 취소 판결은 상고 절차가 끝날 때까지 효력이 멈춘다(임시 결정).",
+     "vote": "8–1",
+     "majority": {
+      "author": null,
+      "joined_by": [],
+      "summary_kr": "통신법은 FCC가 재검토 신청을 결정한 뒤에야 법원 심사를 받도록 정한다. 신청이 계류 중일 때 낸 소송이라 항소법원은 심사 권한이 없었을 가능성이 크다. 방송사들이 유리한 요금을 철회하고 있어 정당 위원회가 선거 직전에 되돌릴 수 없는 손해를 입는다고 봤다."
+     },
+     "concurrences": [],
+     "dissents": [
+      {
+       "author": "잭슨",
+       "joined_by": [],
+       "summary_kr": "정지를 기각했어야 한다고 봤다. 항소법원에 심사 권한이 없다는 주장이 이길 가능성이 낮다고 봤다."
+      }
+     ],
+     "url": "https://www.supremecourt.gov/opinions/25pdf/26a274_l537.pdf",
+     "verified": "primary",
+     "note_kr": "반대 표시 기준"
+    },
+    {
+     "date": "2026-10-07",
+     "court": "제4순회항소법원",
+     "decision_kr": "후보 측의 직무이행명령 신청을 받아들였다. FCC는 10/9 정오까지 재검토 신청을 결정해야 했다(대법원장의 10/8 행정 정지로 멈춤).",
+     "vote": "2–1",
+     "majority": {
+      "author": null,
+      "joined_by": [],
+      "summary_kr": "FCC가 선거 전 법원 심사를 막으려고 결정을 미뤘다고 봤다. 공지가 법에 명백히 어긋난다는 입장도 다시 밝혔다."
+     },
+     "concurrences": [
+      {
+       "author": "Wynn 판사",
+       "joined_by": [],
+       "summary_kr": "선출되지 않은 기관이 선거 경쟁 조건을 정하면서 법원 심사 시점까지 쥐어서는 안 된다고 썼다."
+      }
+     ],
+     "dissents": [
+      {
+       "author": "Wilkinson 판사",
+       "joined_by": [],
+       "summary_kr": "대법원 9/4 정지 명령을 정면으로 거스른다고 썼다. 선거 직전에 광고 요금 규칙을 흔든다고 비판했다."
+      }
+     ],
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/428838/20261008100330382_FCC%20v%20Brown%20Stay%20Application.pdf",
+     "verified": "secondary",
+     "note_kr": "항소법원 판결문은 직접 열지 못함. FCC 대법원 신청서의 인용·요약 기준. 다수의견 집필자 확인 못 함"
+    }
+   ],
+   "sources": [
+    {
+     "label": "대법원 9/4 의견(NRCC v. Brown, PDF)",
+     "url": "https://www.supremecourt.gov/opinions/25pdf/26a274_l537.pdf"
+    },
+    {
+     "label": "대법원 docket 26A476",
+     "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/26a476.html"
+    },
+    {
+     "label": "대법원 docket 26A477",
+     "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/26a477.html"
+    },
+    {
+     "label": "FCC 정지 신청서(10/8, PDF)",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/428838/20261008100330382_FCC%20v%20Brown%20Stay%20Application.pdf"
+    },
+    {
+     "label": "대법원장 행정 정지 명령(10/8, PDF)",
+     "url": "https://www.supremecourt.gov/orders/courtorders/100826zr_b97c.pdf"
+    },
+    {
+     "label": "후보 측 답변서(10/10, PDF)",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/429206/20261010192625955_26A476%20opp.pdf"
+    },
+    {
+     "label": "FCC 반박서(10/11, PDF)",
+     "url": "https://www.supremecourt.gov/DocketPDF/26/26A476/429208/20261011093121026_26A476%20FCC%20v%20Brown%20Reply.pdf"
+    }
+   ]
+  },
+  {
+   "id": "oh-bmv-citizenship",
+   "category": "유권자 등록·명부",
+   "title_kr": "오하이오 차량국(BMV) 유권자 등록 시 시민권 서류 요건 — Red Wine & Blue v. LaRose",
+   "name_en": "Red Wine & Blue v. LaRose (N.D. Ohio No. 1:25-cv-1760; 6th Cir. No. 26-3813)",
+   "court": "오하이오 북부 연방지방법원 → 제6순회항소법원(Sixth Circuit)",
+   "states": [
+    "OH"
+   ],
+   "status": "active",
+   "status_kr": "임시 상태입니다. 항소법원이 9/23 1심의 금지명령을 멈췄습니다(2–1). 그래서 소송이 끝나기 전에도 오하이오 법이 시행됩니다. 본안 항소는 계속됩니다.",
+   "next_date": null,
+   "next_kr": "제6순회항소법원 본안 항소 — 일정 확인하지 못함",
+   "plain_kr": "오하이오 차량국은 운전면허를 신청하며 시민권을 증명한 사람에게만 유권자 등록을 권합니다. 두 시민단체가 이것이 연방법에 어긋난다며 소송을 냈습니다.",
+   "summary_kr": "오하이오 법은 차량국(BMV) 직원이 시민권을 서류로 증명한 운전면허 신청자에게 유권자 등록을 권하도록 정합니다. 시민단체 Red Wine & Blue와 오하이오 은퇴자연맹이 2025년 8월 소송을 냈습니다. 원고는 이 법이 전국유권자등록법(NVRA)에 어긋난다고 주장합니다. 1심 Oliver 판사는 2026년 8월 25일 법 시행을 막는 예비적 금지명령을 냈습니다. 주무장관(주 선거를 총괄하는 공무원) Frank LaRose가 항소했습니다. 제6순회항소법원은 9월 23일 2–1로 그 명령을 멈췄습니다. 본안 항소는 아직 진행 중입니다.",
+   "impact_kr": "보도에 따르면 이번 11월 선거에서 차량국에서 면허 신청과 함께 등록하는 사람은 시민권 서류를 내야 합니다. 온라인·우편 등 다른 방법으로 등록하거나, 차량국에서 등록만 하는 사람은 시민이라는 서명만 하면 됩니다(Democracy Docket 보도 기준).",
+   "detail": [
+    {
+     "heading": "양쪽의 주장",
+     "md": "- 원고(Red Wine & Blue·오하이오 은퇴자연맹, Elias Law Group 대리): 연방법은 면허 신청서가 곧 유권자 등록 신청이 되게 하고, 자격 확인에 필요한 최소한의 정보만 요구하게 한다고 주장합니다. 오하이오 법은 그 이상을 요구한다고 주장합니다.\n- 피고(오하이오 주무장관 등): 면허를 받으려면 원래 합법 체류 서류를 내야 하고, 그것이 곧 시민권 확인이라고 주장합니다. 원고 회원은 등록을 거절당한 적이 없어 소송 자격이 없다고 주장합니다. 선거 직전 전산 재설계에 몇 달과 100만 달러가 든다고 주장합니다."
+    }
+   ],
+   "events": [
+    {
+     "date": "2026-08-25",
+     "text": "오하이오 북부 연방지방법원이 예비적 금지명령 — 차량국은 면허·신분증 신청을 시도한 모든 사람에게 유권자 등록 기회를 줘야 함(주 정부 신청서 부록의 차량국 안내문 기준)",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2025/08/2026-09-09-Emergency-motion-to-stay-pending-appeal.pdf",
+     "outlet": "Democracy Docket(주 정부 신청서 PDF)",
+     "tier": "advocacy"
+    },
+    {
+     "date": "2026-09-09",
+     "text": "오하이오 주 정부가 제6순회항소법원에 긴급 정지 신청",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2025/08/2026-09-09-Emergency-motion-to-stay-pending-appeal.pdf",
+     "outlet": "Democracy Docket(주 정부 신청서 PDF)",
+     "tier": "advocacy"
+    },
+    {
+     "date": "2026-09-23",
+     "text": "제6순회항소법원이 2–1로 1심 금지명령을 정지(Hermandorfer·Nalbandian 판사 다수, Ritz 판사 반대)",
+     "url": "https://www.democracydocket.com/news-alerts/appeals-court-greenlights-ohio-gops-voter-registration-proof-of-citizenship-requirement-for-midterms/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    }
+   ],
+   "rulings": [
+    {
+     "date": "2026-09-23",
+     "court": "제6순회항소법원",
+     "decision_kr": "주 정부의 정지 신청을 받아들였다. 1심 금지명령이 멈춰 오하이오 법이 11월 선거에 적용된다(임시 결정).",
+     "vote": "2–1",
+     "majority": {
+      "author": null,
+      "joined_by": [
+       "Hermandorfer 판사",
+       "Nalbandian 판사"
+      ],
+      "summary_kr": "Democracy Docket은 다수가 1심의 연방법(NVRA) 판단이 틀렸다고 봤다고 전했다. 다른 검색 요약은 다수가 관할·원고 자격 문제를 이유로 본안 판단을 하지 않았다고 전한다. 명령 원문은 직접 확인하지 못했다."
+     },
+     "concurrences": [],
+     "dissents": [
+      {
+       "author": "Ritz 판사",
+       "joined_by": [],
+       "summary_kr": "시민이 등록할 수 있게 하는 데 강한 이익이 있다고 썼다. 1심 명령은 선거의 공정성을 위협하지 않는다고 썼다."
+      }
+     ],
+     "url": "https://www.democracydocket.com/news-alerts/appeals-court-greenlights-ohio-gops-voter-registration-proof-of-citizenship-requirement-for-midterms/",
+     "verified": "secondary",
+     "note_kr": "명령 원문 미열람. 다수의견 이유는 출처 간 설명이 엇갈림"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Democracy Docket: 항소법원 정지 보도(9/23)",
+     "url": "https://www.democracydocket.com/news-alerts/appeals-court-greenlights-ohio-gops-voter-registration-proof-of-citizenship-requirement-for-midterms/"
+    },
+    {
+     "label": "오하이오 주 정부 긴급 정지 신청서(9/9, PDF)",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2025/08/2026-09-09-Emergency-motion-to-stay-pending-appeal.pdf"
+    }
+   ]
+  }
+ ],
+ "glossary": [
+  {
+   "category": "절차",
+   "term": "직무이행명령(mandamus)",
+   "match": [
+    "직무이행명령",
+    "mandamus"
+   ],
+   "explain_kr": "Writ of mandamus. 법원이 정부 기관이나 하급 법원에 법이 정한 의무를 이행하라고 명령하는 예외적인 구제 수단입니다. 권리가 분명하고 다른 구제 수단이 없을 때만 내립니다."
+  },
+  {
+   "category": "선거자금",
+   "term": "최저 단가(lowest unit charge)",
+   "match": [
+    "최저 단가",
+    "lowest unit charge",
+    "LUC"
+   ],
+   "explain_kr": "Lowest unit charge. 연방 통신법에 따라 방송사가 선거 직전 일정 기간(예비선거 전 45일, 본선거 전 60일) 후보의 선거광고에 같은 종류 광고 중 가장 낮은 요금을 받도록 한 규칙입니다."
+  },
+  {
+   "category": "주별 기관·서류",
+   "term": "차량국(BMV)",
+   "match": [
+    "차량국",
+    "BMV"
+   ],
+   "explain_kr": "Bureau of Motor Vehicles. 운전면허와 주 신분증을 발급하는 주 기관입니다. 연방법(NVRA)에 따라 면허 신청 때 유권자 등록 기회도 제공해야 합니다."
+  }
+ ],
+ "audit": {
+  "searches_R_side": 3,
+  "searches_D_side": 3,
+  "searches_topic": 5,
+  "followups_due": 3,
+  "followups_checked": 3,
+  "scotus": {
+   "term": "26",
+   "pages_opened": [
+    "ordersofthecourt/26",
+    "relatingtoorders/26",
+    "slipopinion/26"
+   ],
+   "dockets_checked": [
+    "26A305",
+    "26A308",
+    "26A304",
+    "26A326",
+    "26A388",
+    "26A124",
+    "25-1017"
+   ],
+   "new_entries": 0,
+   "blocked": []
+  },
+  "blocked_sites": [
+   "alaskapublic.org"
   ],
-  "new_cases": [],
-  "glossary": [],
-  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5, "followups_due": 3, "followups_checked": 3,
-    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305","26A308","26A304","26A326","26A388","26A124","25-1017"], "new_entries": 0, "blocked": []},
-    "blocked_sites": ["alaskapublic.org"], "notes": "명령 목록 최신 10/8, 새 항목 없음. 검색 결과는 대부분 기존 사건 또는 과거 자료. alaskapublic.org 본문은 열지 못함."}
+  "notes": "명령 목록 최신 10/8, 새 항목 없음. 검색 결과는 대부분 기존 사건 또는 과거 자료. alaskapublic.org 본문은 열지 못함."
+ },
+ "audit_runs": [
+  {
+   "model_run": "opus-eval",
+   "searches_R_side": 3,
+   "searches_D_side": 3,
+   "searches_topic": 7,
+   "followups_due": 3,
+   "followups_checked": 3,
+   "scotus": {
+    "term": "26",
+    "pages_opened": [
+     "ordersofthecourt/26",
+     "relatingtoorders/26",
+     "slipopinion/26",
+     "courtorders/100826zr_b97c"
+    ],
+    "dockets_checked": [
+     "26A305",
+     "26A308",
+     "26A304",
+     "26A326",
+     "26A388",
+     "26A124",
+     "25-1017",
+     "26A476",
+     "26A274",
+     "26A477"
+    ],
+    "new_entries": 0,
+    "blocked": []
+   },
+   "blocked_sites": [
+    "www.courtlistener.com",
+    "thefederalist.com",
+    "www.news5cleveland.com",
+    "www.newsfromthestates.com",
+    "electioncases.osu.edu"
+   ],
+   "notes": "Opus 비교 회차. main에 같은 날 Sonnet 회차 inbox가 있어 §5-3에 따라 이어 붙임. 실제 웹 검색 17회: 후속 확인 2(알래스카·EO14248) · 공화 측 3 · 민주 측 3 · 주제 7(우편투표·재획정·선거자금·인증·시민권 증명 + 버지니아 재획정·오하이오 BMV 후속) · 대법원 새 사건 2(SCOTUSblog·site:supremecourt.gov). 명령 목록 최신 10/8 Miscellaneous Order — 그 안의 FCC v. Brown(26A476)이 main에 없어 새 사건 fcc-luc로 추가(대법원 의견·신청서·답변서·반박서·명령 PDF 직접 열람). 추적 docket 7건 새 항목 없음, 26A476·26A477은 10/10 답변서·10/11 반박서까지. 새 사건 oh-bmv-citizenship은 검색으로 발견(9/23 제6순회 정지, 명령 원문 미열람). 버지니아 재획정 개헌 무효(5/8 주 대법원)는 11월 규칙을 바꾸지 않아 제외. 차단: courtlistener·osu 403, thefederalist·news5cleveland·newsfromthestates 접속 실패(DNS)."
+  }
+ ]
 }
