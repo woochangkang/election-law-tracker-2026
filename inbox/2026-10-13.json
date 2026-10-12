@@ -1,19 +1,219 @@
 {
   "run_date": "2026-10-13",
-  "window": {"news_from": "2026-10-12", "news_to": "2026-10-13"},
+  "window": {
+    "news_from": "2026-10-12",
+    "news_to": "2026-10-13"
+  },
   "updates": [],
   "checks": [
-    {"case_id": "usps-rule", "note": "10/13 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"},
-    {"case_id": "save-db", "note": "10/13 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
-    {"case_id": "missouri-map", "note": "10/13 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
-    {"case_id": "eo14399", "note": "10/13 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"},
-    {"case_id": "az-mfv", "note": "10/13 docket 25-1017 기준 마지막 항목 9/28(기록 접수), 새 항목 없음. 검색에서도 10월 신규 서면 보도 없음"},
-    {"case_id": "eo14248", "note": "10/13 검색 기준 14248 항소심 새 명령 보도 없음. 직접 확인은 못 함"},
-    {"case_id": "ak-taylor", "note": "10/13 검색 기준 새 법원 판단 보도 없음(10/7 APOC 합의 보도는 기존 기록). 직접 확인은 못 함"}
+    {
+      "case_id": "usps-rule",
+      "note": "10/13 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"
+    },
+    {
+      "case_id": "save-db",
+      "note": "10/13 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"
+    },
+    {
+      "case_id": "missouri-map",
+      "note": "10/13 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"
+    },
+    {
+      "case_id": "eo14399",
+      "note": "10/13 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"
+    },
+    {
+      "case_id": "az-mfv",
+      "note": "10/13 docket 25-1017 기준 마지막 항목 9/28(기록 접수), 새 항목 없음. 검색에서도 10월 신규 서면 보도 없음"
+    },
+    {
+      "case_id": "eo14248",
+      "note": "10/13 검색 기준 14248 항소심 새 명령 보도 없음. 직접 확인은 못 함"
+    },
+    {
+      "case_id": "ak-taylor",
+      "note": "10/13 검색 기준 새 법원 판단 보도 없음(10/7 APOC 합의 보도는 기존 기록). 직접 확인은 못 함"
+    },
+    {
+      "case_id": "usps-rule",
+      "note": "docket 26A305 새 항목 없음(마지막 9/14)"
+    },
+    {
+      "case_id": "save-db",
+      "note": "docket 26A308 새 항목 없음(마지막 9/25)"
+    },
+    {
+      "case_id": "missouri-map",
+      "note": "docket 26A304·26A326·26A388 새 항목 없음(마지막 9/25)"
+    },
+    {
+      "case_id": "eo14399",
+      "note": "docket 26A124 새 항목 없음(마지막 8/24)"
+    },
+    {
+      "case_id": "az-mfv",
+      "note": "docket 25-1017 새 항목 없음(마지막 9/28) — 10/13 피고 서면 아직 게시 안 됨"
+    },
+    {
+      "case_id": "ak-taylor",
+      "note": "검색 기준 Tagle(주하원 22지구) 사건 9월 말 이후 새 판단 보도 없음"
+    }
   ],
-  "new_cases": [],
-  "glossary": [],
-  "audit": {"searches_R_side": 3, "searches_D_side": 1, "searches_topic": 4, "followups_due": 3, "followups_checked": 3,
-    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305","26A308","26A304","26A326","26A388","26A124","25-1017"], "new_entries": 0, "blocked": []},
-    "blocked_sites": ["cnycentral.com"], "notes": "명령 목록 최신 10/8, 의견 목록 최신 10/5(Mulkey v. Alabama, 비선거), 판결 목록 비어 있음. 민주 측 검색은 1회, 주제별은 선거자금·인증·재획정·우편투표 4회로 최소량에 못 미침(결과가 대부분 과거 자료). DOJ의 5개 주(UT·OK·KY·WV·NJ) 명부 소송은 2026년 2월 제소로 확인되어 기존 doj-rolls 범위이며 새 움직임 아님."}
+  "new_cases": [
+    {
+      "id": "sd-sb175-notice",
+      "category": "유권자 등록·명부",
+      "title_kr": "사우스다코타 시민권 서류법(SB 175) 안내문 소송",
+      "name_en": "League of Women Voters of South Dakota v. Johnson (D.S.D. 4:26-cv-04162)",
+      "court": "사우스다코타 연방지방법원",
+      "states": [
+        "SD"
+      ],
+      "status": "active",
+      "status_kr": "임시 구제 신청은 9/18 기각(주정부가 이미 안내문을 고쳐서). 최종 결론은 아직 없고, 영구적 구제 청구는 계속 진행됩니다.",
+      "next_date": null,
+      "next_kr": "본안 일정은 확인하지 못했습니다",
+      "plain_kr": "사우스다코타는 올해부터 새로 등록하는 유권자에게 시민권 서류를 요구합니다. 서류가 없어 '연방 선거만 투표 가능' 상태가 된 사람들에게 주가 엉뚱한 이유를 적은 안내문을 보내자, 시민단체가 바로잡아 달라며 소송을 냈습니다.",
+      "summary_kr": "사우스다코타 여성유권자연맹(League of Women Voters)과 유권자 1명이 주무장관(주 선거를 총괄하는 공무원) Monae Johnson과 주 선거위원회 위원들을 상대로 낸 소송입니다. 2026년 3월 시행된 SB 175는 새 등록자에게 시민권 서류를 요구합니다. 서류를 내지 않으면 연방 선거에만 투표할 수 있는 유권자로 등록됩니다. 원고는 주 시스템이 이런 사람들에게 '주소 문제'라는 틀린 이유를 담은 안내문을 보내, 고칠 방법을 알 수 없게 했다고 주장합니다. 주정부가 9월 14일 안내문을 바꾸자, 법원은 9월 18일 임시 구제 신청을 기각했습니다. 법 자체는 다투지 않는 소송입니다.",
+      "detail": [
+        {
+          "heading": "원고와 피고의 주장",
+          "md": "- 원고(여성유권자연맹·Jaysen Hill): 시민권 서류가 없어 연방 선거 전용으로 등록된 사람에게 '상업용 주소를 썼다'는 틀린 안내문이 갔다. 정확한 안내와 고칠 기회 없이 등록 등급을 낮추는 것은 수정헌법 14조의 적법절차 위반이다.\n- 피고(주무장관·선거위원): 원고 적격이 없다. 9월 14일 요구된 조치를 모두 했으므로 신청은 의미가 없어졌다.\n- 법원(9/18): 주정부 조치로 임시 구제 신청은 의미가 없어졌다. 다만 영구적 구제 청구는 남아 있다."
+        },
+        {
+          "heading": "바뀐 안내 방식",
+          "md": "| | 9월 14일 전 | 9월 14일 후 |\n|---|---|---|\n| 안내문 | 시스템이 자동으로 '주소 문제' 안내문 발송 | 자동 발송 중단, 사유별 안내문 2종(주소 문제 / 시민권 서류 문제) |\n| 이미 틀린 안내를 받은 사람 | — | 아직 정식 유권자가 되지 않았으면 시민권 서류 안내문을 다시 받음 |"
+        }
+      ],
+      "impact_kr": "시민권 서류 없이 등록한 사우스다코타 신규 유권자는 연방 선거(상·하원)에만 투표할 수 있고 주지사 등 주 선거에는 투표할 수 없습니다. 이 소송으로 그런 유권자가 받는 안내문이 정확한 사유를 알리도록 바뀌었습니다. 시민권 서류 요건 자체는 그대로입니다.",
+      "events": [
+        {
+          "date": "2026-09-11",
+          "text": "법원이 예비적 금지명령 신청에 대해 첫 변론을 열었습니다.",
+          "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+          "outlet": "사우스다코타 연방지방법원 명령(Democracy Docket 게시)",
+          "tier": "court"
+        },
+        {
+          "date": "2026-09-14",
+          "text": "주무장관실이 잘못된 자동 안내문 기능을 끄고, 사유별 새 안내문과 지침을 카운티 감사관들에게 보냈습니다.",
+          "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+          "outlet": "사우스다코타 연방지방법원 명령(Democracy Docket 게시)",
+          "tier": "court"
+        },
+        {
+          "date": "2026-09-18",
+          "text": "Schulte 판사가 예비적 금지명령 신청을 소의 이익이 없어졌다며 기각했습니다(재신청 가능). 영구적 구제 청구는 계속됩니다.",
+          "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+          "outlet": "사우스다코타 연방지방법원",
+          "tier": "court"
+        }
+      ],
+      "sources": [
+        {
+          "label": "9/18 명령(PDF)",
+          "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf"
+        },
+        {
+          "label": "ACLU 사건 페이지(검색 요약 기준, 열람 차단)",
+          "url": "https://www.aclu.org/cases/league-of-women-voters-of-south-dakota-v-johnson"
+        }
+      ],
+      "rulings": [
+        {
+          "date": "2026-09-18",
+          "court": "사우스다코타 연방지방법원",
+          "decision_kr": "원고의 예비적 금지명령 신청을 소의 이익이 없어졌다는 이유로 기각했습니다(다시 신청할 수 있는 기각). 주정부가 원고가 요구한 안내문 수정을 이미 모두 했기 때문입니다.",
+          "vote": null,
+          "majority": {
+            "author": "Schulte 판사",
+            "joined_by": [],
+            "summary_kr": "주무장관이 9월 14일 잘못된 자동 안내문을 끄고, 사유별 새 안내문 두 종과 카운티 지침을 보냈습니다. 원고도 이 조치가 요구한 구제와 같다고 인정했습니다. 법원은 선거를 46일 앞둔 시점에 주정부가 예전 방식으로 되돌아갈 것으로 합리적으로 예상할 수 없다고 봤습니다. 영구적 구제를 구하는 청구는 아직 살아 있으며, 약속이 지켜지지 않으면 원고가 다시 법원에 알릴 수 있다고 했습니다."
+          },
+          "concurrences": [],
+          "dissents": [],
+          "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+          "verified": "primary",
+          "note_kr": "원고 적격 다툼은 판단하지 않았습니다."
+        }
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "category": "법률·제도",
+      "term": "연방 선거 전용 유권자",
+      "match": [
+        "연방 선거 전용 유권자",
+        "연방 선거 전용",
+        "federal-only voter"
+      ],
+      "explain_kr": "Federal-only voter. 주가 요구하는 시민권 서류를 내지 않고 연방 등록 양식 등으로 등록해, 대통령·연방 상원·하원 선거에만 투표할 수 있는 유권자입니다. 주지사·주의회 같은 주 선거와 지방선거에는 투표할 수 없습니다. 애리조나·사우스다코타 등 일부 주에 있는 제도입니다."
+    }
+  ],
+  "audit_runs": [
+    {
+      "searches_R_side": 3,
+      "searches_D_side": 3,
+      "searches_topic": 6,
+      "followups_due": 3,
+      "followups_checked": 2,
+      "scotus": {
+        "term": "26",
+        "pages_opened": [
+          "ordersofthecourt/26",
+          "relatingtoorders/26",
+          "slipopinion/26"
+        ],
+        "dockets_checked": [
+          "26A305",
+          "26A308",
+          "26A304",
+          "26A326",
+          "26A388",
+          "26A124",
+          "25-1017"
+        ],
+        "new_entries": 0,
+        "blocked": []
+      },
+      "blocked_sites": [
+        "www.aclu.org",
+        "www.dakotanewsnow.com",
+        "www.ktiv.com",
+        "dailymontanan.com"
+      ],
+      "notes": "재실행(비교 회차). 검색 총 16회: 공화 측 3(RNC 명부·법무부 명부·공화 측 우편투표 기한), 민주 측 3(DNC·Elias·ACLU/LWV), 주제 6(재획정·버지니아 재획정·인증·시민권 서류·선거자금·Votebeat 일반), 대법원 긴급신청 1, 사우스다코타 새 사건 확인 2, 알래스카 후속 1. 우편투표 주제는 공화 측 우편투표 검색으로 대신함. 명령 목록 최신 10/8(새 항목 없음). 후속 확인 중 eo14248(10/14 정부 서면)은 기한 전이고 CourtListener 접근 거부로 확인 못 함. 버지니아 재획정(Scott v. McDougle)은 5/15 대법원 정지 기각으로 끝난 사건이라 넣지 않음. 사우스다코타 사건 제소일(8/24)은 검색 요약 기준이라 이벤트로 넣지 않음."
+    }
+  ],
+  "audit": {
+    "searches_R_side": 3,
+    "searches_D_side": 1,
+    "searches_topic": 4,
+    "followups_due": 3,
+    "followups_checked": 3,
+    "scotus": {
+      "term": "26",
+      "pages_opened": [
+        "ordersofthecourt/26",
+        "relatingtoorders/26",
+        "slipopinion/26"
+      ],
+      "dockets_checked": [
+        "26A305",
+        "26A308",
+        "26A304",
+        "26A326",
+        "26A388",
+        "26A124",
+        "25-1017"
+      ],
+      "new_entries": 0,
+      "blocked": []
+    },
+    "blocked_sites": [
+      "cnycentral.com"
+    ],
+    "notes": "명령 목록 최신 10/8, 의견 목록 최신 10/5(Mulkey v. Alabama, 비선거), 판결 목록 비어 있음. 민주 측 검색은 1회, 주제별은 선거자금·인증·재획정·우편투표 4회로 최소량에 못 미침(결과가 대부분 과거 자료). DOJ의 5개 주(UT·OK·KY·WV·NJ) 명부 소송은 2026년 2월 제소로 확인되어 기존 doj-rolls 범위이며 새 움직임 아님."
+  }
 }

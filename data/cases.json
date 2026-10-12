@@ -3905,6 +3905,90 @@
    "last_checked": "2026-10-11",
    "status_updated": "2026-10-11",
    "last_date": "2026-10-01"
+  },
+  {
+   "id": "sd-sb175-notice",
+   "category": "유권자 등록·명부",
+   "title_kr": "사우스다코타 시민권 서류법(SB 175) 안내문 소송",
+   "name_en": "League of Women Voters of South Dakota v. Johnson (D.S.D. 4:26-cv-04162)",
+   "court": "사우스다코타 연방지방법원",
+   "status": "active",
+   "status_kr": "임시 구제 신청은 9/18 기각(주정부가 이미 안내문을 고쳐서). 최종 결론은 아직 없고, 영구적 구제 청구는 계속 진행됩니다.",
+   "summary_kr": "사우스다코타 여성유권자연맹(League of Women Voters)과 유권자 1명이 주무장관(주 선거를 총괄하는 공무원) Monae Johnson과 주 선거위원회 위원들을 상대로 낸 소송입니다. 2026년 3월 시행된 SB 175는 새 등록자에게 시민권 서류를 요구합니다. 서류를 내지 않으면 연방 선거에만 투표할 수 있는 유권자로 등록됩니다. 원고는 주 시스템이 이런 사람들에게 '주소 문제'라는 틀린 이유를 담은 안내문을 보내, 고칠 방법을 알 수 없게 했다고 주장합니다. 주정부가 9월 14일 안내문을 바꾸자, 법원은 9월 18일 임시 구제 신청을 기각했습니다. 법 자체는 다투지 않는 소송입니다.",
+   "impact_kr": "시민권 서류 없이 등록한 사우스다코타 신규 유권자는 연방 선거(상·하원)에만 투표할 수 있고 주지사 등 주 선거에는 투표할 수 없습니다. 이 소송으로 그런 유권자가 받는 안내문이 정확한 사유를 알리도록 바뀌었습니다. 시민권 서류 요건 자체는 그대로입니다.",
+   "states": [
+    "SD"
+   ],
+   "next_date": null,
+   "next_kr": "본안 일정은 확인하지 못했습니다",
+   "scotus_dockets": null,
+   "detail": [
+    {
+     "heading": "원고와 피고의 주장",
+     "md": "- 원고(여성유권자연맹·Jaysen Hill): 시민권 서류가 없어 연방 선거 전용으로 등록된 사람에게 '상업용 주소를 썼다'는 틀린 안내문이 갔다. 정확한 안내와 고칠 기회 없이 등록 등급을 낮추는 것은 수정헌법 14조의 적법절차 위반이다.\n- 피고(주무장관·선거위원): 원고 적격이 없다. 9월 14일 요구된 조치를 모두 했으므로 신청은 의미가 없어졌다.\n- 법원(9/18): 주정부 조치로 임시 구제 신청은 의미가 없어졌다. 다만 영구적 구제 청구는 남아 있다."
+    },
+    {
+     "heading": "바뀐 안내 방식",
+     "md": "| | 9월 14일 전 | 9월 14일 후 |\n|---|---|---|\n| 안내문 | 시스템이 자동으로 '주소 문제' 안내문 발송 | 자동 발송 중단, 사유별 안내문 2종(주소 문제 / 시민권 서류 문제) |\n| 이미 틀린 안내를 받은 사람 | — | 아직 정식 유권자가 되지 않았으면 시민권 서류 안내문을 다시 받음 |"
+    }
+   ],
+   "litigation": null,
+   "plain_kr": "사우스다코타는 올해부터 새로 등록하는 유권자에게 시민권 서류를 요구합니다. 서류가 없어 '연방 선거만 투표 가능' 상태가 된 사람들에게 주가 엉뚱한 이유를 적은 안내문을 보내자, 시민단체가 바로잡아 달라며 소송을 냈습니다.",
+   "events": [
+    {
+     "date": "2026-09-11",
+     "text": "법원이 예비적 금지명령 신청에 대해 첫 변론을 열었습니다.",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+     "outlet": "사우스다코타 연방지방법원 명령(Democracy Docket 게시)",
+     "tier": "court"
+    },
+    {
+     "date": "2026-09-14",
+     "text": "주무장관실이 잘못된 자동 안내문 기능을 끄고, 사유별 새 안내문과 지침을 카운티 감사관들에게 보냈습니다.",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+     "outlet": "사우스다코타 연방지방법원 명령(Democracy Docket 게시)",
+     "tier": "court"
+    },
+    {
+     "date": "2026-09-18",
+     "text": "Schulte 판사가 예비적 금지명령 신청을 소의 이익이 없어졌다며 기각했습니다(재신청 가능). 영구적 구제 청구는 계속됩니다.",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+     "outlet": "사우스다코타 연방지방법원",
+     "tier": "court"
+    }
+   ],
+   "sources": [
+    {
+     "label": "9/18 명령(PDF)",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf"
+    },
+    {
+     "label": "ACLU 사건 페이지(검색 요약 기준, 열람 차단)",
+     "url": "https://www.aclu.org/cases/league-of-women-voters-of-south-dakota-v-johnson"
+    }
+   ],
+   "first_seen": "2026-10-13",
+   "last_checked": "2026-10-13",
+   "status_updated": "2026-10-13",
+   "rulings": [
+    {
+     "date": "2026-09-18",
+     "court": "사우스다코타 연방지방법원",
+     "decision_kr": "원고의 예비적 금지명령 신청을 소의 이익이 없어졌다는 이유로 기각했습니다(다시 신청할 수 있는 기각). 주정부가 원고가 요구한 안내문 수정을 이미 모두 했기 때문입니다.",
+     "vote": null,
+     "majority": {
+      "author": "Schulte 판사",
+      "joined_by": [],
+      "summary_kr": "주무장관이 9월 14일 잘못된 자동 안내문을 끄고, 사유별 새 안내문 두 종과 카운티 지침을 보냈습니다. 원고도 이 조치가 요구한 구제와 같다고 인정했습니다. 법원은 선거를 46일 앞둔 시점에 주정부가 예전 방식으로 되돌아갈 것으로 합리적으로 예상할 수 없다고 봤습니다. 영구적 구제를 구하는 청구는 아직 살아 있으며, 약속이 지켜지지 않으면 원고가 다시 법원에 알릴 수 있다고 했습니다."
+     },
+     "concurrences": [],
+     "dissents": [],
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/09/Order-Sept.-18-2026.pdf",
+     "verified": "primary",
+     "note_kr": "원고 적격 다툼은 판단하지 않았습니다."
+    }
+   ],
+   "last_date": "2026-09-18"
   }
  ]
 }
