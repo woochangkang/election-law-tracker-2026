@@ -1,0 +1,19 @@
+{
+  "run_date": "2026-10-13",
+  "window": {"news_from": "2026-10-12", "news_to": "2026-10-13"},
+  "updates": [],
+  "checks": [
+    {"case_id": "usps-rule", "note": "10/13 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"},
+    {"case_id": "save-db", "note": "10/13 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/13 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/13 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"},
+    {"case_id": "az-mfv", "note": "10/13 docket 25-1017 기준 마지막 항목 9/28(기록 접수), 새 항목 없음. 검색에서도 10월 신규 서면 보도 없음"},
+    {"case_id": "eo14248", "note": "10/13 검색 기준 14248 항소심 새 명령 보도 없음. 직접 확인은 못 함"},
+    {"case_id": "ak-taylor", "note": "10/13 검색 기준 새 법원 판단 보도 없음(10/7 APOC 합의 보도는 기존 기록). 직접 확인은 못 함"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 1, "searches_topic": 4, "followups_due": 3, "followups_checked": 3,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305","26A308","26A304","26A326","26A388","26A124","25-1017"], "new_entries": 0, "blocked": []},
+    "blocked_sites": ["cnycentral.com"], "notes": "명령 목록 최신 10/8, 의견 목록 최신 10/5(Mulkey v. Alabama, 비선거), 판결 목록 비어 있음. 민주 측 검색은 1회, 주제별은 선거자금·인증·재획정·우편투표 4회로 최소량에 못 미침(결과가 대부분 과거 자료). DOJ의 5개 주(UT·OK·KY·WV·NJ) 명부 소송은 2026년 2월 제소로 확인되어 기존 doj-rolls 범위이며 새 움직임 아님."}
+}
