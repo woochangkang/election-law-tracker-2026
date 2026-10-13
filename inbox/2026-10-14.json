@@ -1,0 +1,27 @@
+{
+  "run_date": "2026-10-14",
+  "window": {"news_from": "2026-10-13", "news_to": "2026-10-14"},
+  "updates": [
+    {
+      "case_id": "az-mfv", "date": "2026-10-13",
+      "text": "연방대법원 docket(25-1017)에 10/13자로 피고 측 본안 서면 3건 접수: 민주당전국위원회(DNC)·애리조나 민주당, Mi Familia Vota·Voto Latino, Living United for Change in Arizona 등. 서면 내용은 열어 보지 못했다.",
+      "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-1017.html", "outlet": "Supreme Court", "tier": "court",
+      "next_kr": "변론 12/8. 피고 측 본안 서면은 10/13 제출됨(내용 미확인)"
+    }
+  ],
+  "checks": [
+    {"case_id": "usps-rule", "note": "10/14 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"},
+    {"case_id": "save-db", "note": "10/14 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/14 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/14 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"},
+    {"case_id": "eo14248", "note": "10/14 검색 기준 항소심 정부 측 서면(예정일 10/14) 보도 없음. 법원 기록은 직접 열지 못함"},
+    {"case_id": "ak-taylor", "note": "10/14 검색 기준 Taylor 사건 새 법원 판단 보도 없음. 10/4 ADN 보도는 민주당이 Taylor에 대한 같은 소송은 검토하지 않는다고 전함(검색 요약 기준)"},
+    {"case_id": "nj-rnc-rolls", "note": "10/14 검색 기준 9/22 제소 이후 법원 판단 보도 없음. 공화전국위가 추가 소송을 예고했다는 Democracy Docket 보도는 본문을 열지 못함"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5, "followups_due": 3, "followups_checked": 3,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305","26A308","26A304","26A326","26A388","26A124","25-1017"], "new_entries": 1, "blocked": []},
+    "blocked_sites": ["www.insidenova.com"],
+    "notes": "10/13 명령 목록(PDF)에서 선거 관련 항목을 찾지 못함. 의견 목록 최신 10/13(Herrera-Salazar, 비선거), 판결 목록 비어 있음. 대부분 검색 결과가 과거 자료여서 10월 신규 소송은 확인하지 못함. EO 14248 항소심 기록과 알래스카 법원 기록은 직접 열지 못하고 검색으로만 확인."}
+}

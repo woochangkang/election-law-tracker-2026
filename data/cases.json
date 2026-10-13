@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-13",
+ "as_of": "2026-10-14",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-13",
+   "last_checked": "2026-10-14",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -442,7 +442,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-13",
+   "last_checked": "2026-10-14",
    "rulings": [
     {
      "date": "2026-06-25",
@@ -840,7 +840,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-13",
+   "last_checked": "2026-10-14",
    "rulings": [
     {
      "date": "2025-10-31",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-13",
+   "last_checked": "2026-10-14",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -2683,7 +2683,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-10-13",
+   "last_checked": "2026-10-14",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -2976,7 +2976,7 @@
    "status_kr": "연방대법원이 사건을 심리하기로 했고(6/29), 12월 8일에 변론을 엽니다. 아직 최종 판결은 없습니다. 그 사이에는 2024년 대법원의 임시 결정이 그대로 적용돼, 주 등록 양식에 시민권 서류를 요구하는 부분만 시행되고 나머지 조항은 막혀 있습니다.",
    "last_date": "2026-12-08",
    "next_date": "2026-10-13",
-   "next_kr": "피고 측(Mi Familia Vota 등) 본안 서면 마감 10/13 → 변론 12/8",
+   "next_kr": "변론 12/8. 피고 측 본안 서면은 10/13 제출됨(내용 미확인)",
    "summary_kr": "애리조나주는 2022년 두 법(HB 2492·HB 2243)으로 등록 때 시민권 서류 제출을 요구하고, 비시민으로 의심되는 사람의 등록을 정기적으로 취소하게 했습니다. 1심과 제9순회항소법원(2–1)은 이 법의 상당 부분이 연방 유권자등록법(NVRA)과 2018년 합의판결에 어긋난다고 봤습니다. 연방대법원은 두 가지를 묻습니다. 주 등록 양식에 시민권 서류를 요구할 수 있는지, 그리고 연방 선거 90일 이내에 비시민 등록을 취소하는 것을 연방법이 막는지입니다. 처음 소송을 냈던 연방 법무부는 정권이 바뀐 뒤 RNC 쪽을 지지하는 서면을 냈습니다.",
    "impact_kr": "11월 3일 선거에서 애리조나의 등록·투표 규칙은 바뀌지 않습니다. 주 양식으로 등록하면서 시민권 서류를 내지 않으면 등록이 거부되고, 연방 양식으로 서류 없이 등록한 사람은 지금처럼 연방 선거(대통령·연방의회)에만 투표할 수 있습니다. 대법원 판결은 변론(12/8) 뒤에 나오므로 2026년 선거 이후 규칙에 영향을 줍니다.",
    "events": [
@@ -3033,6 +3033,13 @@
      "tier": "court"
     },
     {
+     "date": "2026-10-13",
+     "text": "연방대법원 docket(25-1017)에 10/13자로 피고 측 본안 서면 3건 접수: 민주당전국위원회(DNC)·애리조나 민주당, Mi Familia Vota·Voto Latino, Living United for Change in Arizona 등. 서면 내용은 열어 보지 못했다.",
+     "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-1017.html",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    },
+    {
      "date": "2026-12-08",
      "text": "변론 예정",
      "url": "https://www.oyez.org/cases/2026/25-1017"
@@ -3075,7 +3082,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-10-13",
+   "last_checked": "2026-10-14",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -3247,7 +3254,7 @@
      ]
     }
    ],
-   "status_updated": "2026-10-10"
+   "status_updated": "2026-10-14"
   },
   {
    "id": "nh-hb1569",
@@ -3731,7 +3738,7 @@
    "states": [
     "AK"
    ],
-   "last_checked": "2026-10-13",
+   "last_checked": "2026-10-14",
    "rulings": [
     {
      "date": "2026-09-18",
@@ -3902,7 +3909,7 @@
     }
    ],
    "first_seen": "2026-10-11",
-   "last_checked": "2026-10-11",
+   "last_checked": "2026-10-14",
    "status_updated": "2026-10-11",
    "last_date": "2026-10-01"
   }
