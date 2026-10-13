@@ -15,6 +15,8 @@ import shutil
 from collections import Counter
 from pathlib import Path
 
+from check_collection_audit import collection_notice
+
 REPO = Path(__file__).resolve().parent.parent
 GEN, CASES = REPO / "_gen", REPO / "cases"
 STATUS_KR = {"pending": "계류", "active": "진행", "ruled": "판결", "closed": "종결", "enjoined": "집행정지"}
@@ -92,6 +94,25 @@ class Glossary:
             out.append(f"\n## {cat}\n")
             out += [f"- **{it['term']}** — {it['explain_kr']}" for it in self.items if it["category"] == cat]
         return "\n".join(out) + "\n"
+
+
+KST = dt.timezone(dt.timedelta(hours=9))
+
+
+def kst_date(now=None):
+    now = now or dt.datetime.now(dt.timezone.utc)
+    if now.tzinfo is None:
+        raise ValueError("현재 시각에는 시간대가 필요합니다")
+    return now.astimezone(KST).date()
+
+
+def recent_events(items, today=None):
+    """KST 오늘까지의 최근 14일(양 끝 포함). 미래 기일은 움직임으로 세지 않는다."""
+    today = today or kst_date()
+    start = today - dt.timedelta(days=13)
+    return sorted(((e, c) for c in items for e in c.get("events", [])
+                   if start <= dt.date.fromisoformat(e["date"]) <= today),
+                  key=lambda z: z[0]["date"], reverse=True)
 
 
 def cell(s):
@@ -204,7 +225,7 @@ def main():
     doc = json.loads((REPO / "data" / "cases.json").read_text())
     items = doc["items"]
     G = Glossary()
-    today = dt.datetime.now(dt.timezone(dt.timedelta(hours=9))).date()
+    today = kst_date()
     shutil.rmtree(GEN, ignore_errors=True); GEN.mkdir(exist_ok=True)
     shutil.rmtree(CASES, ignore_errors=True); CASES.mkdir(exist_ok=True)
 
@@ -223,11 +244,11 @@ def main():
         for c in sorted(sorted(items, key=lambda c: c.get("last_date") or "", reverse=True), key=lambda c: STATUS_ORDER.index(c["status"]))] + ['</ul>\n']
     up = sorted((c for c in items if c.get("next_date") and dt.date.fromisoformat(c["next_date"]) >= today - dt.timedelta(days=3)),
                 key=lambda c: c["next_date"])
+    o.append(collection_notice(REPO / "inbox"))
     o.append("\n## 다가오는 기일\n")
     o += [f"- <b class=\"d\">{c['next_date']}</b> [{c['title_kr']}](cases/{c['id']}.qmd) — {c.get('next_kr') or ''}" for c in up] \
         or ["- 날짜가 정해진 다음 기일이 없습니다. 각 사건의 「다음」 칸에 날짜 미정 절차가 적혀 있습니다."]
-    recent = sorted(((e, c) for c in items for e in c.get("events", [])
-                     if dt.date.fromisoformat(e["date"]) >= today - dt.timedelta(days=14)), key=lambda z: z[0]["date"], reverse=True)
+    recent = recent_events(items, today)
     o.append("\n\n## 최근 2주 움직임\n")
     o += [ev_line(e, c) for e, c in recent] or ["- 최근 2주 안에 기록된 움직임이 없습니다."]
     (GEN / "overview.md").write_text(G.page("\n".join(o) + "\n", box=False))

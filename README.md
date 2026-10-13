@@ -7,8 +7,9 @@
 
 ## 일일 파이프라인
 1. 수집: 클라우드 루틴이 `prompts/legal_daily.md`를 따라 웹 조사 → `inbox/YYYY-MM-DD.json` + `briefings/YYYY-MM-DD.md`
-2. 병합: `python3 scripts/build.py` — 항목 단위 검증(출처 URL 필수·category/status/tier enum) → `data/cases.json`. 거부 항목은 `inbox/YYYY-MM-DD.rejected.json`. 처리한 inbox는 내용 해시로 `data/build_state.json`에 기록(고친 파일만 재적용, 사람이 직접 고친 cases.json을 옛 inbox가 되돌리지 않음).
-3. 커밋·push → Actions 배포
+2. 게시 전 점검: `python3 scripts/check_collection_audit.py --strict inbox/YYYY-MM-DD.json` — 실행별 공화/민주/주제 최소 3/3/5 검색과 후속 확인 미달을 검출합니다. 재실행은 마지막 audit만 검사합니다. 차단·미확인 기록은 보존하며 홈페이지에 수집 점검 상태를 표시합니다.
+3. 병합: `python3 scripts/build.py` — 항목 단위 검증(출처 URL 필수·category/status/tier enum) → `data/cases.json`. 거부 항목은 `inbox/YYYY-MM-DD.rejected.json`. 처리한 inbox는 내용 해시로 `data/build_state.json`에 기록(고친 파일만 재적용, 사람이 직접 고친 cases.json을 옛 inbox가 되돌리지 않음).
+4. 커밋·push → Actions 배포
 
 ## 데이터
 - `data/cases.json` 사건 목록. 사건 = 소송·행정명령·규칙·법안 하나. 필드: id, category, title_kr, name_en, court, states, status(pending·active·enjoined·ruled·closed), status_kr, next_date, next_kr, summary_kr, impact_kr, events[{date,text,url,outlet,tier}], sources, last_date(자동), last_checked, status_updated

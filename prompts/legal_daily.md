@@ -1,6 +1,6 @@
 # 2026 선거 법·제도 분쟁 트래커 — 일일 수집·브리핑 프롬프트
 
-Version 1.4 (2026-10-10 — v1.4: 새 사건은 수집 구간과 무관하게 추가, 원문이 막혀도 검색 요약으로 기록 / v1.3: 독자 수준 = 일반인(docs/reader_level.md), plain_kr·impact_kr 쉬운 말 / v1.0 신설, us-elections-2026.github.io 법·제도 페이지에서 독립 / v1.1: 판결 내용(ruling) — 결론·표결·다수·보충·반대의견 요지 / v1.2: 연방대법원 매일 확인(§2-D)·용어 풀이(§2-E)) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
+Version 1.5 (2026-10-13 — v1.5: 실행별 3/3/5 엄격 검사·미달 게시 중단 / v1.4: 새 사건은 수집 구간과 무관하게 추가, 원문이 막혀도 검색 요약으로 기록 / v1.3: 독자 수준 = 일반인(docs/reader_level.md), plain_kr·impact_kr 쉬운 말 / v1.0 신설, us-elections-2026.github.io 법·제도 페이지에서 독립 / v1.1: 판결 내용(ruling) — 결론·표결·다수·보충·반대의견 요지 / v1.2: 연방대법원 매일 확인(§2-D)·용어 풀이(§2-E)) · 실행: Claude Code 클라우드 루틴, 매일 1회 · 저장소: woochangkang/election-law-tracker-2026 (이 체크아웃)
 
 ## 0. 역할과 실행 환경
 
@@ -77,7 +77,7 @@ Version 1.4 (2026-10-10 — v1.4: 새 사건은 수집 구간과 무관하게 �
 - tier `government`: 법무부·국토안보부·USPS·EAC·FEC·주 국무장관 발표. tier `advocacy`: Democracy Docket, Brennan Center, ACLU, Campaign Legal Center, Heritage·Honest Elections Project 등 당사자·옹호 단체. tier `party`: RNC·DNC·DSCC·NRSC 등 당 발표. tier `news`: SCOTUSblog, Votebeat, Election Law Blog(Rick Hasen), Bolts, AP, Reuters, Politico, NYT, WaPo, 지역 언론.
 - **양쪽 소송을 같은 무게로 검색한다**: 공화당·법무부·보수 단체가 제기한 소송(RNC v. …, United States v. [주], 명부 정비·시민권 증명 요구)과 민주당·진보 단체가 제기한 소송(DNC·DSCC·Elias Law Group·LWV·ACLU v. …)을 각각 검색하고 횟수를 `audit`에 적는다. 한쪽 소식이 실제로 많으면 그대로 싣고 브리핑 「읽는 법」에 쓴다.
 - Democracy Docket처럼 한쪽 당사자에 가까운 매체만 있는 사실은 그 매체 이름을 `outlet`에 그대로 적는다(독자가 판단한다).
-- **최소 검색량(매 실행)**: 후속 확인 대상 전부 + §2-D 대법원 페이지 직접 열람(검색 횟수와 별도로 `audit.scotus`에 기록) + 공화 측 소송 3회 + 민주 측 소송 3회 + 주제별(우편투표·명부·재획정·선거자금·인증) 각 1회. 적게 했으면 이유를 `audit.notes`에.
+- **최소 검색량(매 실행)**: 후속 확인 대상 전부 + §2-D 대법원 페이지 직접 열람(검색 횟수와 별도로 `audit.scotus`에 기록) + 공화 측 소송 3회 + 민주 측 소송 3회 + 주제별(우편투표·명부·재획정·선거자금·인증) 각 1회. 각 기준은 매 실행 필수다. 미달이면 부족한 쪽 검색을 보충한 뒤 다시 점검한다. 접근 차단은 검색 횟수 충족이나 원문 확인을 뜻하지 않는다. 보충할 수 없으면 `audit.notes`에 원인과 미확인 범위를 남기고 브리핑에 **수집 미완료**를 표시한다. 검색 횟수만 맞추려고 값을 늘리지 않는다.
 - **본문 열람이 막힐 때**: 검색 결과의 제목·날짜·요약·URL로 기록하고 `text` 끝에 "(검색 요약 기준)"을 붙인다. 판결·명령의 **결론**(인용·기각·정지)은 검색 요약이 분명히 말할 때만 쓴다.
 - 권장 검색어: `Supreme Court emergency application election`, `site:supremecourt.gov 26A`, `"election" lawsuit filed [this week]`, `RNC lawsuit voter rolls`, `Justice Department sues state voter rolls`, `DNC lawsuit election`, `Elias Law Group lawsuit`, `mail ballot ruling`, `redistricting map court ruling 2026`, `proof of citizenship voter registration court`, `certification county board lawsuit`, `Democracy Docket`, `Votebeat`, `SCOTUSblog election`.
 
@@ -94,7 +94,7 @@ Version 1.4 (2026-10-10 — v1.4: 새 사건은 수집 구간과 무관하게 �
 1. 실행일·직전 실행일 확인, `data/cases.json`·`data/glossary.json` 읽기, §2-A 후속 확인 목록 만들기.
 2. §2-D 연방대법원 확인 → 후속 확인 → 새 움직임 → 새 사건 검색(양쪽 균형) → §2-E 새 용어 점검.
 3. `inbox/RUN.json` 작성(§6). **같은 날 재실행이면 덮어쓰지 않는다** — 기존 파일의 항목을 유지하고 새 항목만 각 배열 끝에 추가(audit는 `audit_runs` 배열에 이번 실행분 추가).
-4. `python3 scripts/build.py` 실행. `inbox/RUN.rejected.json`이 생기면 사유를 읽고 형식 오류만 고쳐 한 번 더 실행. 사실을 모르는 항목은 고치지 말고 빼라.
+4. `python3 scripts/check_collection_audit.py --strict inbox/RUN.json` 실행. 종료 코드가 0이 아니면 수집을 보충한다. 미달·점검 누락 상태를 정상 완료로 커밋·푸시하지 않는다. 같은 날 재실행은 `audit_runs`의 마지막 실행분을 검사하며 이전 실행과 합산하지 않는다. 원문 접근 차단·검색 요약 기준·미확인 항목은 보충 뒤에도 지우지 않는다. 엄격 검사를 통과한 뒤 `python3 scripts/build.py` 실행. `inbox/RUN.rejected.json`이 생기면 사유를 읽고 형식 오류만 고쳐 한 번 더 실행. 사실을 모르는 항목은 고치지 말고 빼라.
 5. `briefings/RUN.md` 작성(§7). 같은 날 재실행이면 끝에 `## 추가 수집 (HH:MM KST 실행분)` 절을 붙인다.
 6. 커밋·푸시:
    ```
@@ -103,7 +103,7 @@ Version 1.4 (2026-10-10 — v1.4: 새 사건은 수집 구간과 무관하게 �
    git push origin main
    ```
    push가 실패하면 `git pull --rebase origin main` 후 1회 재시도. 그래도 실패하면 오류 원문을 최종 보고에 그대로 적는다.
-7. 최종 보고(대화창): 건수, 거부 건수와 사유, push 결과 한 줄씩. 마지막에 「접속 차단 도메인」을 한 줄에 하나씩(없으면 "없음").
+7. 최종 보고(대화창): 수집 점검 결과(완료·접근 제한·미완료), 실제 3/3/5 검색 횟수, 건수, 거부 건수와 사유, push 결과 한 줄씩. 미완료이면 push하지 않은 이유와 필요한 보충을 보고한다. 마지막에 「접속 차단 도메인」을 한 줄에 하나씩(없으면 "없음").
 
 ## 6. inbox/RUN.json 스키마 (정확히 이 키를 쓴다)
 

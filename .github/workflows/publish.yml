@@ -21,6 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
+      - run: python3 scripts/check_collection_audit.py  # 미달을 공개 표시, 과거 사실 기록은 보존
       - run: python3 scripts/build.py
       # 최근 수집 실행에서 허용 목록(data/allowed_domains.txt) 밖 사이트가 막혔으면 이슈 하나에 날짜별로 댓글을 단다(저장소 주인에게 알림).
       - name: 접속 차단 도메인 알림
