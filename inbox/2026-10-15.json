@@ -1,0 +1,22 @@
+{
+  "run_date": "2026-10-15",
+  "window": {"news_from": "2026-10-14", "news_to": "2026-10-15"},
+  "updates": [],
+  "checks": [
+    {"case_id": "usps-rule", "note": "10/15 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"},
+    {"case_id": "save-db", "note": "10/15 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/15 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/15 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"},
+    {"case_id": "az-mfv", "note": "10/15 docket 25-1017 기준 마지막 항목 10/13(피고 측 본안 서면 3건), 새 항목 없음"},
+    {"case_id": "eo14248", "note": "10/15 검색 기준 DC순회 정부 측 서면(예정일 10/14) 제출 보도 없음. CourtListener는 403으로 열지 못함"},
+    {"case_id": "ak-taylor", "note": "10/15 검색 기준 Tagle 사건(Garton 판사) 새 판단 보도 없음, 최신 보도는 9/29. Taylor 관련 새 법원 판단 없음(검색 요약 기준)"},
+    {"case_id": "nj-rnc-rolls", "note": "10/15 검색 기준 9/22 제소 이후 새 법원 판단 보도 없음(검색 요약 기준)"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5, "followups_due": 3, "followups_checked": 3,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305","26A308","26A304","26A326","26A388","26A124","25-1017"], "new_entries": 0, "blocked": []},
+    "blocked_sites": ["www.courtlistener.com", "www.alaskasnewssource.com"],
+    "notes": "명령 목록 최신은 10/13(Order List·Miscellaneous Order)이고 이번에 내용을 열어 확인하지는 않았다(전날 실행분이 확인). 의견 목록 최신 10/13(비선거), 판결 목록은 10/14 FCC v. Brown 1건(비선거). 검색 결과는 대부분 과거 자료여서 10월 신규 소송은 확인하지 못했다. 법무부 명부 소송 수·기각 건수(검색 요약: 29개 주+DC 제소, 3건 이상 기각)는 출처 날짜가 불분명해 반영하지 않았다. EO 14248 항소심·알래스카 법원 기록은 직접 열지 못했다."
+  }
+}
