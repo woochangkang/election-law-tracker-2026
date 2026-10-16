@@ -1,0 +1,28 @@
+{
+  "run_date": "2026-10-17",
+  "window": {"news_from": "2026-10-16", "news_to": "2026-10-17"},
+  "updates": [
+    {
+      "case_id": "az-mfv", "date": "2026-10-16",
+      "text": "연방대법원 docket에 10/16자로 미국 정부가 변론 시간을 나눠 쓰게 해 달라는 신청(motion for divided argument)을 낸 것이 올랐다. 신청 내용과 대법원의 판단은 열어 보지 못했다. 12월 8일 변론 일정은 그대로다.",
+      "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-1017.html", "outlet": "Supreme Court", "tier": "court"
+    }
+  ],
+  "checks": [
+    {"case_id": "usps-rule", "note": "10/17 docket 26A305 기준 마지막 항목 9/14(정지 신청 기각), 새 항목 없음"},
+    {"case_id": "save-db", "note": "10/17 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/17 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/17 docket 26A124 기준 마지막 항목 8/24(정지 인용), 새 항목 없음"},
+    {"case_id": "eo14248", "note": "10/17 검색 기준 DC순회 정부 측 서면(예정일 10/14) 제출 보도 없음(검색 요약 기준). CourtListener는 열지 않았음"},
+    {"case_id": "ak-taylor", "note": "10/17 검색 기준 Tagle 사건(Garton 판사) 새 판단 보도 없음, 최신 보도는 10/4 ADN(검색 요약 기준). 판사가 10월 중순까지 판단할 수 있다는 보도만 확인"},
+    {"case_id": "nh-hb1569", "note": "10/17 검색 기준 제1순회 26-1740 항소의 정지 신청(8/5 제출) 결과 보도 확인하지 못함(검색 요약 기준)"},
+    {"case_id": "nj-rnc-rolls", "note": "10/17 검색 기준 9/22 제소 이후 새 법원 판단 보도 없음(검색 요약 기준)"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5, "followups_due": 4, "followups_checked": 4,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305","26A308","26A304","26A326","26A388","26A124","25-1017"], "new_entries": 1, "blocked": []},
+    "blocked_sites": [],
+    "notes": "명령 목록 페이지는 열렸으나 사건명이 표에 없어 개별 PDF는 열지 않았다. 명령 관련 의견 최신 10/13(비선거), 판결 목록 최신 10/14 FCC v. Brown(비선거). 검색 결과 대부분이 과거 자료여서 10월 신규 소송은 확인하지 못했다. 검색 요약에 나온 Virginia(Scott v. McDougle) 긴급신청은 일자·결과를 확인하지 못해 넣지 않았다. EO 14248 항소심·알래스카 법원·제1순회 기록은 직접 열지 못했다."
+  }
+}
