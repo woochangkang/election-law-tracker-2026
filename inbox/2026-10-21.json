@@ -1,0 +1,45 @@
+{
+  "run_date": "2026-10-21",
+  "window": {"news_from": "2026-10-20", "news_to": "2026-10-21"},
+  "updates": [
+    {
+      "case_id": "az-mfv", "date": "2026-10-20",
+      "text": "연방대법원 docket에 10/20자로 시민단체·전직 법무부 투표권 담당 변호사·선거관리 전·현직 공무원·사회과학자 등의 의견서(amicus brief) 5건이 접수됐다. 법원의 결정은 없다.",
+      "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/25-1017.html", "outlet": "Supreme Court", "tier": "court",
+      "scotus_dockets": ["25-1017"]
+    }
+  ],
+  "checks": [
+    {"case_id": "usps-rule", "note": "10/21 docket 26A305 기준 마지막 항목은 9/14 정지 신청 기각, 새 항목 없음"},
+    {"case_id": "save-db", "note": "10/21 docket 26A308 기준 마지막 항목은 9/25 정지 인용, 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/21 docket 26A304·26A326·26A388 기준 마지막 항목은 9/25, 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/21 docket 26A124 기준 마지막 항목은 8/24 정지 인용, 새 항목 없음"},
+    {"case_id": "callais", "note": "10/21 검색 기준 10/27 후속 심리 관련 새 보도·명령 확인하지 못함(대법원 10/20 명령 목록에도 해당 없음)"},
+    {"case_id": "doj-rolls", "note": "10/21 검색 기준 새 판결 확인하지 못함(검색 결과가 10월 이전 자료 중심)"},
+    {"case_id": "nj-rnc-rolls", "note": "10/21 검색 기준 9/22 제소 이후 새 법원 판단 확인하지 못함"}
+  ],
+  "new_cases": [
+    {
+      "id": "sd-sb175", "category": "유권자 등록·명부",
+      "title_kr": "사우스다코타 유권자 등록 시민권 서류 제도 운용 소송", "name_en": "League of Women Voters of South Dakota v. Johnson (D.S.D.)",
+      "court": "연방지법(사우스다코타)", "states": ["SD"],
+      "status": "active", "status_kr": "긴급 구제 신청은 주가 먼저 고쳐 기각(임시 단계, 본안 계속)", "next_date": null, "next_kr": "본안(적법 절차 주장) 진행, 기일 확인하지 못함",
+      "plain_kr": "사우스다코타는 새로 등록하는 사람에게 시민권 증빙 서류를 요구합니다. 시민단체는 주가 잘못된 안내문을 보내고 서류를 보완할 길도 주지 않는다며 소송을 냈습니다.",
+      "summary_kr": "사우스다코타 주법(SB 175, 2026년 3월 제정)은 새 유권자에게 시민권 증빙 서류를 요구합니다. 서류를 내지 못하면 연방 선거만 투표할 수 있는 '연방 전용' 유권자가 됩니다. 사우스다코타 여성유권자연맹과 유권자 1명은 8월 24일 연방지법에 소송을 냈습니다. 이들은 주의 운용 방식이 민권법과 적법 절차 보장을 어긴다고 주장합니다. 9월 18일 판사는 긴급 구제 신청을 기각했습니다. 주가 이미 안내문을 고쳤기 때문입니다. 소송은 계속됩니다. (검색 요약 기준)",
+      "detail": [{"heading": "원고와 피고의 주장", "md": "- 원고(여성유권자연맹 등): 자동 발송 안내문이 부정확하고, 서류가 부족한 유권자가 이를 바로잡을 절차가 없다고 주장합니다.\n- 피고(주무장관 Johnson): 이 소송 제기 뒤 자동 안내문을 중단하고 새 양식으로 바꾸었으며, 잘못된 안내문을 받은 유권자에게 정정 안내를 보내도록 카운티에 알렸습니다."}],
+      "impact_kr": "서류를 내지 못한 새 유권자는 11월 선거에서 연방 선거(연방 상·하원 등)만 투표하고 주·지방 선거는 못 할 수 있습니다. 법원이 이 제도 자체를 막은 것은 아닙니다. 확인하지 못했습니다: 그런 유권자의 정확한 수.",
+      "events": [
+        {"date": "2026-09-18", "text": "연방지법 판사가 긴급 구제 신청을 기각(주가 이미 안내문을 고쳐 의미 없어졌다는 이유, 원고가 다시 신청할 수 있는 조건). 본안은 계속", "url": "https://www.democracydocket.com/news-alerts/voting-rights-lawsuit-prompts-south-dakota-to-fix-confusing-proof-of-citizenship-system/", "outlet": "Democracy Docket", "tier": "advocacy"}
+      ],
+      "sources": [
+        {"label": "Campaign Legal Center 사건 페이지", "url": "https://campaignlegal.org/cases-actions/challenging-south-dakotas-administration-its-voter-registration-documentation-law"},
+        {"label": "ACLU 사건 페이지", "url": "https://www.aclu.org/cases/league-of-women-voters-of-south-dakota-v-johnson"}
+      ]
+    }
+  ],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5, "followups_due": 1, "followups_checked": 1,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305", "26A308", "26A304", "26A326", "26A388", "26A124", "25-1017"], "new_entries": 1, "blocked": []},
+    "blocked_sites": ["www.aclu.org"],
+    "notes": "10/20 Miscellaneous Order(102026zr_2d9g.pdf)를 열어 사형 집행정지 신청 기각 1건뿐이고 선거 관련 항목이 없음을 확인했다. 25-1017 docket의 10/20 항목은 의견서 5건이다. 슬립 의견 목록의 최신은 10/14 FCC v. Brown(선거 무관). 검색 결과 대부분이 10월 이전 자료여서 10월 하급심 판결은 확인하지 못했다. 노스캐롤라이나 연방 3인 재판부의 새 의회 지도 가처분 심리(보도상 11/19) 건은 보도 연도가 불분명해 확인하지 못해 넣지 않았다. 새 사건 sd-sb175는 CLC·ACLU 사건 페이지 검색 요약과 Democracy Docket(한쪽 당사자에 가까운 매체) 기사에 근거하며 법원 명령 원문은 열지 못했다. ACLU 사건 페이지는 접속 실패(getaddrinfo ENOTFOUND)."}
+}
