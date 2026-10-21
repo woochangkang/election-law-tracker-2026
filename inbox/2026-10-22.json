@@ -1,0 +1,24 @@
+{
+  "run_date": "2026-10-22",
+  "window": {"news_from": "2026-10-21", "news_to": "2026-10-22"},
+  "updates": [],
+  "checks": [
+    {"case_id": "callais", "note": "10/22 검색 기준 10/27 후속 심리 관련 새 보도·명령 확인하지 못함(대법원 10/21 명령에도 해당 없음)"},
+    {"case_id": "usps-rule", "note": "10/22 docket 26A305 기준 마지막 항목 9/14, 새 항목 없음"},
+    {"case_id": "save-db", "note": "10/22 docket 26A308 기준 마지막 항목 9/25, 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/22 docket 26A304·26A326·26A388 기준 마지막 항목 9/25, 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/22 docket 26A124 기준 마지막 항목 8/24, 새 항목 없음"},
+    {"case_id": "az-mfv", "note": "10/22 docket 25-1017 기준 마지막 항목은 10/20 의견서 접수(직전 기록 반영), 새 항목 없음"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {
+    "searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5,
+    "followups_due": 1, "followups_checked": 1,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"],
+      "dockets_checked": ["26A305", "26A308", "26A304", "26A326", "26A388", "26A124", "25-1017"],
+      "new_entries": 0, "blocked": []},
+    "blocked_sites": [],
+    "notes": "10/21 Miscellaneous Order(102126zr_5i36.pdf)를 열어 Trump v. Kingdom(26A416) 정지 신청 기각(Thomas·Alito 반대) 1건뿐임을 확인했다. 이 사건은 선거 사건이 아니어서 넣지 않았다. 추적 docket 7건은 새 항목이 없다. 슬립 의견·명령 관련 의견의 최신은 직전 확인과 같다. 검색 결과는 대부분 10월 이전 자료(켄터키 DOJ 명부 소송 7/23 기각 등 기존 흐름)여서 10월 하급심의 새 판결은 확인하지 못했다. NJ RNC 새 소송 예고, 알래스카 LWV 명부 공유 소송, DNC 대 법무부 FOIA 소송은 날짜·상태를 원문으로 확인하지 못해 넣지 않았다."
+  }
+}
