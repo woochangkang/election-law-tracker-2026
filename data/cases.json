@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-22",
+ "as_of": "2026-10-23",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-22",
+   "last_checked": "2026-10-23",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -442,7 +442,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-22",
+   "last_checked": "2026-10-23",
    "rulings": [
     {
      "date": "2026-06-25",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-22",
+   "last_checked": "2026-10-23",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -2188,7 +2188,7 @@
     "LA",
     "US"
    ],
-   "last_checked": "2026-10-22",
+   "last_checked": "2026-10-23",
    "rulings": [
     {
      "date": "2026-04-29",
@@ -2683,7 +2683,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-10-22",
+   "last_checked": "2026-10-23",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -3096,7 +3096,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-10-22",
+   "last_checked": "2026-10-23",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -3974,6 +3974,102 @@
    "last_checked": "2026-10-21",
    "status_updated": "2026-10-21",
    "last_date": "2026-09-18"
+  },
+  {
+   "id": "nh-student-id",
+   "category": "투표 절차·접근",
+   "title_kr": "뉴햄프셔 대학생 신분증 사용 제한 — 대법원 10/22 정지",
+   "name_en": "Scanlan v. Coalition for Open Democracy (D.N.H. No. 1:26-cv-647 / U.S. Supreme Court No. 26A512)",
+   "court": "뉴햄프셔 연방지법 → 연방대법원(긴급신청)",
+   "status": "enjoined",
+   "status_kr": "임시 결정 번복입니다. 연방지법이 10/2에 일부 막은 명령을 연방대법원이 10/22 항소 결과가 나올 때까지 정지시켰습니다. 그래서 주 정부의 4월 지침이 11월 선거에도 적용될 수 있습니다.",
+   "summary_kr": "뉴햄프셔는 2026년 4월 HB 323을 통과시켜 학생증을 투표 때 당연히 인정되는 신분증 목록에서 뺐습니다. 그 뒤 주 국무장관실은 학생증을 등록·부재자투표 신청·투표소 확인 어디에도 쓸 수 없다고 안내했습니다(4월 지침). 시민단체 Coalition for Open Democracy는 8월 11일 소송을 냈습니다. 연방지법은 10월 2일 법 자체는 막지 않았지만, 지침이 법보다 더 나갔다고 보고 그 부분을 막았습니다. 학생증을 신분 확인의 보조 증거로 고려하는 것까지 막은 점이 문제였습니다. 연방대법원은 10월 22일 Jackson 대법관만 반대한 가운데 이 명령들을 정지시켰습니다.",
+   "impact_kr": "연방대법원 정지로 4월 지침을 막은 명령의 효력이 항소심 결과가 나올 때까지 멈췄습니다. 그 결과 뉴햄프셔 유권자에게 학생증만으로 신분을 밝히기 어려울 수 있습니다. 다만 정지 이후 주가 실제로 어떤 안내를 하는지는 확인하지 못했습니다.",
+   "states": [
+    "NH"
+   ],
+   "next_date": null,
+   "next_kr": "제1순회항소법원 항소 심리 — 일정 확인하지 못함",
+   "scotus_dockets": [
+    "26A512"
+   ],
+   "detail": [
+    {
+     "heading": "무엇이 다투어졌나",
+     "md": "- 법(HB 323): 학생증을 '당연히 유효한 신분증' 목록에서 뺐다.\n- 4월 지침: 학생증을 등록·부재자투표 신청·투표소 확인에 전혀 쓸 수 없다고 안내했다. 신분증이 없는 유권자가 다른 증거로 신분을 밝히는 예외 규정에서도 학생증을 못 쓰게 한다는 뜻이다.\n- 연방지법 10/2: 법에 대한 가처분은 기각, 지침에 대한 가처분은 인용. 국무장관이 11월 선거용 수정 안내를 내도록 명령했다."
+    },
+    {
+     "heading": "연방대법원 10/22",
+     "md": "- 다수(서명 없는 명령): 연방 하급법원은 선거 직전에 선거 규칙을 바꾸지 말아야 한다는 원칙을 들었다. 이 사건에서 그 원칙을 벗어날 이유를 지방법원이 대지 않았다고 봤다.\n- Jackson 반대: 이 명령은 주법을 그대로 두고 잘못 알리는 공무원의 발언만 바로잡게 한 것이어서 선거 직전 규칙 변경이 아니라고 봤다."
+    }
+   ],
+   "litigation": null,
+   "plain_kr": "뉴햄프셔가 대학 학생증을 투표 신분증으로 인정하지 않기로 하자, 한 시민단체가 청년 유권자 차별이라며 소송을 냈습니다. 연방대법원은 선거 직전에 법원이 규칙에 손대지 말아야 한다며 하급심의 일부 금지 명령을 멈췄습니다.",
+   "events": [
+    {
+     "date": "2026-08-11",
+     "text": "Coalition for Open Democracy가 HB 323과 4월 지침을 상대로 연방지법에 소송과 가처분 신청을 냈다.",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/08/2026-10-02-Order.pdf",
+     "outlet": "뉴햄프셔 연방지법",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-02",
+     "text": "연방지법이 HB 323에 대한 가처분은 기각하고, 학생증을 신분 확인 증거로도 쓰지 못하게 한 4월 지침은 막았다(일부 인용).",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/08/2026-10-02-Order.pdf",
+     "outlet": "뉴햄프셔 연방지법",
+     "tier": "court"
+    },
+    {
+     "date": "2026-10-22",
+     "text": "연방대법원이 10/2·10/5 가처분 명령을 항소심과 상고 절차가 끝날 때까지 정지했다. Jackson 대법관 반대.",
+     "url": "https://www.supremecourt.gov/opinions/26pdf/26a512_6j37.pdf",
+     "outlet": "Supreme Court",
+     "tier": "court"
+    }
+   ],
+   "sources": [
+    {
+     "label": "연방대법원 10/22 명령·반대의견(PDF)",
+     "url": "https://www.supremecourt.gov/opinions/26pdf/26a512_6j37.pdf"
+    },
+    {
+     "label": "연방대법원 docket 26A512",
+     "url": "https://www.supremecourt.gov/docket/docketfiles/html/public/26a512.html"
+    },
+    {
+     "label": "연방지법 10/2 명령(PDF)",
+     "url": "https://www.democracydocket.com/wp-content/uploads/2026/08/2026-10-02-Order.pdf"
+    }
+   ],
+   "first_seen": "2026-10-23",
+   "last_checked": "2026-10-23",
+   "status_updated": "2026-10-23",
+   "rulings": [
+    {
+     "date": "2026-10-22",
+     "court": "연방대법원",
+     "decision_kr": "뉴햄프셔의 정지 신청 인용. 연방지법의 10/2·10/5 가처분 명령이 항소심 판단과 상고 절차 종료 때까지 정지된다.",
+     "vote": null,
+     "majority": {
+      "author": null,
+      "joined_by": [],
+      "summary_kr": "서명 없는 명령이다. 연방 하급법원은 선거 직전에 선거 규칙을 바꾸지 말아야 한다는 원칙을 들었고, 지방법원이 이를 벗어날 이유를 밝히지 않았다고 봤다."
+     },
+     "concurrences": [],
+     "dissents": [
+      {
+       "author": "잭슨",
+       "joined_by": [],
+       "summary_kr": "이 명령은 주법을 그대로 두고 오해를 부르는 공무원 발언만 바로잡게 했으므로 Purcell 원칙이 말하는 규칙 변경이 아니라고 봤다."
+      }
+     ],
+     "url": "https://www.supremecourt.gov/opinions/26pdf/26a512_6j37.pdf",
+     "verified": "primary",
+     "note_kr": "반대 표시는 잭슨 1명만 확인된다. 표결 전체 수는 명령에 적혀 있지 않다."
+    }
+   ],
+   "last_date": "2026-10-22"
   }
  ]
 }
