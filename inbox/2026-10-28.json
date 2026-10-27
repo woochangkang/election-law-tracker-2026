@@ -1,0 +1,20 @@
+{
+  "run_date": "2026-10-28",
+  "window": {"news_from": "2026-10-27", "news_to": "2026-10-28"},
+  "updates": [],
+  "checks": [
+    {"case_id": "callais", "note": "10/28 검색 기준 10/27 추가 심리·새 명령 관련 보도 확인하지 못함(검색 요약 기준)"},
+    {"case_id": "save-db", "note": "10/28 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
+    {"case_id": "usps-rule", "note": "10/28 docket 26A305 기준 마지막 항목 9/14, 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/28 docket 26A124 기준 마지막 항목 8/24, 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/28 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
+    {"case_id": "az-mfv", "note": "10/28 docket 25-1017 기준 마지막 항목 10/20(분할변론 신청), 새 명령 없음"},
+    {"case_id": "nh-student-id", "note": "10/28 docket 26A512 기준 마지막 항목 10/22(정지 인용), 새 항목 없음"},
+    {"case_id": "doj-rolls", "note": "10/28 검색 기준 제9순회 캘리포니아·오리건 판결 및 10/16 정지 신청 결과 확인하지 못함(검색 요약 기준)"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {"searches_R_side": 4, "searches_D_side": 3, "searches_topic": 7, "followups_due": 2, "followups_checked": 2,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305", "26A308", "26A304", "26A326", "26A388", "26A124", "25-1017", "26A512"], "new_entries": 0, "blocked": []},
+    "blocked_sites": [], "notes": "명령 목록 최신은 10/21 Miscellaneous Order이며 PDF는 열지 않아 선거 관련 여부를 확인하지 못했다. 검색 결과는 모두 요약 기준이며 10/27 이후 새 선거 소송·명령은 확인하지 못했다. 10월 기준 새 보도가 거의 검색되지 않아 하급심 후속은 미확인 범위가 남는다."}
+}
