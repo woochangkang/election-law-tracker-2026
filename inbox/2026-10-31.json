@@ -1,0 +1,35 @@
+{
+  "run_date": "2026-10-31",
+  "window": {"news_from": "2026-10-30", "news_to": "2026-10-31"},
+  "updates": [],
+  "checks": [
+    {"case_id": "save-db", "note": "10/31 docket 26A308 기준 마지막 항목 9/25(정지 인용), 새 항목 없음"},
+    {"case_id": "usps-rule", "note": "10/31 docket 26A305 기준 마지막 항목 9/14, 새 항목 없음"},
+    {"case_id": "eo14399", "note": "10/31 docket 26A124 기준 마지막 항목 8/24, 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "10/31 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"},
+    {"case_id": "az-mfv", "note": "10/31 docket 25-1017 기준 마지막 항목 10/20, 새 명령 없음"},
+    {"case_id": "nh-student-id", "note": "10/31 docket 26A512 기준 마지막 항목 10/22(정지 인용), 새 항목 없음"}
+  ],
+  "new_cases": [
+    {
+      "id": "nj-ocean-purge", "category": "유권자 등록·명부",
+      "title_kr": "뉴저지 오션 카운티 유권자 거주지 확인 서한 소송", "name_en": "League of Women Voters of New Jersey v. Ocean County Board of Elections",
+      "court": "법원 이름은 확인하지 못했습니다", "states": ["NJ"],
+      "status": "pending", "status_kr": "10/8 제소 — 10/13 법원이 조사 중단 신청을 기각(임시 판단 단계)", "next_date": null, "next_kr": "확인된 기일 없음",
+      "plain_kr": "뉴저지 오션 카운티 선거관리위원회가 일부 유권자에게 '실제로 그곳에 사느냐'를 증명하라는 서한을 보냈고, 시민단체가 이것이 유권자를 위협한다며 소송을 냈습니다.",
+      "summary_kr": "뉴저지 여성유권자연맹(League of Women Voters)과 베이헤드 주민 3명이 오션 카운티 선거관리위원회와 위원장 George Gilmore를 상대로 10월 8일 소송을 냈습니다. 원고는 위원회가 민주당 성향·무소속 유권자에게 보낸 서한이 문제라고 주장합니다. 서한은 거주지 확인 설문지 작성, 10월 13일 위원회 회의 출석, 유권자 자격 소명을 요구했습니다. 원고는 이것이 뉴저지 존 루이스 유권자 권한 강화법과 주 헌법을 어긴다고 주장합니다. 10월 13일 법원은 거주 조사를 막아 달라는 원고의 신청을 받아들이지 않았습니다. 판결 이유는 확인하지 못했습니다. (검색 요약 기준)",
+      "detail": [{"heading": "원고의 주장", "md": "- 서한이 유권자를 위협한다고 주장합니다.\n- 비슷한 처지의 유권자를 다르게 대한다고 주장합니다.\n- 투표할 권리에 부담을 준다고 주장합니다."}],
+      "impact_kr": "해당 서한을 받은 오션 카운티 유권자는 거주지 확인 요구에 답해야 하는 상황에 놓일 수 있습니다. 법원이 조사 중단 신청을 기각했으므로 조사가 막혀 있지는 않은 것으로 보입니다. 11월 선거에서 실제로 몇 명의 투표에 영향이 있는지는 확인하지 못했습니다.",
+      "events": [
+        {"date": "2026-10-08", "text": "뉴저지 여성유권자연맹 등이 오션 카운티 선거관리위원회를 상대로 소장 제출", "url": "https://www.democracydocket.com/cases/new-jersey-voter-purge-challenge/", "outlet": "Democracy Docket", "tier": "advocacy"},
+        {"date": "2026-10-13", "text": "법원이 거주 조사를 막아 달라는 원고 신청을 기각(사건 페이지 기준)", "url": "https://www.democracydocket.com/cases/new-jersey-voter-purge-challenge/", "outlet": "Democracy Docket", "tier": "advocacy"}
+      ],
+      "sources": [{"label": "Democracy Docket 사건 페이지", "url": "https://www.democracydocket.com/cases/new-jersey-voter-purge-challenge/"}]
+    }
+  ],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5, "followups_due": 1, "followups_checked": 1,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A305", "26A308", "26A304", "26A326", "26A388", "26A124", "25-1017", "26A512"], "new_entries": 0, "blocked": []},
+    "blocked_sites": [],
+    "notes": "웹 검색 결과 대부분이 2024~2026년 9월 이전 기사였고 10/30 이후 새 소송·명령은 확인하지 못했다. 신규 1건은 Democracy Docket 사건 페이지 한 곳으로만 확인했고 담당 법원명과 기각 이유는 미확인. 하급심 최신 움직임은 미확인 범위가 남는다."}
+}

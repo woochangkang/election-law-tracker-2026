@@ -1,5 +1,5 @@
 {
- "as_of": "2026-10-30",
+ "as_of": "2026-10-31",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-10-31",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -442,7 +442,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-10-31",
    "rulings": [
     {
      "date": "2026-06-25",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-10-31",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -2691,7 +2691,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-10-31",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -3104,7 +3104,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-10-31",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -4051,7 +4051,7 @@
     }
    ],
    "first_seen": "2026-10-23",
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-10-31",
    "status_updated": "2026-10-23",
    "rulings": [
     {
@@ -4078,6 +4078,57 @@
     }
    ],
    "last_date": "2026-10-22"
+  },
+  {
+   "id": "nj-ocean-purge",
+   "category": "유권자 등록·명부",
+   "title_kr": "뉴저지 오션 카운티 유권자 거주지 확인 서한 소송",
+   "name_en": "League of Women Voters of New Jersey v. Ocean County Board of Elections",
+   "court": "법원 이름은 확인하지 못했습니다",
+   "status": "pending",
+   "status_kr": "10/8 제소 — 10/13 법원이 조사 중단 신청을 기각(임시 판단 단계)",
+   "summary_kr": "뉴저지 여성유권자연맹(League of Women Voters)과 베이헤드 주민 3명이 오션 카운티 선거관리위원회와 위원장 George Gilmore를 상대로 10월 8일 소송을 냈습니다. 원고는 위원회가 민주당 성향·무소속 유권자에게 보낸 서한이 문제라고 주장합니다. 서한은 거주지 확인 설문지 작성, 10월 13일 위원회 회의 출석, 유권자 자격 소명을 요구했습니다. 원고는 이것이 뉴저지 존 루이스 유권자 권한 강화법과 주 헌법을 어긴다고 주장합니다. 10월 13일 법원은 거주 조사를 막아 달라는 원고의 신청을 받아들이지 않았습니다. 판결 이유는 확인하지 못했습니다. (검색 요약 기준)",
+   "impact_kr": "해당 서한을 받은 오션 카운티 유권자는 거주지 확인 요구에 답해야 하는 상황에 놓일 수 있습니다. 법원이 조사 중단 신청을 기각했으므로 조사가 막혀 있지는 않은 것으로 보입니다. 11월 선거에서 실제로 몇 명의 투표에 영향이 있는지는 확인하지 못했습니다.",
+   "states": [
+    "NJ"
+   ],
+   "next_date": null,
+   "next_kr": "확인된 기일 없음",
+   "scotus_dockets": null,
+   "detail": [
+    {
+     "heading": "원고의 주장",
+     "md": "- 서한이 유권자를 위협한다고 주장합니다.\n- 비슷한 처지의 유권자를 다르게 대한다고 주장합니다.\n- 투표할 권리에 부담을 준다고 주장합니다."
+    }
+   ],
+   "litigation": null,
+   "plain_kr": "뉴저지 오션 카운티 선거관리위원회가 일부 유권자에게 '실제로 그곳에 사느냐'를 증명하라는 서한을 보냈고, 시민단체가 이것이 유권자를 위협한다며 소송을 냈습니다.",
+   "events": [
+    {
+     "date": "2026-10-08",
+     "text": "뉴저지 여성유권자연맹 등이 오션 카운티 선거관리위원회를 상대로 소장 제출",
+     "url": "https://www.democracydocket.com/cases/new-jersey-voter-purge-challenge/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    },
+    {
+     "date": "2026-10-13",
+     "text": "법원이 거주 조사를 막아 달라는 원고 신청을 기각(사건 페이지 기준)",
+     "url": "https://www.democracydocket.com/cases/new-jersey-voter-purge-challenge/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Democracy Docket 사건 페이지",
+     "url": "https://www.democracydocket.com/cases/new-jersey-voter-purge-challenge/"
+    }
+   ],
+   "first_seen": "2026-10-31",
+   "last_checked": "2026-10-31",
+   "status_updated": "2026-10-31",
+   "last_date": "2026-10-13"
   }
  ]
 }
