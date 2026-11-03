@@ -1,0 +1,21 @@
+{
+  "run_date": "2026-11-04",
+  "window": {"news_from": "2026-11-03", "news_to": "2026-11-04"},
+  "updates": [],
+  "checks": [
+    {"case_id": "save-db", "note": "11/4 docket 26A308 기준 마지막 항목 9/25, 새 항목 없음. 11/6 정부 서면 기일 그대로(검색 요약 기준 D.C.순회 새 소식 없음)"},
+    {"case_id": "usps-rule", "note": "11/4 docket 26A305 기준 마지막 항목 9/14, 새 항목 없음"},
+    {"case_id": "eo14399", "note": "11/4 docket 26A124 기준 마지막 항목 8/24, 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "11/4 docket 26A388 기준 마지막 항목 9/25, 새 항목 없음(26A304·26A326은 이번에 열지 않음)"},
+    {"case_id": "az-mfv", "note": "11/4 docket 25-1017 기준 마지막 항목 10/20, 새 명령 없음"},
+    {"case_id": "nh-student-id", "note": "11/4 docket 26A512 기준 마지막 항목 10/22, 새 항목 없음"},
+    {"case_id": "ca-doj-ballots", "note": "11/4 docket 26A624 기준 마지막 항목 11/2(신청 기각), 새 항목 없음"},
+    {"case_id": "save-act", "note": "11/4 검색 기준 상원 표결 등 새 움직임 확인하지 못함(검색 요약 기준, 원문 미확인)"}
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 6, "followups_due": 2, "followups_checked": 2,
+    "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A308", "26A305", "26A124", "26A388", "25-1017", "26A512", "26A624"], "new_entries": 0, "blocked": []},
+    "blocked_sites": [],
+    "notes": "선거 다음날이라 새 보도가 거의 없었음. 검색 결과 대부분이 과거 기사. 26A304·26A326 docket은 열지 않음. 검색 결과에 위스콘신 투표시간 연장 사건(Whitewater, 위스콘신 대법원 선거 후 심리)이 있었으나 이번 선거 규칙 변경이 아니어서 넣지 않음."}
+}
