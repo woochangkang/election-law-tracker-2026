@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-04",
+ "as_of": "2026-11-05",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-05",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -442,7 +442,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-05",
    "rulings": [
     {
      "date": "2026-06-25",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-05",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -2691,7 +2691,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-05",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -3104,7 +3104,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-05",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -3979,7 +3979,7 @@
     }
    ],
    "first_seen": "2026-10-21",
-   "last_checked": "2026-10-21",
+   "last_checked": "2026-11-05",
    "status_updated": "2026-10-21",
    "last_date": "2026-09-18"
   },
@@ -4051,7 +4051,7 @@
     }
    ],
    "first_seen": "2026-10-23",
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-05",
    "status_updated": "2026-10-23",
    "rulings": [
     {
@@ -4190,7 +4190,7 @@
     }
    ],
    "first_seen": "2026-11-03",
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-05",
    "status_updated": "2026-11-03",
    "rulings": [
     {
@@ -4211,6 +4211,50 @@
     }
    ],
    "last_date": "2026-11-02"
+  },
+  {
+   "id": "ak-doj-senate",
+   "category": "선거 관리·개표·인증",
+   "title_kr": "연방 법무부의 알래스카 연방상원 선거 인증 제한 소송",
+   "name_en": "United States v. Alaska Division of Elections (D. Alaska, Gleason 판사)",
+   "court": "연방지방법원(알래스카)",
+   "status": "pending",
+   "status_kr": "10/22 제소 — 계속 중(임시 판단·본안 판단 모두 확인하지 못함)",
+   "summary_kr": "법무부는 10월 22일 알래스카 선거관리국을 상대로 소송을 냈습니다. 현직 Dan Sullivan 상원의원과 이름이 비슷한 Daniel J. Sullivan 후보 때문에 유권자 혼란이 생겼다는 주장입니다. 현직이 지고 두 번째 후보 득표가 결과를 바꿀 수 있다면 결과를 인증하지 말아 달라고 요구합니다. 담당은 Gleason 판사입니다. 판결이나 인증 중단 명령은 확인하지 못했습니다. (검색 요약 기준)",
+   "impact_kr": "투표 방법은 달라지지 않습니다. 다만 이 선거 결과의 인증이 늦어지거나 다툼이 될 수 있는지가 쟁점입니다. 현재까지 인증을 막는 법원 명령은 확인하지 못했습니다.",
+   "states": [
+    "AK"
+   ],
+   "next_date": null,
+   "next_kr": "확인된 기일 없음",
+   "scotus_dockets": null,
+   "detail": [
+    {
+     "heading": "양측 주장",
+     "md": "- 법무부: 투표 혼란이 선거 공정성을 해칠 수 있어 해당 결과의 인증을 제한해야 한다고 주장합니다.\n- 알래스카 주와 민주당 측(Peltola 캠프·DSCC): 법적 근거가 없다며 각하를 요청한 것으로 보도됐습니다(검색 요약 기준)."
+    }
+   ],
+   "litigation": null,
+   "plain_kr": "연방 법무부가 알래스카 상원 선거에서 같은 이름(Sullivan)의 후보 둘이 유권자를 헷갈리게 했다며, 결과 확정(인증)을 제한해 달라고 법원에 요청했습니다.",
+   "events": [
+    {
+     "date": "2026-10-22",
+     "text": "법무부가 알래스카 연방상원 선거 인증을 제한해 달라며 제소(제소일은 보도일 10/23 기준 추정, 검색 요약 기준)",
+     "url": "https://www.democracydocket.com/news-alerts/doj-preemptively-challenges-alaska-election-results-if-democrat-wins-senate-race/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Democracy Docket 보도",
+     "url": "https://www.democracydocket.com/news-alerts/doj-preemptively-challenges-alaska-election-results-if-democrat-wins-senate-race/"
+    }
+   ],
+   "first_seen": "2026-11-05",
+   "last_checked": "2026-11-05",
+   "status_updated": "2026-11-05",
+   "last_date": "2026-10-22"
   }
  ]
 }
