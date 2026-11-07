@@ -1,0 +1,37 @@
+{
+  "run_date": "2026-11-08",
+  "window": {"news_from": "2026-11-07", "news_to": "2026-11-08"},
+  "updates": [],
+  "checks": [
+    {"case_id": "save-db", "note": "11/8 docket 26A308 기준 마지막 항목 9/25(스테이 인용), 새 항목 없음. 11/6 항소법원 정부 서면 기일 관련 새 소식 확인하지 못함"},
+    {"case_id": "usps-rule", "note": "11/8 docket 26A305 기준 마지막 항목 9/14, 새 항목 없음"},
+    {"case_id": "eo14399", "note": "11/8 docket 26A124 기준 마지막 항목 8/24, 새 항목 없음"},
+    {"case_id": "missouri-map", "note": "11/8 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 새 항목 없음"},
+    {"case_id": "az-mfv", "note": "11/8 docket 25-1017 기준 마지막 항목 10/20, 새 항목 없음"},
+    {"case_id": "nh-student-id", "note": "11/8 docket 26A512 기준 마지막 항목 10/22, 새 항목 없음"},
+    {"case_id": "ca-doj-ballots", "note": "11/8 docket 26A624 기준 마지막 항목 11/2, 새 항목 없음"}
+  ],
+  "new_cases": [
+    {
+      "id": "tx-potter-handcount", "category": "선거 관리·개표·인증",
+      "title_kr": "텍사스 공화당 지역 조직의 전면 수작업 재검표 요구·인증 중단 소송",
+      "name_en": "Potter County Republican Party v. Benge (federal court, Texas)",
+      "court": "연방지방법원(텍사스, 법원 세부는 확인하지 못함)", "states": ["TX"],
+      "status": "pending", "status_kr": "제소 후 소송 참가 신청 심리 대기 — 임시 결정·본안 판단 아직 없음", "next_date": null, "next_kr": "심리 기일은 확인하지 못했습니다",
+      "plain_kr": "텍사스의 한 카운티 공화당 조직과 유권자가, 종이 투표용지를 전부 손으로 다시 세기 전에는 11월 연방 선거 결과를 확정하지 말라고 법원에 요구했습니다.",
+      "summary_kr": "Potter 카운티 공화당과 텍사스 유권자 한 명이 10월 27일 연방법원에 소송을 냈습니다. 현재의 사후 감사로는 해킹이나 AI 조작, 개표기 오류를 잡아내지 못한다고 주장합니다. 모든 종이 투표용지를 손으로 세지 않고 결과를 확정하면 수정헌법 14조의 권리를 침해한다는 논리입니다. 이들은 전면 수작업 재검표가 끝날 때까지 카운티가 결과 확정(인증)을 마치지 못하게 해 달라고 요구합니다. 민주당 선거위원회(DSCC·DCCC)와 시민단체 연합이 피고 쪽으로 소송 참가를 신청했습니다. 11월 8일 현재 소송 참가 신청과 본안에 대한 법원 판단은 확인하지 못했습니다.",
+      "detail": [{"heading": "양쪽 주장", "md": "- 원고(Potter 카운티 공화당·유권자): 기존 사후 감사로는 해킹·AI 조작·개표기 오류를 잡지 못하므로 전면 수작업 검표 없는 인증은 위헌이라고 주장합니다.\n- 소송 참가 신청자(DSCC·DCCC, NAACP 텍사스 지부·텍사스 유권자연맹·MOVE Texas·Common Cause): 원고의 요구에 반대하는 쪽으로 참가를 신청했습니다. 원고 측은 두 신청에 모두 반대 의견을 냈습니다.\n- 피고 측 주장 전문은 확인하지 못했습니다. 텍사스 국무장관실은 이 소송에 논평하지 않겠다고 밝혔다고 보도됐습니다."}],
+      "impact_kr": "법원이 원고의 요구를 받아들이면 해당 카운티의 결과 확정이 늦어질 수 있지만, 지금까지 그런 결정은 확인하지 못했습니다. 이미 끝난 투표에서 유권자가 해야 할 일은 없습니다.",
+      "events": [
+        {"date": "2026-10-27", "text": "Potter 카운티 공화당과 유권자가 연방법원에 소송 제기(Democracy Docket 사건 페이지 기준)", "url": "https://www.democracydocket.com/cases/texas-election-certification-challenge/", "outlet": "Democracy Docket", "tier": "advocacy"},
+        {"date": "2026-11-05", "text": "원고 측이 NAACP 연합의 소송 참가 신청에 반대 의견 제출(Democracy Docket 사건 문서 목록 기준, 법원 기록 미확인)", "url": "https://www.democracydocket.com/cases/texas-election-certification-challenge/", "outlet": "Democracy Docket", "tier": "advocacy"}
+      ],
+      "sources": [{"label": "Democracy Docket 사건 페이지", "url": "https://www.democracydocket.com/cases/texas-election-certification-challenge/"}]
+    }
+  ],
+  "glossary": [],
+  "audit": {"searches_R_side": 3, "searches_D_side": 3, "searches_topic": 5, "followups_due": 1, "followups_checked": 1,
+            "scotus": {"term": "26", "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"], "dockets_checked": ["26A308", "26A305", "26A124", "26A304", "26A326", "26A388", "25-1017", "26A512", "26A624"], "new_entries": 0, "blocked": []},
+            "blocked_sites": ["www.aljazeera.com"],
+            "notes": "대법원 명령 목록은 11/2·11/5·11/6 Miscellaneous Order 제목만 보이고 내용은 확인하지 못했다. 추적 docket 9건에는 새 항목이 없다. 검색 결과는 대부분 11월 이전 기사였다. 텍사스 Potter 사건은 Democracy Docket 페이지(법원·판사 미표기)와 검색 요약 기준이며 Al Jazeera 원문은 접속이 막혀 열지 못했다. 워싱턴주 유권자 405명 투표용지 분리 요구 대응 소송(OneAmerica Votes 등 v. Trump, 11/2 긴급 신청)은 Democracy Docket 한 곳에서만 확인되어 새 사건으로 넣지 않았다."}
+}

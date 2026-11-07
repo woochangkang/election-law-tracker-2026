@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-07",
+ "as_of": "2026-11-08",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-07",
+   "last_checked": "2026-11-08",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -442,7 +442,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-07",
+   "last_checked": "2026-11-08",
    "rulings": [
     {
      "date": "2026-06-25",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-07",
+   "last_checked": "2026-11-08",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -2691,7 +2691,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-11-07",
+   "last_checked": "2026-11-08",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -3104,7 +3104,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-11-07",
+   "last_checked": "2026-11-08",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -4051,7 +4051,7 @@
     }
    ],
    "first_seen": "2026-10-23",
-   "last_checked": "2026-11-07",
+   "last_checked": "2026-11-08",
    "status_updated": "2026-10-23",
    "rulings": [
     {
@@ -4190,7 +4190,7 @@
     }
    ],
    "first_seen": "2026-11-03",
-   "last_checked": "2026-11-07",
+   "last_checked": "2026-11-08",
    "status_updated": "2026-11-03",
    "rulings": [
     {
@@ -4287,6 +4287,57 @@
      "note_kr": "명령 원문을 열지 못했고 언론 보도에 따랐다. 각하 근거는 보도마다 표현이 다르다."
     }
    ]
+  },
+  {
+   "id": "tx-potter-handcount",
+   "category": "선거 관리·개표·인증",
+   "title_kr": "텍사스 공화당 지역 조직의 전면 수작업 재검표 요구·인증 중단 소송",
+   "name_en": "Potter County Republican Party v. Benge (federal court, Texas)",
+   "court": "연방지방법원(텍사스, 법원 세부는 확인하지 못함)",
+   "status": "pending",
+   "status_kr": "제소 후 소송 참가 신청 심리 대기 — 임시 결정·본안 판단 아직 없음",
+   "summary_kr": "Potter 카운티 공화당과 텍사스 유권자 한 명이 10월 27일 연방법원에 소송을 냈습니다. 현재의 사후 감사로는 해킹이나 AI 조작, 개표기 오류를 잡아내지 못한다고 주장합니다. 모든 종이 투표용지를 손으로 세지 않고 결과를 확정하면 수정헌법 14조의 권리를 침해한다는 논리입니다. 이들은 전면 수작업 재검표가 끝날 때까지 카운티가 결과 확정(인증)을 마치지 못하게 해 달라고 요구합니다. 민주당 선거위원회(DSCC·DCCC)와 시민단체 연합이 피고 쪽으로 소송 참가를 신청했습니다. 11월 8일 현재 소송 참가 신청과 본안에 대한 법원 판단은 확인하지 못했습니다.",
+   "impact_kr": "법원이 원고의 요구를 받아들이면 해당 카운티의 결과 확정이 늦어질 수 있지만, 지금까지 그런 결정은 확인하지 못했습니다. 이미 끝난 투표에서 유권자가 해야 할 일은 없습니다.",
+   "states": [
+    "TX"
+   ],
+   "next_date": null,
+   "next_kr": "심리 기일은 확인하지 못했습니다",
+   "scotus_dockets": null,
+   "detail": [
+    {
+     "heading": "양쪽 주장",
+     "md": "- 원고(Potter 카운티 공화당·유권자): 기존 사후 감사로는 해킹·AI 조작·개표기 오류를 잡지 못하므로 전면 수작업 검표 없는 인증은 위헌이라고 주장합니다.\n- 소송 참가 신청자(DSCC·DCCC, NAACP 텍사스 지부·텍사스 유권자연맹·MOVE Texas·Common Cause): 원고의 요구에 반대하는 쪽으로 참가를 신청했습니다. 원고 측은 두 신청에 모두 반대 의견을 냈습니다.\n- 피고 측 주장 전문은 확인하지 못했습니다. 텍사스 국무장관실은 이 소송에 논평하지 않겠다고 밝혔다고 보도됐습니다."
+    }
+   ],
+   "litigation": null,
+   "plain_kr": "텍사스의 한 카운티 공화당 조직과 유권자가, 종이 투표용지를 전부 손으로 다시 세기 전에는 11월 연방 선거 결과를 확정하지 말라고 법원에 요구했습니다.",
+   "events": [
+    {
+     "date": "2026-10-27",
+     "text": "Potter 카운티 공화당과 유권자가 연방법원에 소송 제기(Democracy Docket 사건 페이지 기준)",
+     "url": "https://www.democracydocket.com/cases/texas-election-certification-challenge/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    },
+    {
+     "date": "2026-11-05",
+     "text": "원고 측이 NAACP 연합의 소송 참가 신청에 반대 의견 제출(Democracy Docket 사건 문서 목록 기준, 법원 기록 미확인)",
+     "url": "https://www.democracydocket.com/cases/texas-election-certification-challenge/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Democracy Docket 사건 페이지",
+     "url": "https://www.democracydocket.com/cases/texas-election-certification-challenge/"
+    }
+   ],
+   "first_seen": "2026-11-08",
+   "last_checked": "2026-11-08",
+   "status_updated": "2026-11-08",
+   "last_date": "2026-11-05"
   }
  ]
 }
