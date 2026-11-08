@@ -1,0 +1,74 @@
+{
+  "run_date": "2026-11-09",
+  "window": {
+    "news_from": "2026-11-08",
+    "news_to": "2026-11-09"
+  },
+  "updates": [],
+  "checks": [
+    {
+      "case_id": "save-db",
+      "note": "11/9 docket 26A308 마지막 항목 9/25(스테이 인용) 기준 새 항목 없음"
+    },
+    {
+      "case_id": "usps-rule",
+      "note": "11/9 docket 26A305 마지막 항목 9/14 기준 새 항목 없음"
+    },
+    {
+      "case_id": "missouri-map",
+      "note": "11/9 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 기준 새 항목 없음"
+    },
+    {
+      "case_id": "az-mfv",
+      "note": "11/9 docket 25-1017 마지막 항목 10/20 기준 새 항목 없음"
+    },
+    {
+      "case_id": "nh-student-id",
+      "note": "11/9 docket 26A512 마지막 항목 10/22 기준 새 항목 없음"
+    },
+    {
+      "case_id": "ca-doj-ballots",
+      "note": "11/9 docket 26A624 마지막 항목 11/2 기준 새 항목 없음"
+    },
+    {
+      "case_id": "eo14399",
+      "note": "11/9 docket 26A124 페이지에서 날짜 항목을 읽지 못했다. 검색에서도 새 움직임은 확인하지 못함"
+    },
+    {
+      "case_id": "tx-potter-handcount",
+      "note": "11/9 검색 기준 소송 참가 신청·본안에 대한 법원 판단 보도 없음"
+    }
+  ],
+  "new_cases": [],
+  "glossary": [],
+  "audit": {
+    "searches_R_side": 3,
+    "searches_D_side": 3,
+    "searches_topic": 5,
+    "followups_due": 2,
+    "followups_checked": 2,
+    "scotus": {
+      "term": "26",
+      "pages_opened": [
+        "ordersofthecourt/26",
+        "relatingtoorders/26",
+        "slipopinion/26"
+      ],
+      "dockets_checked": [
+        "26A308",
+        "26A305",
+        "26A124",
+        "26A304",
+        "26A326",
+        "26A388",
+        "25-1017",
+        "26A512",
+        "26A624"
+      ],
+      "new_entries": 0,
+      "blocked": []
+    },
+    "blocked_sites": [],
+    "notes": "명령 목록은 11/2·11/5·11/6 Miscellaneous Order 제목만 보여 내용을 확인하지 못했다. 26A124 docket은 날짜 항목을 읽지 못했다. 나머지 추적 docket 8건에는 새 항목이 없다. 검색 결과는 대부분 11월 이전 기사였고 11/8~9자 새 판결·소송은 확인하지 못했다."
+  }
+}
