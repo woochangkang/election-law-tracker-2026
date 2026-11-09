@@ -1,0 +1,25 @@
+{
+ "run_date":"2026-11-10",
+ "window":{"news_from":"2026-11-09","news_to":"2026-11-10"},
+ "updates":[
+  {"case_id":"az-mfv","date":"2026-11-09",
+   "text":"연방대법원이 RNC v. Mi Familia Vota 변론(12/8)에서 연방 정부(Acting Solicitor General)가 변론 시간을 나눠 쓰게 해 달라는 신청을 받아들이고, 피상고인 측의 같은 신청은 기각했습니다. 판결이 아니라 변론 진행 방식에 관한 절차 명령입니다.",
+   "url":"https://www.supremecourt.gov/orders/courtorders/110926zor_ap6c.pdf","outlet":"Supreme Court","tier":"court",
+   "next_kr":"변론 12/8. 정부 측은 변론 시간을 나눠 쓰게 됨"}
+ ],
+ "checks":[
+  {"case_id":"eo14399","note":"11/10 docket 26A124 마지막 항목 8/24 기준 새 항목 없음"},
+  {"case_id":"save-db","note":"11/10 docket 26A308 마지막 항목 9/25 기준 새 항목 없음, 11월 새 보도 확인하지 못함"},
+  {"case_id":"nj-ocean-purge","note":"11/10 검색 기준 10/13 이후 새 결정 보도 확인하지 못함(검색 요약 기준)"},
+  {"case_id":"usps-rule","note":"11/10 docket 26A305 마지막 항목 9/14 기준 새 항목 없음"},
+  {"case_id":"missouri-map","note":"11/10 docket 26A304·26A326·26A388 마지막 항목 9/25 이전, 새 항목 없음"},
+  {"case_id":"nh-student-id","note":"11/10 docket 26A512 마지막 항목 10/22 기준 새 항목 없음"},
+  {"case_id":"ca-doj-ballots","note":"11/10 docket 26A624 마지막 항목 11/2 기준 새 항목 없음"}
+ ],
+ "new_cases":[],
+ "glossary":[],
+ "audit":{"searches_R_side":3,"searches_D_side":3,"searches_topic":5,"followups_due":3,"followups_checked":3,
+  "scotus":{"term":"26","pages_opened":["ordersofthecourt/26","relatingtoorders/26","slipopinion/26"],"dockets_checked":["26A308","26A305","26A124","26A304","26A326","26A388","25-1017","26A512","26A624"],"new_entries":1,"blocked":[]},
+  "blocked_sites":[],
+  "notes":"11/9 Order List PDF에서 선거 관련 항목은 25-1017 변론 시간 분할뿐이었다. 11/6 Miscellaneous Order는 내용을 열지 못했다. 검색 결과는 대부분 11월 이전 기사였고 11/9~10자 새 소송·판결은 확인하지 못했다."}
+}
