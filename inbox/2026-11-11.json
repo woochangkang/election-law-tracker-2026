@@ -1,0 +1,38 @@
+{
+ "run_date":"2026-11-11",
+ "window":{"news_from":"2026-11-10","news_to":"2026-11-11"},
+ "updates":[],
+ "checks":[
+  {"case_id":"eo14399","note":"11/11 docket 26A124 마지막 항목 8/24 기준 새 항목 없음"},
+  {"case_id":"nh-hb1569","note":"11/11 검색 기준 제1순회 본안 항소(No. 26-1740) 계류 중, 9/4 정지 기각 이후 새 결정 보도 확인하지 못함(검색 요약 기준)"},
+  {"case_id":"save-db","note":"11/11 docket 26A308 마지막 항목 9/25 기준 새 항목 없음"},
+  {"case_id":"usps-rule","note":"11/11 docket 26A305 마지막 항목 9/14 기준 새 항목 없음"},
+  {"case_id":"missouri-map","note":"11/11 docket 26A304 마지막 항목 9월 초 기준 새 항목 없음"},
+  {"case_id":"nh-student-id","note":"11/11 docket 26A512 마지막 항목 10/22 기준 새 항목 없음"},
+  {"case_id":"ca-doj-ballots","note":"11/11 docket 26A624 마지막 항목 11/2 기준 새 항목 없음"},
+  {"case_id":"az-mfv","note":"11/11 docket 25-1017 마지막 항목 11/9(변론 시간 분할) 기준 새 항목 없음"}
+ ],
+ "new_cases":[
+  {
+   "id":"ca-doj-pressure-tro","category":"선거 관리·개표·인증",
+   "title_kr":"법무부·국토안보부의 선거 담당 공무원 압박 금지 임시 명령(캘리포니아 북부 연방지법)",
+   "name_en":"Challenge to DOJ/DHS demands on election officials over alleged noncitizen voter lists (N.D. Cal., Judge Trina Thompson)",
+   "court":"캘리포니아 북부 연방지방법원","states":["US","CA"],
+   "status":"enjoined","status_kr":"임시 명령(TRO) 단계 — 10/30 법무부·국토안보부의 요구를 임시로 막음. 만료일·항소심 상태는 보도마다 달라 확인하지 못했습니다(검색 요약 기준)",
+   "next_date":null,"next_kr":"보도마다 11/13 또는 11/16 만료·가처분 심리로 달라 확인하지 못했습니다",
+   "plain_kr":"연방 법무부가 선거 담당 공무원들에게 비시민권자로 의심되는 유권자의 표를 따로 빼 두거나 명부에서 지우라고 압박했습니다. 한 연방 판사가 이런 요구를 일단 멈추라고 명령했습니다.",
+   "summary_kr":"캘리포니아 북부 연방지방법원의 Trina Thompson 판사가 10월 30일 임시금지명령(TRO)을 내렸다고 보도됐습니다. 법무부와 국토안보부는 비시민권자라는 주장만으로 어느 주의 선거 공무원에게든 투표용지를 분리하거나 유권자를 명부에서 지우거나 개표를 멈추라고 요구할 수 없습니다. 이를 거부하거나 법대로 개표한다는 이유로 기소하겠다고 위협하는 것도 막습니다. 압수수색 영장 신청 등 관련 요구는 법원에 알려야 합니다. 법무부는 항소했고 항소심이 명령을 멈췄다는 보도도 있으나 다른 보도는 이를 언급하지 않아 현재 효력은 확인하지 못했습니다. 이는 임시 결정이며 본안 판단이 아닙니다. (검색 요약 기준)",
+   "impact_kr":"11월 3일 선거 개표와 인증 과정에서 연방 기관의 요구로 표를 따로 빼거나 개표를 멈추는 일을 막는 명령입니다. 현재 효력이 유지되는지는 확인하지 못했습니다.",
+   "events":[
+    {"date":"2026-10-30","text":"Thompson 판사가 법무부·국토안보부의 선거 공무원 압박(투표용지 분리·명부 삭제·개표 중단 요구, 기소 위협)을 막는 전국 대상 임시금지명령을 내렸다고 보도됐습니다. 임시 결정입니다. (검색 요약 기준, 원문 미확인)","url":"https://www.cnn.com/2026/10/30/politics/emergency-order-halts-doj-pressure-campaign-election-officials","outlet":"CNN","tier":"news"},
+    {"date":"2026-11-02","text":"법무부의 명령 정지·해제 신청을 두고 심리가 열렸고, 판사가 소송 정지 신청을 기각했다고 보도됐습니다. 법무부는 항소했습니다. 항소심이 명령을 멈췄다는 보도도 있으나 확인하지 못했습니다. (검색 요약 기준, 원문 미확인)","url":"https://www.courthousenews.com/judge-presses-doj-attorney-over-unreliable-voter-list/","outlet":"Courthouse News","tier":"news"}
+   ],
+   "sources":[{"label":"CBS News 보도","url":"https://www.cbsnews.com/news/judge-orders-doj-stop-threaten-intimidate-california-election-officials/"}]
+  }
+ ],
+ "glossary":[],
+ "audit":{"searches_R_side":3,"searches_D_side":3,"searches_topic":5,"followups_due":2,"followups_checked":2,
+  "scotus":{"term":"26","pages_opened":["ordersofthecourt/26","relatingtoorders/26","slipopinion/26"],"dockets_checked":["26A308","26A305","26A124","26A304","25-1017","26A512","26A624"],"new_entries":0,"blocked":[]},
+  "blocked_sites":["www.axios.com"],
+  "notes":"11/6 Miscellaneous Order(Order List 610 U.S.)는 PDF를 pdftotext로 열어 확인: Goldman Sachs v. Brown cert 허가뿐, 선거 무관. 11/9 Order List는 전날 수집분과 동일(25-1017 시간 분할). 새 사건 ca-doj-pressure-tro는 본문을 열지 못하고 검색 요약으로만 기록(CNN·CBS·Courthouse News 검색 결과). 만료일(11/13 vs 11/16)과 항소심 정지 여부는 보도가 엇갈려 확인하지 못함. 11/3 이후 새 판결·소송은 검색에서 확인하지 못했다. Chutkan 11/2 명령(LWV·LULAC·EPIC, 노동자 명단 공유 금지)은 save-db 계열로 보이나 사건 연결을 확인하지 못해 넣지 않았다."}
+}

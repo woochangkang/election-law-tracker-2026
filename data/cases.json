@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-10",
+ "as_of": "2026-11-11",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-10",
+   "last_checked": "2026-11-11",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -442,7 +442,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-10",
+   "last_checked": "2026-11-11",
    "rulings": [
     {
      "date": "2026-06-25",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-10",
+   "last_checked": "2026-11-11",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -2691,7 +2691,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-11-10",
+   "last_checked": "2026-11-11",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -3111,7 +3111,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-11-10",
+   "last_checked": "2026-11-11",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -3367,7 +3367,7 @@
    "states": [
     "NH"
    ],
-   "last_checked": "2026-11-03",
+   "last_checked": "2026-11-11",
    "rulings": [
     {
      "date": "2026-05-28",
@@ -4058,7 +4058,7 @@
     }
    ],
    "first_seen": "2026-10-23",
-   "last_checked": "2026-11-10",
+   "last_checked": "2026-11-11",
    "status_updated": "2026-10-23",
    "rulings": [
     {
@@ -4197,7 +4197,7 @@
     }
    ],
    "first_seen": "2026-11-03",
-   "last_checked": "2026-11-10",
+   "last_checked": "2026-11-11",
    "status_updated": "2026-11-03",
    "rulings": [
     {
@@ -4345,6 +4345,53 @@
    "last_checked": "2026-11-09",
    "status_updated": "2026-11-08",
    "last_date": "2026-11-05"
+  },
+  {
+   "id": "ca-doj-pressure-tro",
+   "category": "선거 관리·개표·인증",
+   "title_kr": "법무부·국토안보부의 선거 담당 공무원 압박 금지 임시 명령(캘리포니아 북부 연방지법)",
+   "name_en": "Challenge to DOJ/DHS demands on election officials over alleged noncitizen voter lists (N.D. Cal., Judge Trina Thompson)",
+   "court": "캘리포니아 북부 연방지방법원",
+   "status": "enjoined",
+   "status_kr": "임시 명령(TRO) 단계 — 10/30 법무부·국토안보부의 요구를 임시로 막음. 만료일·항소심 상태는 보도마다 달라 확인하지 못했습니다(검색 요약 기준)",
+   "summary_kr": "캘리포니아 북부 연방지방법원의 Trina Thompson 판사가 10월 30일 임시금지명령(TRO)을 내렸다고 보도됐습니다. 법무부와 국토안보부는 비시민권자라는 주장만으로 어느 주의 선거 공무원에게든 투표용지를 분리하거나 유권자를 명부에서 지우거나 개표를 멈추라고 요구할 수 없습니다. 이를 거부하거나 법대로 개표한다는 이유로 기소하겠다고 위협하는 것도 막습니다. 압수수색 영장 신청 등 관련 요구는 법원에 알려야 합니다. 법무부는 항소했고 항소심이 명령을 멈췄다는 보도도 있으나 다른 보도는 이를 언급하지 않아 현재 효력은 확인하지 못했습니다. 이는 임시 결정이며 본안 판단이 아닙니다. (검색 요약 기준)",
+   "impact_kr": "11월 3일 선거 개표와 인증 과정에서 연방 기관의 요구로 표를 따로 빼거나 개표를 멈추는 일을 막는 명령입니다. 현재 효력이 유지되는지는 확인하지 못했습니다.",
+   "states": [
+    "US",
+    "CA"
+   ],
+   "next_date": null,
+   "next_kr": "보도마다 11/13 또는 11/16 만료·가처분 심리로 달라 확인하지 못했습니다",
+   "scotus_dockets": null,
+   "detail": null,
+   "litigation": null,
+   "plain_kr": "연방 법무부가 선거 담당 공무원들에게 비시민권자로 의심되는 유권자의 표를 따로 빼 두거나 명부에서 지우라고 압박했습니다. 한 연방 판사가 이런 요구를 일단 멈추라고 명령했습니다.",
+   "events": [
+    {
+     "date": "2026-10-30",
+     "text": "Thompson 판사가 법무부·국토안보부의 선거 공무원 압박(투표용지 분리·명부 삭제·개표 중단 요구, 기소 위협)을 막는 전국 대상 임시금지명령을 내렸다고 보도됐습니다. 임시 결정입니다. (검색 요약 기준, 원문 미확인)",
+     "url": "https://www.cnn.com/2026/10/30/politics/emergency-order-halts-doj-pressure-campaign-election-officials",
+     "outlet": "CNN",
+     "tier": "news"
+    },
+    {
+     "date": "2026-11-02",
+     "text": "법무부의 명령 정지·해제 신청을 두고 심리가 열렸고, 판사가 소송 정지 신청을 기각했다고 보도됐습니다. 법무부는 항소했습니다. 항소심이 명령을 멈췄다는 보도도 있으나 확인하지 못했습니다. (검색 요약 기준, 원문 미확인)",
+     "url": "https://www.courthousenews.com/judge-presses-doj-attorney-over-unreliable-voter-list/",
+     "outlet": "Courthouse News",
+     "tier": "news"
+    }
+   ],
+   "sources": [
+    {
+     "label": "CBS News 보도",
+     "url": "https://www.cbsnews.com/news/judge-orders-doj-stop-threaten-intimidate-california-election-officials/"
+    }
+   ],
+   "first_seen": "2026-11-11",
+   "last_checked": "2026-11-11",
+   "status_updated": "2026-11-11",
+   "last_date": "2026-11-02"
   }
  ]
 }
