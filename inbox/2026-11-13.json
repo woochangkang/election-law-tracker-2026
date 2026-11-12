@@ -1,0 +1,21 @@
+{
+ "run_date":"2026-11-13",
+ "window":{"news_from":"2026-11-12","news_to":"2026-11-13"},
+ "updates":[
+  {"case_id":"az-mfv","date":"2026-11-12","text":"연방대법원 12월 8일 변론을 앞두고 애리조나 주 측·공화당 전국위원회(RNC)·연방 정부가 각각 답변서(reply brief)를 냈다. 법원 판단은 아직 없다.","url":"https://www.supremecourt.gov/docket/docketfiles/html/public/25-1017.html","outlet":"Supreme Court","tier":"court"}
+ ],
+ "checks":[
+  {"case_id":"eo14399","note":"11/13 docket 26A124 마지막 항목 8/24 기준 새 항목 없음"},
+  {"case_id":"save-db","note":"11/13 docket 26A308 마지막 항목 9/25 기준 새 항목 없음"},
+  {"case_id":"usps-rule","note":"11/13 docket 26A305 마지막 항목 9/14 기준 새 항목 없음"},
+  {"case_id":"missouri-map","note":"11/13 docket 26A304 마지막 항목 9/8 기준 새 항목 없음"},
+  {"case_id":"nh-student-id","note":"11/13 docket 26A512 마지막 항목 10/22 기준 새 항목 없음"},
+  {"case_id":"ca-doj-ballots","note":"11/13 docket 26A624 마지막 항목 11/2 기준 새 항목 없음"}
+ ],
+ "new_cases":[],
+ "glossary":[],
+ "audit":{"searches_R_side":3,"searches_D_side":3,"searches_topic":5,"followups_due":1,"followups_checked":1,
+  "scotus":{"term":"26","pages_opened":["ordersofthecourt/26","relatingtoorders/26","slipopinion/26"],"dockets_checked":["26A124","26A308","26A305","26A304","26A512","26A624","25-1017"],"new_entries":1,"blocked":[]},
+  "blocked_sites":[],
+  "notes":"명령 목록에 11/12자 Miscellaneous Order가 있으나 내용(PDF)을 열지 못해 선거 관련 여부를 확인하지 못했다(추정 PDF 주소 404). 추적 중인 docket에는 이 명령이 나타나지 않았다. 의견 목록 최신은 10/22 Scanlan, 판결 목록 최신은 11/9(선거 무관). 검색은 선거 이후 새 소송·판결을 찾지 못했고 대부분 선거 전·과거 기사였다. 새 분쟁이 없다는 뜻이 아니라 확인하지 못했다는 뜻이다."}
+}
