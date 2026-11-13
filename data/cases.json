@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-13",
+ "as_of": "2026-11-14",
  "source_label": "1차 출처는 연방대법원 docket·판결문과 연방·주 법원 기록, 2차는 SCOTUSblog·Democracy Docket·Brennan Center·Votebeat·언론.",
  "provenance_note": "status: pending 계류 · active 진행 · ruled 판결 · closed 종결 · enjoined 집행정지. 확인 못 한 항목은 '미확인'/【수집 필요】. 2026-09-25 웹 조사(Sonnet 에이전트)와 9월 브리핑 기록으로 초기 작성. 브리핑 기반 이벤트(출처 URL 없음)는 _NIS 전국·상원 일일 브리핑 해당 날짜 기록이 근거. 2026-10-09 us-elections-2026.github.io 의 data/legal_tracker.json 에서 이관(분류명 정리·states 필드 추가). 이후 갱신은 일일 수집 루틴(inbox/) → scripts/build.py. 2026-10-09: 판결 내용(rulings) 일괄 보강 — 판결문·명령 원문 확인(verified=primary) 또는 2차 출처(secondary) 조사, 같은 조사로 save-db·missouri-map·ga-sb189 상태와 usps-rule·doj-rolls·nh-hb1569 현재 상태 서술을 고침.",
  "items": [
@@ -95,7 +95,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-13",
+   "last_checked": "2026-11-14",
    "rulings": [
     {
      "date": "2026-09-04",
@@ -442,7 +442,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-13",
+   "last_checked": "2026-11-14",
    "rulings": [
     {
      "date": "2026-06-25",
@@ -1163,7 +1163,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-13",
+   "last_checked": "2026-11-14",
    "rulings": [
     {
      "date": "2026-06-22",
@@ -1482,7 +1482,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-10-30",
+   "last_checked": "2026-11-14",
    "rulings": [
     {
      "date": "2026-05-21",
@@ -1842,7 +1842,7 @@
    "states": [
     "US"
    ],
-   "last_checked": "2026-11-04",
+   "last_checked": "2026-11-14",
    "plain_kr": "공화당이 유권자 등록 때 여권·출생증명서 같은 시민권 서류를 내게 하고, 투표할 때 사진 신분증을 보이게 하는 연방법을 만들려 했습니다. 하원은 통과시켰지만 상원에서 막혀 법이 되지 않았습니다.",
    "detail": [
     {
@@ -2691,7 +2691,7 @@
    "states": [
     "MO"
    ],
-   "last_checked": "2026-11-13",
+   "last_checked": "2026-11-14",
    "rulings": [
     {
      "date": "2026-09-10",
@@ -3118,7 +3118,7 @@
    "states": [
     "AZ"
    ],
-   "last_checked": "2026-11-13",
+   "last_checked": "2026-11-14",
    "rulings": [
     {
      "date": "2025-02-25",
@@ -4065,7 +4065,7 @@
     }
    ],
    "first_seen": "2026-10-23",
-   "last_checked": "2026-11-13",
+   "last_checked": "2026-11-14",
    "status_updated": "2026-10-23",
    "rulings": [
     {
@@ -4204,7 +4204,7 @@
     }
    ],
    "first_seen": "2026-11-03",
-   "last_checked": "2026-11-13",
+   "last_checked": "2026-11-14",
    "status_updated": "2026-11-03",
    "rulings": [
     {
@@ -4399,6 +4399,70 @@
    "last_checked": "2026-11-11",
    "status_updated": "2026-11-11",
    "last_date": "2026-11-02"
+  },
+  {
+   "id": "fl-cd27-recount",
+   "category": "선거 관리·개표·인증",
+   "title_kr": "플로리다 27선거구 재검표 — 지역 선거관리 책임자 기피 소송",
+   "name_en": "Rodriguez v. Garcia (S.D. Fla.)",
+   "court": "연방지방법원(플로리다, Leibowitz 판사)",
+   "status": "ruled",
+   "status_kr": "11/9 1심 임시 신청 기각 — 재검표 진행, 주 인증은 11/17 예정",
+   "summary_kr": "민주당 후보 Eliott Rodriguez가 마이애미-데이드 카운티 선거관리관(Supervisor of Elections) Alina Garcia를 상대로 11월 6일 소송을 냈습니다. 그는 Garcia가 현 의원 Salazar(공화)가 '재검표와 상관없이 승자'라고 말했고 사위가 Salazar의 변호사라며, 공정한 재검표를 받을 수정헌법 14조의 권리가 침해된다고 주장했습니다. Garcia는 소송이 근거 없다고 맞섰습니다. 11월 9일 Leibowitz 판사는 Garcia가 재검표에 참여할 수 있다고 판단했습니다. 이 결정은 최종 판결이 아니라 재검표 전에 낸 긴급 신청에 대한 판단입니다. 검색 보도에 따르면 기계 재검표 뒤에도 Salazar가 앞선 것으로 보도됐으나 공식 확인은 하지 못했습니다(검색 요약 기준).",
+   "impact_kr": "이 소송은 한 선거구의 재검표 진행 방식에 관한 것입니다. 다른 지역 유권자의 투표 규칙에는 영향이 없습니다. 주 인증은 11월 17일로 예정돼 있으며 결과 자체에 미치는 영향은 출처가 말하지 않았습니다.",
+   "states": [
+    "FL"
+   ],
+   "next_date": "2026-11-17",
+   "next_kr": "플로리다 주 선거 결과 인증",
+   "scotus_dockets": null,
+   "detail": null,
+   "litigation": null,
+   "plain_kr": "하원 선거에서 1,090표 차로 진 민주당 후보가, 재검표를 맡는 마이애미-데이드 선거 책임자가 이미 상대 후보 승리를 말했다며 그를 재검표에서 빼 달라고 법원에 요청했습니다. 법원은 받아들이지 않았습니다.",
+   "events": [
+    {
+     "date": "2026-11-07",
+     "text": "Rodriguez가 11/6 소송을 제기했다고 보도(Garcia 기피 요구, 14조 적법절차 주장). 재검표 마감은 11/12, 주 인증은 11/17.",
+     "url": "https://www.democracydocket.com/news-alerts/florida-democrat-sues-to-block-county-election-chief-from-recount-in-house-race-alleging-bias/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    },
+    {
+     "date": "2026-11-09",
+     "text": "Leibowitz 판사가 Garcia의 재검표 참여를 허용하는 판단을 내렸다. 판사는 Garcia의 발언을 '매우 어리석다'고 했으나 기피 사유로는 부족하다고 봤다(Local10 인용 보도). 임시 단계 판단이다. (검색 요약 기준)",
+     "url": "https://www.democracydocket.com/news-alerts/miami-election-official-who-already-said-gop-candidate-won-can-help-with-recount-court-rules/",
+     "outlet": "Democracy Docket",
+     "tier": "advocacy"
+    }
+   ],
+   "sources": [
+    {
+     "label": "Democracy Docket 사건 페이지",
+     "url": "https://www.democracydocket.com/cases/florida-u-s-house-seat-recount-challenge-cd-27/"
+    }
+   ],
+   "first_seen": "2026-11-14",
+   "last_checked": "2026-11-14",
+   "status_updated": "2026-11-14",
+   "rulings": [
+    {
+     "date": "2026-11-09",
+     "court": "연방지방법원(플로리다)",
+     "decision_kr": "선거관리관 Garcia를 재검표에서 배제해 달라는 민주당 후보 Rodriguez의 신청을 받아들이지 않았다. Garcia는 재검표 관리에 참여할 수 있다.",
+     "vote": null,
+     "majority": {
+      "author": "Leibowitz 판사",
+      "joined_by": [],
+      "summary_kr": "Garcia의 발언은 부적절했지만 재검표에서 배제할 사유로는 부족하다고 보았다(언론 보도 기준)."
+     },
+     "concurrences": [],
+     "dissents": [],
+     "url": "https://www.democracydocket.com/news-alerts/miami-election-official-who-already-said-gop-candidate-won-can-help-with-recount-court-rules/",
+     "verified": "secondary",
+     "note_kr": "명령 원문은 열지 못했고 Democracy Docket 보도로 확인했다."
+    }
+   ],
+   "last_date": "2026-11-09"
   }
  ]
 }

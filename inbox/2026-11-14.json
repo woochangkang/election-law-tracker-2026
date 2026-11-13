@@ -1,0 +1,40 @@
+{
+ "run_date":"2026-11-14",
+ "window":{"news_from":"2026-11-13","news_to":"2026-11-14"},
+ "updates":[],
+ "checks":[
+  {"case_id":"eo14399","note":"11/14 docket 26A124 마지막 항목 8/24 기준 새 항목 없음. 11/20 서면 기일은 그대로"},
+  {"case_id":"save-db","note":"11/14 docket 26A308 마지막 항목 9/25 기준 새 항목 없음"},
+  {"case_id":"usps-rule","note":"11/14 docket 26A305 마지막 항목 9/14 기준 새 항목 없음"},
+  {"case_id":"missouri-map","note":"11/14 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 마지막 항목 기준 새 항목 없음"},
+  {"case_id":"nh-student-id","note":"11/14 docket 26A512 마지막 항목 10/22 기준 새 항목 없음"},
+  {"case_id":"ca-doj-ballots","note":"11/14 docket 26A624 마지막 항목 11/2 기준 새 항목 없음"},
+  {"case_id":"az-mfv","note":"11/14 docket 25-1017 마지막 항목 11/12(답변서 3건) 기준 새 항목 없음"},
+  {"case_id":"doj-rolls","note":"11/14 검색 기준 10/16 이후 새 판결·명령을 찾지 못함(10/16 DOJ의 정지 신청 결과는 여전히 확인하지 못함)"},
+  {"case_id":"save-act","note":"11/14 검색 기준 9/14 이후 의회 표결·진전을 찾지 못함"}
+ ],
+ "new_cases":[
+  {
+   "id":"fl-cd27-recount","category":"선거 관리·개표·인증",
+   "title_kr":"플로리다 27선거구 재검표 — 지역 선거관리 책임자 기피 소송","name_en":"Rodriguez v. Garcia (S.D. Fla.)",
+   "court":"연방지방법원(플로리다, Leibowitz 판사)","states":["FL"],
+   "status":"ruled","status_kr":"11/9 1심 임시 신청 기각 — 재검표 진행, 주 인증은 11/17 예정","next_date":"2026-11-17","next_kr":"플로리다 주 선거 결과 인증",
+   "plain_kr":"하원 선거에서 1,090표 차로 진 민주당 후보가, 재검표를 맡는 마이애미-데이드 선거 책임자가 이미 상대 후보 승리를 말했다며 그를 재검표에서 빼 달라고 법원에 요청했습니다. 법원은 받아들이지 않았습니다.",
+   "summary_kr":"민주당 후보 Eliott Rodriguez가 마이애미-데이드 카운티 선거관리관(Supervisor of Elections) Alina Garcia를 상대로 11월 6일 소송을 냈습니다. 그는 Garcia가 현 의원 Salazar(공화)가 '재검표와 상관없이 승자'라고 말했고 사위가 Salazar의 변호사라며, 공정한 재검표를 받을 수정헌법 14조의 권리가 침해된다고 주장했습니다. Garcia는 소송이 근거 없다고 맞섰습니다. 11월 9일 Leibowitz 판사는 Garcia가 재검표에 참여할 수 있다고 판단했습니다. 이 결정은 최종 판결이 아니라 재검표 전에 낸 긴급 신청에 대한 판단입니다. 검색 보도에 따르면 기계 재검표 뒤에도 Salazar가 앞선 것으로 보도됐으나 공식 확인은 하지 못했습니다(검색 요약 기준).",
+   "impact_kr":"이 소송은 한 선거구의 재검표 진행 방식에 관한 것입니다. 다른 지역 유권자의 투표 규칙에는 영향이 없습니다. 주 인증은 11월 17일로 예정돼 있으며 결과 자체에 미치는 영향은 출처가 말하지 않았습니다.",
+   "events":[
+    {"date":"2026-11-07","text":"Rodriguez가 11/6 소송을 제기했다고 보도(Garcia 기피 요구, 14조 적법절차 주장). 재검표 마감은 11/12, 주 인증은 11/17.","url":"https://www.democracydocket.com/news-alerts/florida-democrat-sues-to-block-county-election-chief-from-recount-in-house-race-alleging-bias/","outlet":"Democracy Docket","tier":"advocacy"},
+    {"date":"2026-11-09","text":"Leibowitz 판사가 Garcia의 재검표 참여를 허용하는 판단을 내렸다. 판사는 Garcia의 발언을 '매우 어리석다'고 했으나 기피 사유로는 부족하다고 봤다(Local10 인용 보도). 임시 단계 판단이다. (검색 요약 기준)","url":"https://www.democracydocket.com/news-alerts/miami-election-official-who-already-said-gop-candidate-won-can-help-with-recount-court-rules/","outlet":"Democracy Docket","tier":"advocacy"}
+   ],
+   "rulings":[
+    {"date":"2026-11-09","court":"연방지방법원(플로리다)","decision_kr":"선거관리관 Garcia를 재검표에서 배제해 달라는 민주당 후보 Rodriguez의 신청을 받아들이지 않았다. Garcia는 재검표 관리에 참여할 수 있다.","vote":null,"majority":{"author":"Leibowitz 판사","joined_by":[],"summary_kr":"Garcia의 발언은 부적절했지만 재검표에서 배제할 사유로는 부족하다고 보았다(언론 보도 기준)."},"concurrences":[],"dissents":[],"url":"https://www.democracydocket.com/news-alerts/miami-election-official-who-already-said-gop-candidate-won-can-help-with-recount-court-rules/","verified":"secondary","note_kr":"명령 원문은 열지 못했고 Democracy Docket 보도로 확인했다."}
+   ],
+   "sources":[{"label":"Democracy Docket 사건 페이지","url":"https://www.democracydocket.com/cases/florida-u-s-house-seat-recount-challenge-cd-27/"}]
+  }
+ ],
+ "glossary":[],
+ "audit":{"searches_R_side":3,"searches_D_side":3,"searches_topic":5,"followups_due":3,"followups_checked":3,
+  "scotus":{"term":"26","pages_opened":["ordersofthecourt/26","relatingtoorders/26","slipopinion/26"],"dockets_checked":["26A124","26A308","26A305","26A304","26A326","26A388","26A512","26A624","25-1017"],"new_entries":0,"blocked":[]},
+  "blocked_sites":[],
+  "notes":"11/12·11/13 Miscellaneous Order 원문 PDF를 직접 열어 확인했고 선거 관련 사건은 없었다(11/13: 증권법·이민 사건, 11/12: 사형집행 정지). 의견 목록 최신 10/22, 판결 목록 최신 11/9(선거 무관). 검색은 대부분 선거 전 기사였고 선거 이후 새 판결은 플로리다 CD-27 건 외에 찾지 못했다. 새 분쟁이 없다는 뜻이 아니라 확인하지 못했다는 뜻이다. Florida 사건은 Democracy Docket 보도에만 근거하며(WLRN·NBC Miami 검색 결과가 같은 소송을 보도) 명령 원문은 열지 못했다. 이전 실행(11/13)에서 열지 못했던 11/12 명령은 이번에 확인했다."}
+}
