@@ -1,0 +1,28 @@
+{
+ "run_date":"2026-11-16",
+ "window":{"news_from":"2026-11-15","news_to":"2026-11-16"},
+ "updates":[
+  {"case_id":"usps-rule","date":"2026-11-13",
+   "text":"일부 공화당 소속 주 공직자들이 우체국 투표우편 규칙을 막은 법원 명령에 항소해, 2028년 선거에 이 규칙을 되살리려 한다고 보도됐습니다. 항소 법원·접수일·세부 내용은 확인하지 못했습니다. (검색 요약 기준)",
+   "url":"https://www.whqr.org/2026-11-13/gop-state-officials-push-to-revive-trumps-mail-voting-restrictions-for-2028-election","outlet":"WHQR(NPR 제휴)","tier":"news"},
+  {"case_id":"doj-rolls","date":"2026-11-12",
+   "text":"Washington Times는 법무부가 유권자 명부를 요구한 주별 소송에서 28건 연속으로 졌다고 보도했습니다. 델라웨어 사건도 기각됐고, 판사는 주 유권자 등록 명부가 민권법(1960)에서 법무부가 요구할 수 있는 기록이 아니라고 봤다고 합니다. 기사 원문은 열지 못했습니다. (검색 요약 기준)",
+   "url":"https://www.washingtontimes.com/news/2026/nov/12/shutout-justice-department-goes-0-28-noncitizen-voter-list-lawsuits/","outlet":"Washington Times","tier":"news"}
+ ],
+ "checks":[
+  {"case_id":"eo14399","note":"11/16 docket 26A124 마지막 항목 8/24 기준 새 항목 없음. CourtListener는 열지 못함. 검색에서도 11월 제1순회 서면 접수 보도를 찾지 못함. 11/20 서면 기일 그대로"},
+  {"case_id":"fl-cd27-recount","note":"11/16 검색 기준 재검표 진행 보도까지만 확인, 주 인증 결과·새 명령을 찾지 못함. 11/17 인증 예정 그대로"},
+  {"case_id":"save-db","note":"11/16 docket 26A308 마지막 항목 9/25 기준 새 항목 없음"},
+  {"case_id":"usps-rule","note":"11/16 docket 26A305 마지막 항목 9/14 기준 새 항목 없음"},
+  {"case_id":"missouri-map","note":"11/16 docket 26A304(9/8)·26A326(9/10)·26A388(9/25) 마지막 항목 기준 새 항목 없음"},
+  {"case_id":"nh-student-id","note":"11/16 docket 26A512 마지막 항목 10/22 기준 새 항목 없음"},
+  {"case_id":"ca-doj-ballots","note":"11/16 docket 26A624 마지막 항목 11/2 기준 새 항목 없음"},
+  {"case_id":"az-mfv","note":"11/16 docket 25-1017 마지막 항목 11/12 기준 새 항목 없음"}
+ ],
+ "new_cases":[],
+ "glossary":[],
+ "audit":{"searches_R_side":3,"searches_D_side":3,"searches_topic":5,"followups_due":2,"followups_checked":2,
+  "scotus":{"term":"26","pages_opened":["ordersofthecourt/26","relatingtoorders/26","slipopinion/26"],"dockets_checked":["26A124","26A308","26A305","26A304","26A326","26A388","26A512","26A624","25-1017"],"new_entries":0,"blocked":[]},
+  "blocked_sites":["www.courtlistener.com","www.whqr.org","www.washingtontimes.com","sltrib.com"],
+  "notes":"명령 목록 최신은 11/13 Miscellaneous Order로, 직전 실행 때와 같고 이번에도 원문(Order List 성격, 선거 관련 항목 없음)을 확인했음. 의견 목록 최신 10/22, 판결 목록 최신 11/9(선거 무관). usps-rule·doj-rolls 갱신은 기사 원문을 열지 못한 검색 요약 기준. 유타 Voter Reference Foundation의 명부 소송(11/10 보도)은 선거 후 명부 열람 분쟁이라 새 사건으로 넣지 않고 원문도 열지 못했음."}
+}
