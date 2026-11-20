@@ -1,0 +1,83 @@
+{
+ "run_date": "2026-11-21",
+ "window": {
+  "news_from": "2026-11-20",
+  "news_to": "2026-11-21"
+ },
+ "updates": [
+  {
+   "case_id": "fl-cd27-recount",
+   "date": "2026-11-16",
+   "text": "Rodriguez 측과 피고들이 소송을 끝내는 공동 취하 합의서(joint stipulation of dismissal)를 법원에 제출했다. 법원이 이를 받아들여 사건을 종결했는지는 확인하지 못했다(검색 요약 기준, Democracy Docket 사건 페이지).",
+   "url": "https://www.democracydocket.com/cases/florida-u-s-house-seat-recount-challenge-cd-27/",
+   "outlet": "Democracy Docket",
+   "tier": "advocacy"
+  }
+ ],
+ "checks": [
+  {
+   "case_id": "usps-rule",
+   "note": "11/21 대법원 docket 26A305 기준 마지막 항목 9/14, 새 항목 없음"
+  },
+  {
+   "case_id": "save-db",
+   "note": "11/21 대법원 docket 26A308 기준 마지막 항목 9/25, 새 항목 없음"
+  },
+  {
+   "case_id": "missouri-map",
+   "note": "11/21 대법원 docket 26A304·26A326·26A388 기준 마지막 항목 9/25, 새 항목 없음"
+  },
+  {
+   "case_id": "nh-student-id",
+   "note": "11/21 대법원 docket 26A512 기준 마지막 항목 10/22, 새 항목 없음"
+  },
+  {
+   "case_id": "ca-doj-ballots",
+   "note": "11/21 대법원 docket 26A624 기준 마지막 항목 11/2, 새 항목 없음"
+  },
+  {
+   "case_id": "az-mfv",
+   "note": "11/21 대법원 docket 25-1017 기준 마지막 항목 11/12, 새 항목 없음"
+  },
+  {
+   "case_id": "eo14399",
+   "note": "11/21 대법원 docket 26A124 기준 마지막 항목 8/24, 새 항목 없음"
+  },
+  {
+   "case_id": "doj-rolls",
+   "note": "11/21 검색(Democracy Docket 11/11 기사) 기준 DOJ가 주 명부 소송 지방법원에서 28전 전패, 하와이·아이다호는 9순회 판단 대기로 중단. 새 명령은 확인하지 못함"
+  }
+ ],
+ "new_cases": [],
+ "glossary": [],
+ "audit": {
+  "searches_R_side": 3,
+  "searches_D_side": 3,
+  "searches_topic": 5,
+  "followups_due": 2,
+  "followups_checked": 2,
+  "scotus": {
+   "term": "26",
+   "pages_opened": [
+    "ordersofthecourt/26",
+    "relatingtoorders/26",
+    "slipopinion/26"
+   ],
+   "dockets_checked": [
+    "26A124",
+    "26A308",
+    "26A305",
+    "26A304",
+    "26A326",
+    "26A388",
+    "26A512",
+    "26A624",
+    "25-1017"
+   ],
+   "new_entries": 0,
+   "blocked": []
+  },
+  "blocked_sites": [],
+  "notes": "명령 목록 최신은 11/19 Miscellaneous Order 2건(날짜·형식만 확인, 내용은 열지 못함). 의견 최신 11/16, 판결 최신 11/9. 검색 결과 대부분이 오래된 기사. fl-cd27 취하 합의서는 Democracy Docket 사건 페이지 한 곳 기준이며 법원 기록은 직접 열지 못했음. eo14399 항소(1순회)는 검색에서 확인되지 않음. CourtListener는 시도하지 않음."
+ }
+}
