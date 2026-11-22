@@ -1,0 +1,33 @@
+{
+ "run_date": "2026-11-23",
+ "window": {"news_from": "2026-11-22", "news_to": "2026-11-23"},
+ "updates": [],
+ "checks": [
+  {"case_id": "usps-rule", "note": "11/23 대법원 docket 26A305 기준 마지막 항목 9/14, 새 항목 없음"},
+  {"case_id": "save-db", "note": "11/23 대법원 docket 26A308 기준 마지막 항목 9/25, 새 항목 없음"},
+  {"case_id": "missouri-map", "note": "11/23 대법원 docket 26A304·26A326·26A388 기준 마지막 항목 9/25, 새 항목 없음"},
+  {"case_id": "nh-student-id", "note": "11/23 대법원 docket 26A512 기준 마지막 항목 10/22, 새 항목 없음"},
+  {"case_id": "ca-doj-ballots", "note": "11/23 대법원 docket 26A624 기준 마지막 항목 11/2, 새 항목 없음"},
+  {"case_id": "az-mfv", "note": "11/23 대법원 docket 25-1017 기준 마지막 항목 11/12, 새 항목 없음. 변론 12/8"},
+  {"case_id": "eo14399", "note": "11/23 대법원 docket 26A124 기준 마지막 항목 8/24, 새 항목 없음. 제1순회 서면 마감(11/20) 관련 새 보도는 검색에서 확인하지 못함(검색 요약 기준)"},
+  {"case_id": "nj-rnc-rolls", "note": "11/23 검색 기준 9월 제기된 두 번째 소송 이후 새 판결·명령 확인하지 못함(검색 요약 기준)"}
+ ],
+ "new_cases": [],
+ "glossary": [],
+ "audit": {
+  "searches_R_side": 3,
+  "searches_D_side": 3,
+  "searches_topic": 5,
+  "followups_due": 2,
+  "followups_checked": 2,
+  "scotus": {
+   "term": "26",
+   "pages_opened": ["ordersofthecourt/26", "relatingtoorders/26", "slipopinion/26"],
+   "dockets_checked": ["26A305", "26A308", "26A304", "26A326", "26A388", "26A512", "26A624", "25-1017", "26A124"],
+   "new_entries": 0,
+   "blocked": []
+  },
+  "blocked_sites": [],
+  "notes": "명령 목록 최신 11/19, 명령 관련 의견 최신 11/17, 판결 목록 최신 11/9로 모두 전일과 같고 선거 관련 새 항목 없음. 검색 결과는 대부분 오래되었거나 날짜 불명이어서 수집 구간(11/22~23)의 새 선거 소송·명령은 확인하지 못함. CourtListener는 시도하지 않음."
+ }
+}
